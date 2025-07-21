@@ -1,0 +1,148 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+body {
+  font-family: 'Helvetica', sans-serif;
+}
+.start-section{
+  background-image: url(/jui\ jitsu.jpg);
+  background-size: cover;       /* make sure it covers entire header */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat;
+  min-height: 600px;            /* set height so image is visible */
+  padding: 2rem;
+  color: white;
+
+  position: relative;
+}
+/* Navbar container */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+ background-color: transparent;  
+ padding: 0rem;
+}
+
+/* Navbar sections */
+.nav-section {
+  display: flex;
+  justify-content: flex-end; /* ✅ Align all items to the right */
+  list-style: none;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Navbar links */
+.navbar a {
+  text-decoration: none;
+  color: #495057;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #495057;
+}
+
+/* Dropdown container */
+.dropdown-parent {
+  position: relative;
+}
+
+/* Dropdown menu */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #343a40;
+  display: none;
+  flex-direction: column;
+  list-style: none;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown li a {
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+
+/* Show dropdown on hover */
+.dropdown-parent:hover .dropdown {
+  display: flex;
+}
+
+/* Responsive stacking */
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* 👈 aligns navbar content left */
+  background-color: #343a40;
+  padding: 1rem;
+  }
+
+
+.nav-section {
+    flex-direction: column;
+    align-items: flex-end; /* 👈 aligns to the left */
+  }
+
+  .navbar a {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .dropdown {
+    position: static;
+    box-shadow: none;
+    background-color: transparent;
+    display: none;
+  }
+
+  .dropdown-parent:hover .dropdown {
+    display: flex;
+  }
+
+  .dropdown li a {
+    padding-left: 1.5rem;
+    background-color: #343a40;
+  }
+}
+.center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;        /* Full viewport height */
+  background: none;
+}
+.topchoice-section {
+  border: 2px solid rgba(0, 0, 0, 0.5); /* visible border with semi-transparency */
+  background-color: rgba(255, 255, 255, 0); /* fully transparent background */
+  padding: 5rem;
+  max-height: 1000px;
+  max-width: 600px;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 10px; /* optional: rounded corners */
+  text-align: center;
+}
+.topchoice-section body {
+  align-content: center;
+}
+.topchoice-section h2 {
+  color: white;
+}
+.topchoice-section p {
+  color: white;
+}
