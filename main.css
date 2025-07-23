@@ -8,24 +8,41 @@
 body {
   font-family: 'Helvetica', sans-serif;
 }
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: transparent;  
+  padding: 0rem;
+}
 .start-section{
   background-image: url(/jui\ jitsu.jpg);
   background-size: cover;       /* make sure it covers entire header */
   background-position: center;  /* center the image */
   background-repeat: no-repeat;
   min-height: 600px;            /* set height so image is visible */
-  padding: 2rem;
+  padding: 1rem;
   color: white;
 
   position: relative;
+}
+.headerlinks a {
+  color: #343a40;
+}
+.headerlinks a:visited {
+    color: lightgray;
+}
+.headerlinks a:hover, a:active{
+    color: #eee;
 }
 /* Navbar container */
 .navbar {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
- background-color: transparent;  
- padding: 0rem;
+  background-color: transparent;  
+  padding: 0rem;
 }
 
 /* Navbar sections */
@@ -36,6 +53,10 @@ body {
   gap: 1rem;
   flex-wrap: wrap;
   width: 100%;
+}
+
+.nav-image {
+  height: 10px;
 }
 
 /* Navbar links */
