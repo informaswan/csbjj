@@ -27,6 +27,17 @@ header {
 
   position: relative;
 }
+.start-sectionKickboxing{
+  background-image: url(/KickboxingFirst.jpeg);
+  background-size: cover;       /* make sure it covers entire header */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat;
+  min-height: 600px;            /* set height so image is visible */
+  padding: 2rem;
+  color: white;
+
+  position: relative;
+}
 .headerlinks a {
   color: #343a40;
 }
