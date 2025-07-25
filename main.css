@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Helvetica', sans-serif;
-  background-color: #495057;
+  background-color: #2a323a;
 }
 
 header {
@@ -29,17 +29,21 @@ header {
   position: relative;
 }
 .start-sectionKickboxing{
-  background-image: url(/KickboxingFirst.jpeg);
-  background-size: cover;       /* make sure it covers entire header */
-  background-position: center;  /* center the image */
-  background-repeat: no-repeat;
-  min-height: 600px;            /* set height so image is visible */
-  padding: 2rem;
-  color: white;
-
   position: relative;
+  background: url(KickboxingFirst.jpeg) no-repeat center center / cover;
+  color: white;
+  padding: 100px 20px;
 }
-
+.start-sectionKickboxing::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px; /* adjust as needed */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,  #2a323a);
+  pointer-events: none;
+}
 
 .headerlinks a {
   color: #343a40;
