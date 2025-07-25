@@ -38,29 +38,7 @@ header {
 
   position: relative;
 }
-.pic2-sectionKickboxing{
-  background-image: url(/KickBoxingStockImage.jpg);
-  background-size: cover;       /* make sure it covers entire header */
-  background-position: center;  /* center the image */
-  background-repeat: no-repeat;
-  min-height: 600px;            /* set height so image is visible */
-  padding: 2rem;
-  color: white;
-  position: relative;
-  
-}
 
-.pic3-sectionKickboxing{
-  background-image: url(/KickBoxingStock2Image.jpeg);
-  background-size: cover;       /* make sure it covers entire header */
-  background-position: center;  /* center the image */
-  background-repeat: no-repeat;
-  min-height: 600px;            /* set height so image is visible */
-  padding: 2rem;
-  color: white;
-  position: relative;
-  
-}
 
 .headerlinks a {
   color: #343a40;
