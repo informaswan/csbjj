@@ -5,48 +5,124 @@
   box-sizing: content-box;
 }
 
+/* Add padding to body to account for fixed navbar */
 body {
   font-family: 'Helvetica', sans-serif;
   background-color: #2a323a;
+  padding-top: 0; /* Let individual sections handle spacing */
 }
 
 header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  background-color: transparent;  
-  padding: 0rem;
+  align-items: center;
+  background-color: #2a323a;  /* Match body background */
+  padding: 0.5rem 1rem;
+  position: fixed;  /* Make header stick to top */
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1001; /* Higher than navbar to stay on top */
+  min-height: 50px; /* Set consistent height */
+  box-sizing: border-box;
 }
+
+/* Navbar container - positioned directly below fixed header */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #343a40;  /* Give it a solid background */
+  padding: 1rem;
+  position: fixed;  /* Makes navbar stick to top when scrolling */
+  top: 50px;  /* Position directly below the header with no gap */
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000; /* High z-index to stay above content but below header */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds subtle shadow */
+  box-sizing: border-box;
+}
+
+/* Logo positioning */
+.nav-image {
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+/* Logo link styling */
+.nav-image a {
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.nav-image a:hover {
+  opacity: 0.8;
+}
+
+.nav-image img {
+  display: block;
+}
+
+/* Navbar links section */
+.nav-section {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Start section with background - now separate from navbar */
 .start-section{
   background-image: url(/jui\ jitsu.jpg);
-  background-size: cover;       /* make sure it covers entire header */
-  background-position: center;  /* center the image */
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  min-height: 600px;            /* set height so image is visible */
+  min-height: 600px;
   padding: 1rem;
   color: white;
-
   position: relative;
+  margin-top: 140px; /* Adjusted for header (50px) + navbar (~90px) */
+  /* Remove the navbar from affecting this section */
 }
+
 .start-sectionKickboxing{
   position: relative;
   background: url(KickboxingFirst.jpeg) no-repeat center center / cover;
   color: white;
   padding: 100px 20px;
 }
+
 .start-sectionKickboxing::after{
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 150px; /* adjust as needed */
+  height: 150px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,  #2a323a);
   pointer-events: none;
 }
 
+header address {
+  color: #fff;
+  font-style: normal; /* Remove italic styling from address */
+}
+
+.headerlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .headerlinks a {
-  color: #343a40;
+  color: #fff; /* White text for better visibility */
+  text-decoration: none;
+  white-space: nowrap; /* Prevent text wrapping */
+  font-size: 0.9rem; /* Slightly smaller text if needed */
 }
 .headerlinks a:visited {
     color: lightgray;
@@ -54,33 +130,11 @@ header {
 .headerlinks a:hover, a:active{
     color: #eee;
 }
-/* Navbar container */
-.navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: transparent;  
-  padding: 0rem;
-}
-
-/* Navbar sections */
-.nav-section {
-  display: flex;
-  justify-content: flex-end; /* ✅ Align all items to the right */
-  list-style: none;
-  gap: 1rem;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.nav-image {
-  height: 10px;
-}
 
 /* Navbar links */
 .navbar a {
   text-decoration: none;
-  color: #495057;
+  color: #fff; /* White text for visibility on dark background */
   padding: 0.5rem 1rem;
   border-radius: 4px;
   display: block;
@@ -123,18 +177,33 @@ header {
 
 /* Responsive stacking */
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    padding: 0.5rem;
+    min-height: 70px; /* Taller on mobile to accommodate wrapped content */
+  }
+  
+  .headerlinks {
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+  
   .navbar {
-    display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* 👈 aligns navbar content left */
-  background-color: #343a40;
-  padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    top: 70px; /* Adjust for mobile header height */
   }
 
+  .nav-image {
+    margin-bottom: 1rem;
+  }
 
-.nav-section {
+  .nav-section {
     flex-direction: column;
-    align-items: flex-end; /* 👈 aligns to the left */
+    align-items: flex-start;
+    width: 100%;
   }
 
   .navbar a {
@@ -157,31 +226,336 @@ header {
     padding-left: 1.5rem;
     background-color: #343a40;
   }
+  
+  .start-section {
+    margin-top: 220px; /* Adjust for mobile header + navbar height */
+  }
 }
+
 .center-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;        /* Full viewport height */
+  min-height: 100vh;
   background: none;
 }
+
 .topchoice-section {
-  border: 2px solid rgba(0, 0, 0, 0.5); /* visible border with semi-transparency */
-  background-color: rgba(255, 255, 255, 0); /* fully transparent background */
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0);
   padding: 5rem;
   max-height: 1000px;
   max-width: 600px;
   text-align: center;
   box-sizing: border-box;
-  border-radius: 10px; /* optional: rounded corners */
-  text-align: center;
+  border-radius: 10px;
 }
+
 .topchoice-section body {
   align-content: center;
 }
+
 .topchoice-section h2 {
   color: white;
 }
+
 .topchoice-section p {
   color: whitesmoke;
+}
+
+/* Container for consistent width and centering */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* About section styling */
+.about-section {
+  background-color:#343a40 ;
+  padding: 4rem 0;
+  color: #f8f9fa;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #f8f9fa;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+/* Call-to-action section */
+.cta-section {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.cta-button {
+  background-color: #343a40;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.cta-button:hover {
+  background-color: #495057;
+  transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: #343a40;
+  border: 2px solid #343a40;
+}
+
+.cta-button.secondary:hover {
+  background-color: #343a40;
+  color: white;
+}
+
+/* Location section */
+.location-section {
+  background-color: #2a323a;
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.location-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.location-section p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+/* Footer styling */
+.main-footer {
+  background-color: #1a1f24;
+  color: #fff;
+  padding: 3rem 0 1rem 0;
+  margin-top: 0;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-logo img {
+  border-radius: 10px;
+}
+
+.footer-info {
+  flex: 1;
+  text-align: right;
+}
+
+.footer-info address {
+  font-style: normal;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #007bff;
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid #343a40;
+  margin: 2rem 0 1rem 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-bottom p {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.footer-bottom a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-info {
+    text-align: center;
+  }
+  
+  .footer-links {
+    justify-content: center;
+  }
+}
+
+/* Kickboxing Page Specific Styles */
+.kickboxing-intro {
+  background-color: #2a323a;
+  padding: 3rem 0;
+}
+
+.intro-text {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  text-align: center;
+  color: #fff;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.classes-overview {
+  background-color: #343a40;
+  padding: 4rem 0;
+}
+
+.benefits-section {
+  background-color: #2a323a;
+  padding: 4rem 0;
+}
+
+.kickboxing-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.kickboxing-container.reverse {
+  flex-direction: row-reverse;
+}
+
+.content-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.content-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.content-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.content-text h2 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.content-text h2:first-child {
+  margin-top: 0;
+}
+
+.content-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #e9ecef;
+  margin-bottom: 1.5rem;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.benefits-list li {
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  color: #e9ecef;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.benefits-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Responsive design for kickboxing page */
+@media (max-width: 768px) {
+  .kickboxing-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .kickboxing-container.reverse {
+    flex-direction: column;
+  }
+  
+  .content-text h2 {
+    font-size: 1.5rem;
+  }
+  
+  .intro-text {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
 }
