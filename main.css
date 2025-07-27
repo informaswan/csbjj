@@ -1,4 +1,7 @@
 /* Base Reset */
+@import url(footer.css);
+@import url(header-navbar.css);
+@import url(kickboxing.css);
 * {
   margin: 0;
   padding: 0;
@@ -10,70 +13,6 @@ body {
   font-family: 'Helvetica', sans-serif;
   background-color: #2a323a;
   padding-top: 0; /* Let individual sections handle spacing */
-}
-
-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2a323a;  /* Match body background */
-  padding: 0.5rem 1rem;
-  position: fixed;  /* Make header stick to top */
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 1001; /* Higher than navbar to stay on top */
-  min-height: 50px; /* Set consistent height */
-  box-sizing: border-box;
-  font-size: 13px;
-}
-header a {
-  padding: 6px;
-}
-/* Navbar container - positioned directly below fixed header */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #343a40;  /* Give it a solid background */
-  position: fixed;  /* Makes navbar stick to top when scrolling */
-  top: 50px;  /* Position directly below the header with no gap */
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 1000; /* High z-index to stay above content but below header */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds subtle shadow */
-  box-sizing: border-box;
-}
-
-/* Logo positioning */
-.nav-image {
-  flex-shrink: 0; /* Prevent logo from shrinking */
-}
-
-/* Logo link styling */
-.nav-image a {
-  display: block;
-  transition: opacity 0.3s ease;
-}
-
-.nav-image a:hover {
-  opacity: 0.8;
-}
-
-.nav-image img {
-  display: block;
-}
-
-/* Navbar links section */
-.nav-section {
-  display: flex;
-  justify-content: flex-end;
-  list-style: none;
-  gap: 1rem;
-  flex-wrap: wrap;
 }
 
 /* Start section with background - now separate from navbar */
@@ -89,6 +28,7 @@ header a {
   margin-top: 140px; /* Adjusted for header (50px) + navbar (~90px) */
   /* Remove the navbar from affecting this section */
 }
+
 .start-section::after{
   content: '';
   position: absolute;
@@ -99,149 +39,6 @@ header a {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,  #2a323a);
   pointer-events: none;
 }
-.start-sectionKickboxing{
-  position: relative;
-  background: url(KickboxingFirst.jpeg) no-repeat center center / cover;
-  color: white;
-  padding: 100px 20px;
-}
-
-.start-sectionKickboxing::after{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 150px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,  #2a323a);
-  pointer-events: none;
-}
-
-header address {
-  color: #fff;
-  font-style: normal; /* Remove italic styling from address */
-}
-
-.headerlinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.headerlinks a {
-  color: #fff; /* White text for better visibility */
-  text-decoration: none;
-  white-space: nowrap; /* Prevent text wrapping */
-  font-size: 0.9rem; /* Slightly smaller text if needed */
-}
-.headerlinks a:visited {
-    color: lightgray;
-}
-.headerlinks a:hover, a:active{
-    color: #eee;
-}
-
-/* Navbar links */
-.navbar a {
-  text-decoration: none;
-  color: #fff; /* White text for visibility on dark background */
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  display: block;
-  transition: background-color 0.3s ease;
-}
-
-.navbar a:hover {
-  background-color: #495057;
-}
-
-/* Dropdown container */
-.dropdown-parent {
-  position: relative;
-}
-
-/* Dropdown menu */
-.dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #343a40;
-  display: none;
-  flex-direction: column;
-  list-style: none;
-  padding: 0.5rem 0;
-  min-width: 200px;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.dropdown li a {
-  padding: 0.5rem 1rem;
-  white-space: nowrap;
-}
-
-/* Show dropdown on hover */
-.dropdown-parent:hover .dropdown {
-  display: flex;
-}
-
-/* Responsive stacking */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-    padding: 0.5rem;
-    min-height: 70px; /* Taller on mobile to accommodate wrapped content */
-  }
-  
-  .headerlinks {
-    justify-content: center;
-    margin-top: 0.5rem;
-  }
-  
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem;
-    top: 70px; /* Adjust for mobile header height */
-  }
-
-  .nav-image {
-    margin-bottom: 1rem;
-  }
-
-  .nav-section {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  }
-
-  .navbar a {
-    width: 100%;
-    padding-left: 0;
-  }
-
-  .dropdown {
-    position: static;
-    box-shadow: none;
-    background-color: transparent;
-    display: none;
-  }
-
-  .dropdown-parent:hover .dropdown {
-    display: flex;
-  }
-
-  .dropdown li a {
-    padding-left: 1.5rem;
-    background-color: #343a40;
-  }
-  
-  .start-section {
-    margin-top: 220px; /* Adjust for mobile header + navbar height */
-  }
-}
 
 .center-box {
   display: flex;
@@ -251,7 +48,7 @@ header address {
   background: none;
 }
 
-.topchoice-section {
+.request-section {
   border: 2px solid rgba(0, 0, 0, 0.5);
   background-color: rgba(255, 255, 255, 0);
   padding: 5rem;
@@ -262,15 +59,15 @@ header address {
   border-radius: 10px;
 }
 
-.topchoice-section body {
+.request-section body {
   align-content: center;
 }
 
-.topchoice-section h2 {
+.request-section h2 {
   color: white;
 }
 
-.topchoice-section p {
+.request-section p {
   color: whitesmoke;
 }
 
@@ -357,228 +154,4 @@ header address {
   opacity: 0.9;
 }
 
-/* Footer styling */
-.main-footer {
-  background-color: #1a1f24;
-  color: #fff;
-  padding: 3rem 0 1rem 0;
-  margin-top: 0;
-}
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  text-align: center;
-}
-
-.footer-logo {
-  flex: 1;
-  text-align: left;
-}
-
-.footer-center {
-  flex: 1;
-  text-align: center;
-}
-
-.footer-center address {
-  font-style: normal;
-  font-size: 1rem;
-  color: #ccc;
-  margin: 0;
-}
-
-.footer-right {
-  flex: 1;
-  text-align: center;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.footer-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.footer-contact a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.footer-contact a:hover {
-  color: yellow;
-}
-
-.footer-divider {
-  border: none;
-  border-top: 1px solid #343a40;
-  margin: 2rem 0 1rem 0;
-}
-
-.footer-bottom {
-  text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.footer-bottom p {
-  color: #888;
-  font-size: 0.9rem;
-}
-
-.footer-bottom a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-.footer-bottom a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive footer */
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .footer-info {
-    text-align: center;
-  }
-  
-  .footer-links {
-    justify-content: center;
-  }
-}
-
-/* Kickboxing Page Specific Styles */
-.kickboxing-intro {
-  background-color: #2a323a;
-  padding: 3rem 0;
-}
-
-.intro-text {
-  font-size: 1.3rem;
-  line-height: 1.8;
-  text-align: center;
-  color: #fff;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.classes-overview {
-  background-color: #343a40;
-  padding: 4rem 0;
-}
-
-.benefits-section {
-  background-color: #2a323a;
-  padding: 4rem 0;
-}
-
-.kickboxing-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-.kickboxing-container.reverse {
-  flex-direction: row-reverse;
-}
-
-.content-image {
-  flex: 1;
-  min-width: 300px;
-}
-
-.content-image img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.content-text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.content-text h2 {
-  color: #fff;
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  margin-top: 2rem;
-}
-
-.content-text h2:first-child {
-  margin-top: 0;
-}
-
-.content-text p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #e9ecef;
-  margin-bottom: 1.5rem;
-}
-
-.benefits-list {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0;
-}
-
-.benefits-list li {
-  padding: 0.8rem 0;
-  font-size: 1.1rem;
-  color: #e9ecef;
-  position: relative;
-  padding-left: 2rem;
-}
-
-.benefits-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #28a745;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-/* Responsive design for kickboxing page */
-@media (max-width: 768px) {
-  .kickboxing-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .kickboxing-container.reverse {
-    flex-direction: column;
-  }
-  
-  .content-text h2 {
-    font-size: 1.5rem;
-  }
-  
-  .intro-text {
-    font-size: 1.1rem;
-    padding: 0 1rem;
-  }
-}
