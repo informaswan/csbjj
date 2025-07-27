@@ -27,15 +27,17 @@ header {
   z-index: 1001; /* Higher than navbar to stay on top */
   min-height: 50px; /* Set consistent height */
   box-sizing: border-box;
+  font-size: 13px;
 }
-
+header a {
+  padding: 6px;
+}
 /* Navbar container - positioned directly below fixed header */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #343a40;  /* Give it a solid background */
-  padding: 1rem;
   position: fixed;  /* Makes navbar stick to top when scrolling */
   top: 50px;  /* Position directly below the header with no gap */
   left: 0;
