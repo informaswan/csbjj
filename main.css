@@ -89,7 +89,16 @@ header a {
   margin-top: 140px; /* Adjusted for header (50px) + navbar (~90px) */
   /* Remove the navbar from affecting this section */
 }
-
+.start-section::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,  #2a323a);
+  pointer-events: none;
+}
 .start-sectionKickboxing{
   position: relative;
   background: url(KickboxingFirst.jpeg) no-repeat center center / cover;
@@ -365,40 +374,52 @@ header address {
   align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
+  text-align: center;
 }
 
-.footer-logo img {
-  border-radius: 10px;
-}
-
-.footer-info {
+.footer-logo {
   flex: 1;
-  text-align: right;
+  text-align: left;
 }
 
-.footer-info address {
+.footer-center {
+  flex: 1;
+  text-align: center;
+}
+
+.footer-center address {
   font-style: normal;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #ccc;
+  margin: 0;
+}
+
+.footer-right {
+  flex: 1;
+  text-align: center;
 }
 
 .footer-links {
   display: flex;
-  gap: 1.5rem;
-  justify-content: flex-end;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-.footer-links a {
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.footer-contact a {
   color: #fff;
   text-decoration: none;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
-  color: #007bff;
+.footer-contact a:hover {
+  color: yellow;
 }
 
 .footer-divider {
