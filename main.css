@@ -17,7 +17,7 @@ body {
 
 /* Start section with background - now separate from navbar */
 .start-section{
-  background-image: url(/jui\ jitsu.jpg);
+  background-image: url(img//jui\ jitsu.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
