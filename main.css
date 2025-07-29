@@ -21,11 +21,10 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 600px;
+  min-height: 1000px;
   padding: 1rem;
   color: white;
   position: relative;
-  margin-top: 140px; /* Adjusted for header (50px) + navbar (~90px) */
   /* Remove the navbar from affecting this section */
 }
 
@@ -40,13 +39,6 @@ body {
   pointer-events: none;
 }
 
-.center-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: none;
-}
 
 .request-section {
   border: 1px solid rgba(0, 0, 0, 0.5);
