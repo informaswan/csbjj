@@ -2,6 +2,7 @@
 @import url(footer.css);
 @import url(header-navbar.css);
 @import url(kickboxing.css);
+@import url(pricing.css);
 * {
   margin: 0;
   padding: 0;
