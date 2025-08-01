@@ -4,7 +4,7 @@
     
     .pricing-section {
       padding: 4rem 2rem;
-      padding-top: 8rem; /* Add space for navbar */
+      margin-top: 5rem; /* Add space for navbar */
       background-color: #2a323a;
       color: white;
       overflow: hidden;
@@ -180,26 +180,6 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-    }
-    
-    .cta-button {
-      background-color: yellow;
-      color: #2a2e35;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      font-weight: bold;
-      border: 2px solid transparent;
-      margin-top: auto;
-    }
-    
-    .cta-button:hover {
-      background-color: rgb(128, 255, 54);
-      transform: translateY(-2px);
     }
     
     /* Carousel Navigation */
