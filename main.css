@@ -104,12 +104,12 @@ body {
 }
 
 .cta-button {
-background-color: yellow;
+    background-color: yellow;
     color: #2a2e35;
     border: none;
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-transform: uppercase;

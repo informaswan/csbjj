@@ -10,7 +10,10 @@
       overflow: hidden;
       padding-bottom: 2rem;
     }
-    
+    .pricing-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
     .section-header {
       text-align: center;
       margin-bottom: 3rem;
@@ -36,7 +39,13 @@
       margin: 0 auto;
       padding: 0 80px; /* Add padding for arrow space */
     }
-    
+    /* Style the anchor tag wrapper in pricing cards */
+    .pricing-card a {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+      margin-top: auto; /* This pushes the button to the bottom of the card */
+    }
     .pricing-carousel {
       display: flex;
       gap: 1.5rem; /* Reduced gap to fit better */
@@ -83,7 +92,24 @@
     .pricing-card:hover::before {
       transform: scaleX(1);
     }
-    
+    .pricing-card a {
+      display: flex;
+      justify-content: center; /* Centers the button horizontally */
+      text-decoration: none;
+      margin-top: auto; /* This pushes the button to the bottom of the card */
+    }
+
+  /* Specific styling for CTA buttons in pricing cards - this will override main.css */
+    .pricing-card .cta-button {
+      border: none !important;
+      border-radius: 12px !important;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0.5rem 6rem;
+      display: block !important;
+      
+    }
+
     .card-header {
       text-align: center;
       margin-bottom: 2rem;
