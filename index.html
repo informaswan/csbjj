@@ -53,28 +53,32 @@
         </div>
       </div>
     </section>
-    
-    <section class="location-section">
-      <div class="container">
-        <h2>Visit Our Dojo</h2>
-        <p>Come train with us at our Colorado Springs location</p>
-        <button class="cta-button secondary">View Our Location</button>
-      </div>
-    </section>
+    <div id="pricing"></div>
     <div id="footer"></div>
+     <script src="pricing.js"></script>
     <script>
-     fetch("header-navbar.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-navbar").innerHTML = html;
-      })
-      .catch(err => console.error('Error loading header:', err));
-      fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      })
-      .catch(err => console.error('Error loading footer:', err));
+      // Load header and footer using the HTMLLoader utility
+      HTMLLoader.loadHead("head.html").catch(err => console.error('Error loading head:', err));
+    
+      HTMLLoader.loadComponent("header-navbar", "header-navbar.html").catch(err => console.error('Error loading header:', err));
+     
+      HTMLLoader.loadComponent("footer", "footer.html").catch(err => console.error('Error loading footer:', err));
+
+      // Initialize the carousel when DOM is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        // Create the pricing carousel with options
+        const pricingCarousel = new PricingCarousel('pricingCarousel', {
+          cardsPerView: 3,
+          enableTouch: true,
+          enableDots: true,
+          enableArrows: true,
+          autoSlide: false // Set to true if you want auto-sliding
+        });
+
+        // Optional: Store reference for later use
+        window.pricingCarousel = pricingCarousel;
+      });
+       HTMLLoader.loadComponent("pricing", "pricing.html").catch(err => console.error('Error loading header:', err));
     </script>
   </body>
 </html>

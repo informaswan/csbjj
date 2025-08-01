@@ -9,7 +9,7 @@
   </script>
   <body>
     <div id="header-navbar"></div>
-<section class="pricing-section">
+  <section class="pricing-section">
       <div class="section-header">
         <h2 class="section-title">Choose Your Path</h2>
         <p class="section-subtitle">
@@ -157,110 +157,27 @@
 
     <div id="footer"></div>
 
+    <script src="pricing.js"></script>
     <script>
-      // Load header and footer
-      fetch("header-navbar.html")
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById("header-navbar").innerHTML = html;
-        })
-        .catch(err => console.error('Error loading header:', err));
-        
-      fetch("footer.html")
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById("footer").innerHTML = html;
-        })
-        .catch(err => console.error('Error loading footer:', err));
+      // Load header and footer using the HTMLLoader utility
+      HTMLLoader.loadHead("head.html").catch(err => console.error('Error loading head:', err));
+      HTMLLoader.loadComponent("header-navbar", "header-navbar.html").catch(err => console.error('Error loading header:', err));
+      HTMLLoader.loadComponent("footer", "footer.html").catch(err => console.error('Error loading footer:', err));
 
-      // Carousel functionality
-      const carousel = document.getElementById('pricingCarousel');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      const dotsContainer = document.getElementById('carouselDots');
-      
-      const cards = Array.from(carousel.children);
-      const totalCards = cards.length;
-      const cardsPerView = 3;
-      const maxSlide = totalCards - cardsPerView; // Maximum starting position
-      let currentSlide = 0;
-
-      // Create dots for each possible position
-      for (let i = 0; i <= maxSlide; i++) {
-        const dot = document.createElement('div');
-        dot.className = `dot ${i === 0 ? 'active' : ''}`;
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-      }
-
-      function updateCarousel() {
-        // Hide all cards first
-        cards.forEach((card, index) => {
-          if (index >= currentSlide && index < currentSlide + cardsPerView) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
+      // Initialize the carousel when DOM is ready
+      document.addEventListener('DOMContentLoaded', function() {
+        // Create the pricing carousel with options
+        const pricingCarousel = new PricingCarousel('pricingCarousel', {
+          cardsPerView: 3,
+          enableTouch: true,
+          enableDots: true,
+          enableArrows: true,
+          autoSlide: false // Set to true if you want auto-sliding
         });
-        
-        // Update dots
-        document.querySelectorAll('.dot').forEach((dot, index) => {
-          dot.classList.toggle('active', index === currentSlide);
-        });
-      }
 
-      function goToSlide(slideIndex) {
-        currentSlide = Math.max(0, Math.min(slideIndex, maxSlide));
-        updateCarousel();
-      }
-
-      function nextSlide() {
-        goToSlide(currentSlide + 1);
-      }
-
-      function prevSlide() {
-        goToSlide(currentSlide - 1);
-      }
-
-      // Event listeners
-      nextBtn.addEventListener('click', nextSlide);
-      prevBtn.addEventListener('click', prevSlide);
-
-      // Auto-resize handling
-      window.addEventListener('resize', updateCarousel);
-
-      // Touch/swipe support for mobile
-      let startX = 0;
-      let isDragging = false;
-
-      carousel.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
+        // Optional: Store reference for later use
+        window.pricingCarousel = pricingCarousel;
       });
-
-      carousel.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-      });
-
-      carousel.addEventListener('touchend', (e) => {
-        if (!isDragging) return;
-        isDragging = false;
-        
-        const endX = e.changedTouches[0].clientX;
-        const diffX = startX - endX;
-        
-        if (Math.abs(diffX) > 50) {
-          if (diffX > 0) {
-            nextSlide();
-          } else {
-            prevSlide();
-          }
-        }
-      });
-
-      // Initialize
-      updateCarousel();
     </script>
   </body>
 </html>
