@@ -9,108 +9,258 @@
   </script>
   <body>
     <div id="header-navbar"></div>
-    <section class="pricing-section">
-        <section class="pricing-section">
- <section class="pricing-section">
-        <div class="section-header">
-            <h2 class="section-title">Choose Your Path</h2>
-            <p class="section-subtitle">
-                Start your martial arts journey with unlimited training. No contracts, no hidden fees.
-            </p>
+<section class="pricing-section">
+      <div class="section-header">
+        <h2 class="section-title">Choose Your Path</h2>
+        <p class="section-subtitle">
+          Start your martial arts journey with unlimited training. No contracts, no hidden fees.
+        </p>
+      </div>
+
+      <div class="carousel-container">
+        <div class="pricing-carousel" id="pricingCarousel">
+          <!-- Kids BJJ Card -->
+          <div class="pricing-card">
+            <div class="card-header">
+              <div class="card-icon">🥋</div>
+              <h3 class="card-title">Kids BJJ</h3>
+              <p class="card-description">Perfect for young warriors ages 4-12</p>
+            </div>
+            
+            <div class="price-display">
+              <div class="price-amount">$80</div>
+              <div class="price-period">Unlimited Monthly</div>
+            </div>
+
+            <ul class="features-list">
+              <li>Unlimited classes per month</li>
+              <li>Age-appropriate curriculum</li>
+              <li>Character development focus</li>
+              <li>Belt ranking system</li>
+              <li>Safe learning environment</li>
+              <li>Experienced instructors</li>
+            </ul>
+
+            <button class="cta-button">Start Training</button>
+          </div>
+
+          <!-- Adult BJJ Card -->
+          <div class="pricing-card">
+            <div class="popular-badge">Most Popular</div>
+            <div class="card-header">
+              <div class="card-icon">🥊</div>
+              <h3 class="card-title">Adult BJJ</h3>
+              <p class="card-description">Complete Brazilian Jiu-Jitsu training</p>
+            </div>
+            
+            <div class="price-display">
+              <div class="price-amount">$140</div>
+              <div class="price-period">Unlimited Monthly</div>
+            </div>
+
+            <ul class="features-list">
+              <li>Unlimited classes per month</li>
+              <li>All skill levels welcome</li>
+              <li>Competition preparation</li>
+              <li>Open mat sessions</li>
+              <li>World-class instruction</li>
+              <li>Strength & conditioning</li>
+            </ul>
+
+            <button class="cta-button">Start Training</button>
+          </div>
+
+          <!-- Kickboxing Card -->
+          <div class="pricing-card">
+            <div class="card-header">
+              <div class="card-icon">👊</div>
+              <h3 class="card-title">Kickboxing</h3>
+              <p class="card-description">High-energy striking and fitness</p>
+            </div>
+            
+            <div class="price-display">
+              <div class="price-amount">$80</div>
+              <div class="price-period">Unlimited Monthly</div>
+            </div>
+
+            <ul class="features-list">
+              <li>Unlimited classes per month</li>
+              <li>Cardio & strength training</li>
+              <li>Stress relief & fitness</li>
+              <li>Technique development</li>
+              <li>Beginner friendly</li>
+              <li>High-energy workouts</li>
+            </ul>
+
+            <button class="cta-button">Start Training</button>
+          </div>
+
+          <!-- Women's BJJ Card -->
+          <div class="pricing-card">
+            <div class="card-header">
+              <div class="card-icon">💪</div>
+              <h3 class="card-title">Women's BJJ</h3>
+              <p class="card-description">Empowering women through martial arts</p>
+            </div>
+            
+            <div class="price-display">
+              <div class="price-amount">$100</div>
+              <div class="price-period">Unlimited Monthly</div>
+            </div>
+
+            <ul class="features-list">
+              <li>Women-only classes available</li>
+              <li>Supportive community</li>
+              <li>Self-defense focused</li>
+              <li>Confidence building</li>
+              <li>All fitness levels welcome</li>
+              <li>Female instructors</li>
+            </ul>
+
+            <button class="cta-button">Start Training</button>
+          </div>
+
+          <!-- Military/First Responders Card -->
+          <div class="pricing-card">
+            <div class="card-header">
+              <div class="card-icon">🎖️</div>
+              <h3 class="card-title">Military & First Responders</h3>
+              <p class="card-description">Special pricing for those who serve</p>
+            </div>
+            
+            <div class="price-display">
+              <div class="price-amount">$100</div>
+              <div class="price-period">Unlimited Monthly</div>
+            </div>
+
+            <ul class="features-list">
+              <li>Discounted rate for service</li>
+              <li>Tactical application focus</li>
+              <li>Stress management training</li>
+              <li>Flexible scheduling</li>
+              <li>Brotherhood/sisterhood</li>
+              <li>Honor-based community</li>
+            </ul>
+
+            <button class="cta-button">Start Training</button>
+          </div>
         </div>
 
-        <div class="pricing-grid">
-            <!-- Kids BJJ Card -->
-            <div class="pricing-card">
-                <div class="card-header">
-                    <div class="card-icon">🥋</div>
-                    <h3 class="card-title">Kids BJJ</h3>
-                    <p class="card-description">Perfect for young warriors ages 4-12</p>
-                </div>
-                
-                <div class="price-display">
-                    <div class="price-amount">$80</div>
-                    <div class="price-period">Unlimited Monthly</div>
-                </div>
+        <!-- Navigation arrows -->
+        <button class="carousel-nav prev" id="prevBtn"></button>
+        <button class="carousel-nav next" id="nextBtn"></button>
+      </div>
 
-                <ul class="features-list">
-                    <li>Unlimited classes per month</li>
-                    <li>Age-appropriate curriculum</li>
-                    <li>Character development focus</li>
-                    <li>Belt ranking system</li>
-                    <li>Safe learning environment</li>
-                    <li>Experienced instructors</li>
-                </ul>
-
-                <button class="cta-button">Start Training</button>
-            </div>
-
-            <!-- Adult BJJ Card -->
-            <div class="pricing-card adult-card">
-                <div class="popular-badge">Most Popular</div>
-                <div class="card-header">
-                    <div class="card-icon">🥊</div>
-                    <h3 class="card-title">Adult BJJ</h3>
-                    <p class="card-description">Complete Brazilian Jiu-Jitsu training</p>
-                </div>
-                
-                <div class="price-display">
-                    <div class="price-amount">$140</div>
-                    <div class="price-period">Unlimited Monthly</div>
-                </div>
-
-                <ul class="features-list">
-                    <li>Unlimited classes per month</li>
-                    <li>All skill levels welcome</li>
-                    <li>Competition preparation</li>
-                    <li>Open mat sessions</li>
-                    <li>World-class instruction</li>
-                    <li>Strength & conditioning</li>
-                </ul>
-
-                <button class="cta-button">Start Training</button>
-            </div>
-
-            <!-- Kickboxing Card -->
-            <div class="pricing-card">
-                <div class="card-header">
-                    <div class="card-icon">👊</div>
-                    <h3 class="card-title">Kickboxing</h3>
-                    <p class="card-description">High-energy striking and fitness</p>
-                </div>
-                
-                <div class="price-display">
-                    <div class="price-amount">$80</div>
-                    <div class="price-period">Unlimited Monthly</div>
-                </div>
-
-                <ul class="features-list">
-                    <li>Unlimited classes per month</li>
-                    <li>Cardio & strength training</li>
-                    <li>Stress relief & fitness</li>
-                    <li>Technique development</li>
-                    <li>Beginner friendly</li>
-                    <li>High-energy workouts</li>
-                </ul>
-
-                <button class="cta-button">Start Training</button>
-            </div>
-        </div>
+      <!-- Dots indicator -->
+      <div class="carousel-dots" id="carouselDots"></div>
     </section>
+
     <div id="footer"></div>
+
     <script>
-     fetch("header-navbar.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-navbar").innerHTML = html;
-      })
-      .catch(err => console.error('Error loading header:', err));
+      // Load header and footer
+      fetch("header-navbar.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("header-navbar").innerHTML = html;
+        })
+        .catch(err => console.error('Error loading header:', err));
+        
       fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      })
-      .catch(err => console.error('Error loading footer:', err));
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("footer").innerHTML = html;
+        })
+        .catch(err => console.error('Error loading footer:', err));
+
+      // Carousel functionality
+      const carousel = document.getElementById('pricingCarousel');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const dotsContainer = document.getElementById('carouselDots');
+      
+      const cards = Array.from(carousel.children);
+      const totalCards = cards.length;
+      const cardsPerView = 3;
+      const maxSlide = totalCards - cardsPerView; // Maximum starting position
+      let currentSlide = 0;
+
+      // Create dots for each possible position
+      for (let i = 0; i <= maxSlide; i++) {
+        const dot = document.createElement('div');
+        dot.className = `dot ${i === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+
+      function updateCarousel() {
+        // Hide all cards first
+        cards.forEach((card, index) => {
+          if (index >= currentSlide && index < currentSlide + cardsPerView) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+        
+        // Update dots
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentSlide);
+        });
+      }
+
+      function goToSlide(slideIndex) {
+        currentSlide = Math.max(0, Math.min(slideIndex, maxSlide));
+        updateCarousel();
+      }
+
+      function nextSlide() {
+        goToSlide(currentSlide + 1);
+      }
+
+      function prevSlide() {
+        goToSlide(currentSlide - 1);
+      }
+
+      // Event listeners
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+
+      // Auto-resize handling
+      window.addEventListener('resize', updateCarousel);
+
+      // Touch/swipe support for mobile
+      let startX = 0;
+      let isDragging = false;
+
+      carousel.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+      });
+
+      carousel.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+      });
+
+      carousel.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const endX = e.changedTouches[0].clientX;
+        const diffX = startX - endX;
+        
+        if (Math.abs(diffX) > 50) {
+          if (diffX > 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+      });
+
+      // Initialize
+      updateCarousel();
     </script>
   </body>
 </html>
