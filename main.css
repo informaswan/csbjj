@@ -4,6 +4,7 @@
 @import url(kickboxing.css);
 @import url(pricing.css);
 @import url(instructors.css);
+@import url(schedule.css);
 
 * {
   margin: 0;
