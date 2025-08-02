@@ -13,6 +13,8 @@
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds subtle shadow */
   box-sizing: border-box;
   padding: 0.5rem 1rem; /* Add some padding */
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 /* Logo and title container */
