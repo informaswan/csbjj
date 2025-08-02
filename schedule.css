@@ -1,0 +1,315 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica', sans-serif;
+      background-color: #2a323a;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .schedule-section {
+      padding: 6rem 1rem;
+      margin-top: 2rem;
+      background-color: #2a323a;
+      color: white;
+    }
+
+    .schedule-section h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      color: #ffffff;
+    }
+
+    .calendar-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .calendar-header {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px 15px 0 0;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calendar-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: yellow;
+    }
+
+    .calendar-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .calendar-subtitle {
+      color: #b0b0b0;
+      font-size: 1rem;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: none;
+      border-radius: 0 0 15px 15px;
+      overflow: hidden;
+    }
+
+    .calendar-day-header {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+      color: rgb(128, 255, 54);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .calendar-day-header:last-child {
+      border-right: none;
+    }
+
+    .calendar-day {
+      min-height: 200px;
+      padding: 1rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      transition: background-color 0.3s ease;
+    }
+
+    .calendar-day:last-child {
+      border-right: none;
+    }
+
+    .calendar-day:hover {
+      background: rgba(128, 255, 54, 0.05);
+    }
+
+    .day-number {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .rest-day .day-number {
+      color: #6c757d;
+    }
+
+    .class-schedule {
+      list-style: none;
+    }
+
+    .class-item {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      border-left: 3px solid transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .class-item:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateX(3px);
+    }
+
+    .class-time {
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+      color: rgb(128, 255, 54);
+    }
+
+    .class-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .class-type {
+      font-size: 0.7rem;
+      color: #b0b0b0;
+      margin-top: 0.1rem;
+    }
+
+    /* Class type styling */
+    .bjj-adult {
+      border-left-color: yellow;
+    }
+
+    .bjj-kids {
+      border-left-color: #007bff;
+    }
+
+    .kickboxing {
+      border-left-color: #af5002;
+    }
+
+    .open-mat {
+      border-left-color: #6f42c1;
+    }
+
+    .rest-day {
+      background: rgba(108, 117, 125, 0.1);
+      opacity: 0.6;
+    }
+
+    .rest-message {
+      text-align: center;
+      color: #6c757d;
+      font-style: italic;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .class-icons {
+      font-size: 0.9rem;
+    }
+
+    /* Legend */
+    .schedule-legend {
+      margin-top: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 1.5rem;
+    }
+
+    .legend-title {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    .legend-items {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+    }
+
+    .legend-bjj-adult { background-color: yellow; }
+    .legend-bjj-kids { background-color: #007bff; }
+    .legend-kickboxing { background-color: #af5002; }
+    .legend-open-mat { background-color: #6f42c1; }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .schedule-section {
+        padding: 2rem 1rem;
+      }
+
+      .calendar-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .calendar-day-header {
+        display: none;
+      }
+
+      .calendar-day {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        min-height: auto;
+        padding: 1.5rem;
+      }
+
+      .day-number {
+        text-align: left;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .day-number::after {
+        content: attr(data-day);
+        display: block;
+        font-size: 0.8rem;
+        color: #b0b0b0;
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 0.2rem;
+      }
+
+      .class-item {
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+      }
+
+      .class-time {
+        font-size: 0.9rem;
+      }
+
+      .class-name {
+        font-size: 1rem;
+      }
+
+      .class-type {
+        font-size: 0.8rem;
+      }
+
+      .legend-items {
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .legend-items {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* Current day highlighting */
+    .current-day {
+      background: rgba(196, 147, 0, 0.1);
+      border: 1px  yellow;
+    }
+
+    .current-day .day-number {
+      color: yellow;
+    }

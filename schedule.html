@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    fetch("head.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.head.insertAdjacentHTML("beforeend", html);
+      });
+  </script>
+  <body>
+    <div id="header-navbar"></div>
+    <section class="schedule-section">
+      <h2>Weekly Class Schedule</h2>
+
+      <div class="calendar-container">
+        <div class="calendar-header">
+          <div class="calendar-title">Training Calendar</div>
+          <div class="calendar-subtitle">Your weekly martial arts schedule</div>
+        </div>
+
+        <div class="calendar-grid">
+          <!-- Day Headers -->
+          <div class="calendar-day-header">Monday</div>
+          <div class="calendar-day-header">Tuesday</div>
+          <div class="calendar-day-header">Wednesday</div>
+          <div class="calendar-day-header">Thursday</div>
+          <div class="calendar-day-header">Friday</div>
+          <div class="calendar-day-header">Saturday</div>
+          <div class="calendar-day-header">Sunday</div>
+
+          <!-- Monday -->
+          <div class="calendar-day">
+            <ul class="class-schedule">
+              <li class="class-item bjj-adult">
+                <div class="class-time">6:30 AM</div>
+                <div class="class-name">
+                  <span class="class-icons">🥋</span>Adult BJJ
+                </div>
+                <div class="class-type">Brazilian Jiu-Jitsu</div>
+              </li>
+              <li class="class-item bjj-adult">
+                <div class="class-time">7:30 PM</div>
+                <div class="class-name">
+                  <span class="class-icons">🥋</span>Adult BJJ
+                </div>
+                <div class="class-type">Brazilian Jiu-Jitsu</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tuesday -->
+          <div class="calendar-day">
+            <ul class="class-schedule">
+              <li class="class-item bjj-adult">
+                <div class="class-time">6:30 AM</div>
+                <div class="class-name">
+                  <span class="class-icons">🥋</span>Adult BJJ
+                </div>
+                <div class="class-type">Brazilian Jiu-Jitsu</div>
+              </li>
+              <li class="class-item bjj-kids">
+                <div class="class-time">4:30 PM</div>
+                <div class="class-name">
+                  <span class="class-icons">🥋</span>Kids BJJ
+                </div>
+                <div class="class-type">Ages 4-12</div>
+              </li>
+              <li class="class-item bjj-adult">
+                <div class="class-time">6:30 PM</div>
+                <div class="class-name">
+                  <span class="class-icons">🥋</span>Adult BJJ
+                </div>
+                <div class="class-type">Brazilian Jiu-Jitsu</div>
+              </li>
+              <li class="class-item kickboxing">
+                <div class="class-time">7:45 PM</div>
+                <div class="class-name">
+                  <span class="class-icons">👊</span>Kickboxing
+                </div>
+                <div class="class-type">Muay Thai</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Wednesday -->
+          <div class="calendar-day">
+            <ul class="class-schedule">
+              <li class="class-item bjj-adult">
+                <div class="class-time">6:30 AM</div>
+                <div class="class-name">
+                  <span class="class-icons">🥋</span>Adult BJJ
+                </div>
+                <div class="class-type">Brazilian Jiu-Jitsu</div>
+              </li>
+              <li class="class-item bjj-adult">
+                <div class="class-time">7:30 PM</div>
+                <div class="class-name">
+                  <span class="class-icons">🥋</span>Adult BJJ
+                </div>
+                <div class="class-type">Brazilian Jiu-Jitsu</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Thursday -->
+          <div class="calendar-day">
+            <ul class="class-schedule">
+              <li class="class-item bjj-adult">
+                <div class="class-time">6:30 AM</div>
+                <div class="class-name">
+                  <span class="class-icons">🥋</span>Adult BJJ
+                </div>
+                <div class="class-type">Brazilian Jiu-Jitsu</div>
+              </li>
+              <li class="class-item bjj-kids">
+                <div class="class-time">4:30 PM</div>
+                <div class="class-name">
+                  <span class="class-icons">🥋</span>Kids BJJ
+                </div>
+                <div class="class-type">Ages 4-12</div>
+              </li>
+              <li class="class-item bjj-adult">
+                <div class="class-time">6:30 PM</div>
+                <div class="class-name">
+                  <span class="class-icons">🥋</span>Adult BJJ
+                </div>
+                <div class="class-type">Brazilian Jiu-Jitsu</div>
+              </li>
+              <li class="class-item kickboxing">
+                <div class="class-time">7:45 PM</div>
+                <div class="class-name">
+                  <span class="class-icons">👊</span>Kickboxing
+                </div>
+                <div class="class-type">Muay Thai</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Friday -->
+          <div class="calendar-day rest-day">
+            <div class="rest-message">
+              <p>🛌 Rest Day</p>
+              <p style="margin-top: 0.5rem; font-size: 0.8rem">
+                Recovery & Preparation
+              </p>
+            </div>
+          </div>
+
+          <!-- Saturday -->
+          <div class="calendar-day">
+            <ul class="class-schedule">
+              <li class="class-item bjj-adult">
+                <div class="class-time">9:30 AM</div>
+                <div class="class-name">
+                  <span class="class-icons">🥋</span>Adult BJJ
+                </div>
+                <div class="class-type">Brazilian Jiu-Jitsu</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Sunday -->
+          <div class="calendar-day">
+            <ul class="class-schedule">
+              <li class="class-item open-mat">
+                <div class="class-time">10:00 AM</div>
+                <div class="class-name">
+                  <span class="class-icons">🤸</span>Open Mat
+                </div>
+                <div class="class-type">Self-directed training</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="schedule-legend">
+          <div class="legend-title">Class Types</div>
+          <div class="legend-items">
+            <div class="legend-item">
+              <div class="legend-color legend-bjj-adult"></div>
+              <span>Adult BJJ</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color legend-bjj-kids"></div>
+              <span>Kids BJJ</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color legend-kickboxing"></div>
+              <span>Kickboxing</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color legend-open-mat"></div>
+              <span>Open Mat</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div id="footer"></div>
+    <script>
+      // Load header and navbar
+      fetch("header-navbar.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header-navbar").innerHTML = html;
+        })
+        .catch((err) => console.error("Error loading header:", err));
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        })
+        .catch((err) => console.error("Error loading footer:", err));
+    </script>
+    <script>
+      // Optional: Highlight current day
+      function highlightCurrentDay() {
+        const today = new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
+        const dayMapping = [6, 0, 1, 2, 3, 4, 5]; // Map Sunday=0 to index 6, Monday=1 to index 0, etc.
+        const calendarDays = document.querySelectorAll(".calendar-day");
+
+        if (calendarDays[dayMapping[today]]) {
+          calendarDays[dayMapping[today]].classList.add("current-day");
+        }
+      }
+
+      // Run when page loads
+      document.addEventListener("DOMContentLoaded", highlightCurrentDay);
+    </script>
+  </body>
+</html>
