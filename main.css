@@ -106,34 +106,24 @@ body {
 }
 
 .cta-button {
-  background-color: #343a40;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 0.9rem;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  text-transform: uppercase;
-  font-weight: bold;
-  border: 2px solid #2a323a;
+    background-color: yellow;
+    color: #2a2e35;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .cta-button:hover {
-  background-color: #495057;
+  background-color: rgb(128, 255, 54);
   transform: translateY(-2px);
 }
 
-.cta-button.secondary {
-  background-color: transparent;
-  color: white;
-  border: 2px solid #343a40;
-}
 
-.cta-button.secondary:hover {
-  background-color: #343a40;
-  color: white;
-}
 /* Location section */
 .location-section {
   background-color: #2a323a;

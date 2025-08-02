@@ -13,13 +13,6 @@
      
     <!-- Background image section - now separate -->
     <section class="start-section">
-      <div class="center-box">
-        <section class="request-section">
-          <h2>
-            
-          </h2>
-        </section>
-      </div>
     </section>
     
     <section class="about-section">
@@ -52,29 +45,59 @@
           <button class="cta-button">Request More Info</button>
         </div>
       </div>
-    </section>
-    
-    <section class="location-section">
-      <div class="container">
-        <h2>Visit Our Dojo</h2>
-        <p>Come train with us at our Colorado Springs location</p>
-        <button class="cta-button secondary">View Our Location</button>
-      </div>
-    </section>
+      </section>
+      <section class="pricing-section" style="margin: 0rem;">
+        <h2>What We Offer!</h2>
+        <div id="pricing-section"></div>   
+      </section>
     <div id="footer"></div>
+    
+    <!-- Include the carousel JavaScript class -->
+    <script src="pricing.js"></script>
     <script>
-     fetch("header-navbar.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-navbar").innerHTML = html;
-      })
-      .catch(err => console.error('Error loading header:', err));
-      fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      })
-      .catch(err => console.error('Error loading footer:', err));
+          async function initializePage() {
+        try {
+          // Load header and footer (these can load in parallel)
+          const headerPromise = HTMLLoader.loadComponent(
+            "header-navbar",
+            "header-navbar.html"
+          );
+          const footerPromise = HTMLLoader.loadComponent(
+            "footer",
+            "footer.html"
+          );
+
+          // Load pricing HTML first and wait for it to complete
+          await HTMLLoader.loadComponent(
+            "pricing-section",
+            "pricing-section.html"
+          );
+
+          // Now that pricing HTML is loaded, initialize the carousel
+          // Add a small delay to ensure DOM is fully updated
+          setTimeout(() => {
+            const pricingCarousel = new PricingCarousel("pricingCarousel", {
+              cardsPerView: 3,
+              enableTouch: true,
+              enableDots: true,
+              enableArrows: true,
+              autoSlide: false,
+            });
+
+            // Store reference for later use
+            window.pricingCarousel = pricingCarousel;
+            console.log("Pricing carousel initialized successfully");
+          }, 100);
+
+          // Wait for header and footer to finish loading
+          await Promise.all([headerPromise, footerPromise]);
+        } catch (error) {
+          console.error("Error initializing page:", error);
+        }
+      }
+
+      // Initialize everything when DOM is ready
+      document.addEventListener("DOMContentLoaded", initializePage);
     </script>
   </body>
 </html>

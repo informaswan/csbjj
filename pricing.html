@@ -10,106 +10,57 @@
   <body>
     <div id="header-navbar"></div>
     <section class="pricing-section">
-        <section class="pricing-section">
-        <div class="section-header">
-            <h2 class="section-title">Choose Your Path</h2>
-            <p class="section-subtitle">
-                Start your martial arts journey with unlimited training. No contracts, no hidden fees.
-            </p>
-        </div>
-
-        <div class="pricing-grid">
-            <!-- Kids BJJ Card -->
-            <div class="pricing-card">
-                <div class="card-header">
-                    <div class="card-icon">🥋</div>
-                    <h3 class="card-title">Kids BJJ</h3>
-                    <p class="card-description">Perfect for young warriors ages 4-12</p>
-                </div>
-                
-                <div class="price-display">
-                    <div class="price-amount">$80</div>
-                    <div class="price-period">Unlimited Monthly</div>
-                </div>
-
-                <ul class="features-list">
-                    <li>Unlimited classes per month</li>
-                    <li>Age-appropriate curriculum</li>
-                    <li>Character development focus</li>
-                    <li>Belt ranking system</li>
-                    <li>Safe learning environment</li>
-                    <li>Experienced instructors</li>
-                </ul>
-
-                <button class="cta-button">Start Training</button>
-            </div>
-
-            <!-- Adult BJJ Card -->
-            <div class="pricing-card adult-card">
-                <div class="popular-badge">Most Popular</div>
-                <div class="card-header">
-                    <div class="card-icon">🥊</div>
-                    <h3 class="card-title">Adult BJJ</h3>
-                    <p class="card-description">Complete Brazilian Jiu-Jitsu training</p>
-                </div>
-                
-                <div class="price-display">
-                    <div class="price-amount">$140</div>
-                    <div class="price-period">Unlimited Monthly</div>
-                </div>
-
-                <ul class="features-list">
-                    <li>Unlimited classes per month</li>
-                    <li>All skill levels welcome</li>
-                    <li>Competition preparation</li>
-                    <li>Open mat sessions</li>
-                    <li>World-class instruction</li>
-                    <li>Strength & conditioning</li>
-                </ul>
-
-                <button class="cta-button">Start Training</button>
-            </div>
-
-            <!-- Kickboxing Card -->
-            <div class="pricing-card">
-                <div class="card-header">
-                    <div class="card-icon">👊</div>
-                    <h3 class="card-title">Kickboxing</h3>
-                    <p class="card-description">High-energy striking and fitness</p>
-                </div>
-                
-                <div class="price-display">
-                    <div class="price-amount">$80</div>
-                    <div class="price-period">Unlimited Monthly</div>
-                </div>
-
-                <ul class="features-list">
-                    <li>Unlimited classes per month</li>
-                    <li>Cardio & strength training</li>
-                    <li>Stress relief & fitness</li>
-                    <li>Technique development</li>
-                    <li>Beginner friendly</li>
-                    <li>High-energy workouts</li>
-                </ul>
-
-                <button class="cta-button">Start Training</button>
-            </div>
-        </div>
+      <h2>Most Affordable Prices in Town!</h2>
+      <div id="pricing-section"></div>
     </section>
     <div id="footer"></div>
+
+    <script src="pricing.js"></script>
     <script>
-     fetch("header-navbar.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-navbar").innerHTML = html;
-      })
-      .catch(err => console.error('Error loading header:', err));
-      fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      })
-      .catch(err => console.error('Error loading footer:', err));
+      // Load components and initialize carousel after content is loaded
+      async function initializePage() {
+        try {
+          // Load header and footer (these can load in parallel)
+          const headerPromise = HTMLLoader.loadComponent(
+            "header-navbar",
+            "header-navbar.html"
+          );
+          const footerPromise = HTMLLoader.loadComponent(
+            "footer",
+            "footer.html"
+          );
+
+          // Load pricing HTML first and wait for it to complete
+          await HTMLLoader.loadComponent(
+            "pricing-section",
+            "pricing-section.html"
+          );
+
+          // Now that pricing HTML is loaded, initialize the carousel
+          // Add a small delay to ensure DOM is fully updated
+          setTimeout(() => {
+            const pricingCarousel = new PricingCarousel("pricingCarousel", {
+              cardsPerView: 3,
+              enableTouch: true,
+              enableDots: true,
+              enableArrows: true,
+              autoSlide: false,
+            });
+
+            // Store reference for later use
+            window.pricingCarousel = pricingCarousel;
+            console.log("Pricing carousel initialized successfully");
+          }, 100);
+
+          // Wait for header and footer to finish loading
+          await Promise.all([headerPromise, footerPromise]);
+        } catch (error) {
+          console.error("Error initializing page:", error);
+        }
+      }
+
+      // Initialize everything when DOM is ready
+      document.addEventListener("DOMContentLoaded", initializePage);
     </script>
   </body>
 </html>
