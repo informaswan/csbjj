@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    fetch("head.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.head.insertAdjacentHTML("beforeend", html);
+      });
+  </script>
+<body>
+    <div id="header-navbar"></div>
+ <div class="contact-section">
+        <div class="section-header">
+            <h1 class="section-title">Contact Us</h1>
+            <p class="section-subtitle">Ready to start your martial arts journey? Get in touch with us and let's discuss how we can help you achieve your goals.</p>
+        </div>
+
+        <div class="form-container">
+            <div class="contact-card">
+                <div class="form-header">
+                    <div class="form-icon">📧</div>
+                    <h2 class="form-title">Get Started Today</h2>
+                    <p class="form-description">Fill out the form below and we'll get back to you within 24 hours</p>
+                </div>
+
+                <div id="successMessage" class="success-message">
+                    Thank you! Your message has been sent successfully. We'll get back to you soon.
+                </div>
+                
+                <div id="errorMessage" class="error-message">
+                    Please fill in all required fields correctly.
+                </div>
+
+                <form id="contactForm" action="mailto:your-email@example.com" method="post" enctype="text/plain">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Let us know what questions you have..." rows="4"></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </section>
+    <div id="footer"></div>
+    <script>
+      // Load header and navbar
+      fetch("header-navbar.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header-navbar").innerHTML = html;
+        })
+        .catch((err) => console.error("Error loading header:", err));
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        })
+        .catch((err) => console.error("Error loading footer:", err));
+    </script>
+</body>
+</html>
