@@ -147,32 +147,6 @@ input:valid {
   border-color: rgba(128, 255, 54, 0.5);
 }
 
-.cta-button {
-  width: 100%;
-  padding: 1rem 2rem;
-  background: rgb(128, 255, 54);
-  color: #000;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-}
-
-.cta-button:hover {
-  background: rgb(148, 255, 74);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(128, 255, 54, 0.3);
-}
-
-.cta-button:active {
-  transform: translateY(0);
-}
-
 .success-message {
   display: none;
   background: rgba(128, 255, 54, 0.1);
@@ -225,11 +199,9 @@ input[type="tel"] {
   transition: all 0.3s ease;
 }
 
-.cta-button {
+.contact-card .cta-button {
   width: 100%;
-  padding: 1rem 2rem;
-  background: rgb(128, 255, 54);
-  color: #000;
+  background: yellow;
   border: none;
   border-radius: 12px;
   font-size: 1rem;
