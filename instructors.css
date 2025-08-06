@@ -1,162 +1,161 @@
-  <style>
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-20px) rotate(360deg);
+  }
+}
 
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            100% { transform: translateY(-20px) rotate(360deg); }
-        }
+.team-photo {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(139, 0, 0, 0.1);
+  margin: 0 20px;
+  border-radius: 15px;
+  margin-bottom: 60px;
+  margin-top: 5rem;
+}
 
+.team-photo img {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
 
-        .team-photo {
-            text-align: center;
-            padding: 40px 20px;
-            background: rgba(139, 0, 0, 0.1);
-            margin: 0 20px;
-            border-radius: 15px;
-            margin-bottom: 60px;
-            margin-top: 5rem;
-        }
+.team-photo img:hover {
+  transform: scale(1.05);
+}
 
-        .team-photo img {
-            width: 100%;
-            max-width: 800px;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
+.team-photo h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1bdc14;
+}
 
-        .team-photo img:hover {
-            transform: scale(1.05);
-        }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
-        .team-photo h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #1bdc14;
-        }
+.instructor {
+  display: flex;
+  align-items: center;
+  margin-bottom: 80px;
+  background: rgba(45, 45, 45, 0.8);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+.instructor:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(139, 0, 0, 0.2);
+}
 
-        .instructor {
-            display: flex;
-            align-items: center;
-            margin-bottom: 80px;
-            background: rgba(45, 45, 45, 0.8);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
+.instructor-photo {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border: 5px solid rgb(128, 255, 54);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
 
-        .instructor:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(139, 0, 0, 0.2);
-        }
+.instructor-info {
+  flex: 1;
+  padding: 0 40px;
+}
 
-        .instructor-photo {
-            width: 300px;
-            height: 400px;
-            object-fit: cover;
-            border: 5px solid rgb(128, 255, 54);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
+.instructor-name {
+  font-size: 2.5rem;
+  color: rgb(128, 255, 54);
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
 
+.instructor-title {
+  font-size: 1.3rem;
+  color: #cccccc;
+  margin-bottom: 20px;
+  font-style: italic;
+}
 
-        .instructor-info {
-            flex: 1;
-            padding: 0 40px;
-        }
+.experience {
+  background: linear-gradient(45deg, #07a404, #e7f705);
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
 
-        .instructor-name {
-            font-size: 2.5rem;
-            color: rgb(128, 255, 54);
-            margin-bottom: 15px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
+.specialty {
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
 
-        .instructor-title {
-            font-size: 1.3rem;
-            color: #cccccc;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
+.story {
+  background: rgba(139, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid rgb(128, 255, 54);
+  font-style: italic;
+  line-height: 1.8;
+}
 
-        .experience {
-            background: linear-gradient(45deg, #07a404, #e7f705);
-            padding: 15px 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
+.story-title {
+  font-weight: bold;
+  color: rgb(128, 255, 54);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
 
-        .specialty {
-            color: #ffffff;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
+.reverse {
+  flex-direction: row-reverse;
+}
 
-        .story {
-            background: rgba(139, 0, 0, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid rgb(128, 255, 54);
-            font-style: italic;
-            line-height: 1.8;
-        }
+@media (max-width: 768px) {
+  .instructor {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
 
-        .story-title {
-            font-weight: bold;
-            color: rgb(128, 255, 54);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
+  .reverse {
+    flex-direction: column;
+  }
 
-        .reverse {
-            flex-direction: row-reverse;
-        }
+  .instructor-info {
+    padding: 30px 0 0 0;
+  }
 
-        @media (max-width: 768px) {
-            .instructor {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px 20px;
-            }
+  .instructor-photo {
+    width: 250px;
+    height: 250px;
+  }
 
-            .reverse {
-                flex-direction: column;
-            }
+  .header h1 {
+    font-size: 2.5rem;
+  }
 
-            .instructor-info {
-                padding: 30px 0 0 0;
-            }
+  .instructor-name {
+    font-size: 2rem;
+  }
+}
 
-            .instructor-photo {
-                width: 250px;
-                height: 250px;
-            }
-
-            .header h1 {
-                font-size: 2.5rem;
-            }
-
-            .instructor-name {
-                font-size: 2rem;
-            }
-        }
-
-        .belt-decoration {
-            display: inline-block;
-            width: 20px;
-            height: 3px;
-            background: rgb(128, 255, 54);
-            margin: 0 5px;
-            border-radius: 2px;
-        }
-    </style>
+.belt-decoration {
+  display: inline-block;
+  width: 20px;
+  height: 3px;
+  background: rgb(128, 255, 54);
+  margin: 0 5px;
+  border-radius: 2px;
+}
