@@ -1,11 +1,13 @@
 /* Kids BJJ Hero Section with background */
 .kidsStart-section {
-  background-image: url(/img/kidsbjj.jpg);
+  background-image: url(/img/kidsbjjphotoedit.jpg);
   background-size: cover;
   background-position: center;
+
   min-height: 1500px;
   max-width: 2500px;
   max-height: 5500px;
+  margin-top: 5rem;
   color: white;
   position: relative;
 }
@@ -67,7 +69,8 @@
 
 .kids-overview .content-image img {
   width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
+  min-height: auto;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -117,8 +120,8 @@
 
 .kids-benefits .content-image img {
   width: 100%;
-  max-width: 500px;
-  height: auto;
+  max-width: auto;
+  max-height: auto;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
@@ -171,30 +174,6 @@
   font-weight: 700;
 }
 
-/* Kids CTA Section */
-.kids-cta-section {
-  margin-top: 40px;
-  text-align: center;
-}
-
-.kids-cta-button {
-  background-color: yellow;
-  color: #2a2e35;
-  border: none;
-  padding: 18px 40px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.kids-cta-button:hover {
-  background-color: rgb(128, 255, 54);
-  transform: translateY(-2px);
-}
 
 /* Responsive Design for Kids Page */
 @media (max-width: 768px) {
@@ -221,11 +200,6 @@
   .kids-overview p,
   .kids-benefits p,
   .kids-benefits-list li {
-    font-size: 1rem;
-  }
-  
-  .kids-cta-button {
-    padding: 15px 30px;
     font-size: 1rem;
   }
 }
