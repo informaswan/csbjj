@@ -1,4 +1,7 @@
 <!-- Your updated header-navbar.html -->
+ <!DOCTYPE html>
+<html lang="en">
+ <body>
 <nav class="navbar">
     <div class="nav-brand">
         <div class="nav-image">
@@ -22,7 +25,7 @@
     <ul class="nav-section">
         <li><a href="index.html">Home</a></li>
         <li class="dropdown-parent">
-            <a href="programs.html">Programs</a>
+            <a>Programs</a>
             <ul class="dropdown">
                 <li><a href="bjj.html">Brazilian Jiu Jitsu</a></li>
                 <li><a href="kickBoxing.html">Muay Thai KickBoxing</a></li>
@@ -31,7 +34,7 @@
             </ul>
         </li>
         <li class="dropdown-parent">
-            <a href="about.html">About Us</a>
+            <a>About Us</a>
             <ul class="dropdown">
                 <li><a href="history.html">History of BJJ</a></li>
                 <li><a href="instructors.html">Instructors</a></li>
@@ -44,3 +47,32 @@
         <li><a href="contactus.html">Contact Us!</a></li>
     </ul>
 </nav>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownParents = document.querySelectorAll(".dropdown-parent");
+
+    dropdownParents.forEach(parent => {
+      parent.addEventListener("click", function (e) {
+        // Only apply this on mobile view
+        if (window.innerWidth <= 768) {
+          e.stopPropagation();
+          // Close other dropdowns
+          dropdownParents.forEach(p => {
+            if (p !== parent) p.classList.remove("dropdown-open");
+          });
+          // Toggle current one
+          parent.classList.toggle("dropdown-open");
+        }
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener("click", function () {
+      if (window.innerWidth <= 768) {
+        dropdownParents.forEach(p => p.classList.remove("dropdown-open"));
+      }
+    });
+  });
+</script>
+</body>
+</html>
