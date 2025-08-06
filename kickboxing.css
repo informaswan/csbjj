@@ -1,24 +1,27 @@
-.start-sectionKickboxing{
-  position: relative;
-  background: url(img/KickboxingFirst.jpeg) no-repeat center center / cover;
-  color: white;
-  padding: 500px 20px;
-}
 
-.start-sectionKickboxing::after{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 150px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,  #2a323a);
-  pointer-events: none;
-}
 /* Kickboxing Page Specific Styles */
 .kickboxing-intro {
   background-color: #2a323a;
   padding: 3rem 0;
+  margin-top: 6rem;
+  text-align: center;
+}
+
+.kickboxing-intro img{
+  align-content: center;
+  width: 100%;
+  max-width: 1000px;
+  min-height: auto;
+  height: auto;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.kickboxing-intro h2 {
+  font-size: 2.5rem;
+  color: #f8f9fa;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 
 .intro-text {

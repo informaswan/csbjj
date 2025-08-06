@@ -1,22 +1,20 @@
-/* Kids BJJ Hero Section with background */
-.kidsStart-section {
-  background-image: url(/img/kidsbjjphotoedit.jpg);
-  background-size: cover;
-  background-position: center;
-
-  min-height: 1500px;
-  max-width: 2500px;
-  max-height: 5500px;
-  margin-top: 5rem;
-  color: white;
-  position: relative;
-}
-
 /* Kids Main Intro Section */
 .kids-intro {
+  margin-top: 3rem;
   padding: 80px 0;
-  background-color: #343a40;
+  background-color: #2a323a;
   text-align: center;
+}
+
+.kids-intro img {
+  align-content: center;
+  width: 100%;
+  max-width: 1000px;
+  min-height: auto;
+  height: auto;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .kids-intro .container {
@@ -25,7 +23,7 @@
   padding: 0 20px;
 }
 
-.kids-intro h1 {
+.kids-intro h2 {
   font-size: 2.5rem;
   color: #f8f9fa;
   margin-bottom: 30px;
@@ -50,7 +48,7 @@
 /* Kids Classes Overview Section */
 .kids-overview {
   padding: 100px 0;
-  background-color: #2a323a;
+  background-color: #343a40;
 }
 
 .kids-container {
@@ -102,7 +100,7 @@
 /* Kids Benefits Section */
 .kids-benefits {
   padding: 100px 0;
-  background-color: #343a40;
+  background-color: #2a323a;
 }
 
 .kids-benefits .kids-container {
