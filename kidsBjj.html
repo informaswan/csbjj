@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kids Martial Arts - Colorado Springs BJJ</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="kidsBjj.css" />
+  <script>
+    fetch("head.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.head.insertAdjacentHTML("beforeend", html);
+      });
+  </script>
+  <body>
+    <div id="header-navbar"></div>
+     <!-- Kids BJJ Hero Section with Background -->
+    <section class="kidsStart-section">
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="kids-intro">
+      <div class="container">
+        <h1>Get Started With Colorado Springs' Best Kids Martial Arts Classes!</h1>
+        <p class="intro-text">
+          <strong
+            >Here at Colorado Springs Brazilian Jiu-Jitsu, we're proud to offer kids ages 7 to 12 from Colorado Springs, Pleasant Valley and beyond the opportunity to get high-quality Martial Arts training from elite instructors!</strong
+          >
+        </p>
+        <p class="intro-text">
+          <strong
+            >Sometimes parents think that the martial arts are all about fighting, but that couldn't be further from the truth. Our Kids Jiu-Jitsu program is focused on helping cultivate strong values in our students, giving them the tools they need to enjoy lifelong success. From building confidence and learning focus to establishing lifelong habits of physical fitness, our Kids Jiu Jitsu program is all about helping kids become the best they can be!</strong
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Classes Overview Section - First image LEFT -->
+    <section class="kids-overview">
+      <div class="kids-container">
+        <div class="content-image">
+          <img
+            src="img/kidsbjj.jpg"
+            alt="Kids Brazilian Jiu-Jitsu training at Colorado Springs BJJ"
+          />
+        </div>
+        <div class="content-text">
+          <h2>What Do Kids Martial Arts Classes in Colorado Springs Offer?</h2>
+          <p>
+            <strong
+              >Our Kids Martial Arts classes offer your child the opportunity to meet new friends, connect with mentors who will guide them to excellence, and learn transferable skills that will help them in all aspects of life. What we teach at Colorado Springs Brazilian Jiu-Jitsu isn't all about self-defense -- it's about instilling strong values and promoting positive personal growth!</strong
+            >
+          </p>
+
+          <p>
+            <strong
+              >As your child makes the journey from white belt to black belt, they learn about goal-setting and discipline. As they practice new Jiu-Jitsu techniques with their friends, they gain teamwork and leadership skills. Each class helps them gain focus and listening skills. And as a bonus, they'll also learn anti-bullying strategies and the fundamentals of self-defense!</strong
+            >
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section - Second image RIGHT -->
+    <section class="kids-benefits">
+      <div class="kids-container">
+        <div class="content-text">
+          <h2>
+            Join us in Colorado Springs for Kids Martial Arts classes and see your child:
+          </h2>
+          <ul class="kids-benefits-list">
+            <li><strong>Gain unwavering self-confidence & improved self-esteem</strong></li>
+            <li><strong>Learn better focus, resulting in better performance at school</strong></li>
+            <li><strong>Practice important teamwork & leadership skills in a safe environment</strong></li>
+            <li><strong>Bond with positive mentors who will challenge & encourage them</strong></li>
+          </ul>
+
+          <p>
+            <strong
+              >From your child's very first Kids Martial Arts class, you'll see an improvement in their behavior patterns. They'll burn off some of that excess energy, be calmer and more courteous, and learn what it takes to become a champion -- both on and off the mats!</strong
+            >
+          </p>
+
+          <h2>Try Colorado Springs' Favorite Kids Martial Arts Classes Today!</h2>
+          <p>
+            <strong
+              >Kids Martial Arts classes have so much to offer children of all ages and backgrounds. Through Brazilian Jiu-Jitsu, we're offering children from around Colorado Springs, Pleasant Valley, and surrounding areas the opportunity to learn important life skills and cultivate strong values... all while building lifelong habits of physical fitness! Join us at Colorado Springs Brazilian Jiu-Jitsu and see the results for yourself.</strong
+            >
+          </p>
+
+          <p>
+            <strong>Just fill out the short form below to learn more about Kids Martial Arts!</strong>
+          </p>
+
+          <div class="kids-cta-section">
+            <button class="kids-cta-button">Start Your Child's Martial Arts Journey</button>
+          </div>
+        </div>
+        <div class="content-image">
+          <img
+            src="img/kidsbjj.jpg"
+            alt="Kids learning Brazilian Jiu-Jitsu techniques"
+          />
+        </div>
+      </div>
+    </section>
+    <div id="footer"></div>
+    <script>
+      // Load header and navbar
+      fetch("header-navbar.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header-navbar").innerHTML = html;
+        })
+        .catch((err) => console.error("Error loading header:", err));
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer").innerHTML = html;
+        })
+        .catch((err) => console.error("Error loading footer:", err));
+    </script>
+    <script>
+      // Optional: Highlight current day
+      function highlightCurrentDay() {
+        const today = new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
+        const dayMapping = [6, 0, 1, 2, 3, 4, 5]; // Map Sunday=0 to index 6, Monday=1 to index 0, etc.
+        const calendarDays = document.querySelectorAll(".calendar-day");
+
+        if (calendarDays[dayMapping[today]]) {
+          calendarDays[dayMapping[today]].classList.add("current-day");
+        }
+      }
+
+      // Run when page loads
+      document.addEventListener("DOMContentLoaded", highlightCurrentDay);
+    </script>
+  </body>
+</html>

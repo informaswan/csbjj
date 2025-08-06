@@ -1,0 +1,252 @@
+/* Kids BJJ Hero Section with background */
+.kidsStart-section {
+  background-image: url(/img/kidsbjj.jpg);
+  background-size: cover;
+  background-position: center;
+  min-height: 1500px;
+  max-width: 2500px;
+  max-height: 5500px;
+  color: white;
+  position: relative;
+}
+
+/* Kids Main Intro Section */
+.kids-intro {
+  padding: 80px 0;
+  background-color: #343a40;
+  text-align: center;
+}
+
+.kids-intro .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.kids-intro h1 {
+  font-size: 2.5rem;
+  color: #f8f9fa;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.kids-intro .intro-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #f8f9fa;
+  margin-bottom: 25px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kids-intro .intro-text strong {
+  color: #f8f9fa;
+  font-weight: 700;
+}
+
+/* Kids Classes Overview Section */
+.kids-overview {
+  padding: 100px 0;
+  background-color: #2a323a;
+}
+
+.kids-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.kids-overview .content-image {
+  flex: 1;
+  text-align: center;
+}
+
+.kids-overview .content-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.kids-overview .content-text {
+  flex: 1;
+}
+
+.kids-overview h2 {
+  font-size: 2.2rem;
+  color: #f8f9fa;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.kids-overview p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #f8f9fa;
+  margin-bottom: 20px;
+}
+
+.kids-overview p strong {
+  color: #f8f9fa;
+  font-weight: 700;
+}
+
+/* Kids Benefits Section */
+.kids-benefits {
+  padding: 100px 0;
+  background-color: #343a40;
+}
+
+.kids-benefits .kids-container {
+  flex-direction: row;
+}
+
+.kids-benefits .content-text {
+  flex: 1;
+}
+
+.kids-benefits .content-image {
+  flex: 1;
+  text-align: center;
+}
+
+.kids-benefits .content-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.kids-benefits h2 {
+  font-size: 2.2rem;
+  color: #f8f9fa;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.kids-benefits p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #f8f9fa;
+  margin-bottom: 20px;
+}
+
+.kids-benefits p strong {
+  color: #f8f9fa;
+  font-weight: 700;
+}
+
+/* Kids Benefits List */
+.kids-benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.kids-benefits-list li {
+  font-size: 1.1rem;
+  color: #f8f9fa;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.kids-benefits-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: yellow;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.kids-benefits-list li strong {
+  color: #f8f9fa;
+  font-weight: 700;
+}
+
+/* Kids CTA Section */
+.kids-cta-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.kids-cta-button {
+  background-color: yellow;
+  color: #2a2e35;
+  border: none;
+  padding: 18px 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.kids-cta-button:hover {
+  background-color: rgb(128, 255, 54);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design for Kids Page */
+@media (max-width: 768px) {
+  .kids-container {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .kids-benefits .kids-container {
+    flex-direction: column;
+  }
+  
+  .kids-intro h1 {
+    font-size: 2rem;
+  }
+  
+  .kids-overview h2,
+  .kids-benefits h2 {
+    font-size: 1.8rem;
+  }
+  
+  .kids-intro .intro-text,
+  .kids-overview p,
+  .kids-benefits p,
+  .kids-benefits-list li {
+    font-size: 1rem;
+  }
+  
+  .kids-cta-button {
+    padding: 15px 30px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .kids-intro h1 {
+    font-size: 1.7rem;
+  }
+  
+  .kids-overview h2,
+  .kids-benefits h2 {
+    font-size: 1.5rem;
+  }
+  
+  .kids-intro,
+  .kids-overview,
+  .kids-benefits {
+    padding: 60px 0;
+  }
+  
+  .kids-container {
+    padding: 0 15px;
+  }
+}
