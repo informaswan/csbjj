@@ -1,0 +1,244 @@
+/* Adult Main Intro Section */
+.adult-intro {
+  margin-top: 3rem;
+  padding: 80px 0;
+  background-color: #2a323a;
+  text-align: center;
+}
+
+.adult-intro img {
+  align-content: center;
+  width: 100%;
+  max-width: 1000px;
+  min-height: auto;
+  height: auto;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.adult-intro .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.adult-intro h2 {
+  font-size: 2.5rem;
+  color: #f8f9fa;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.adult-intro .intro-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #f8f9fa;
+  margin-bottom: 25px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.adult-intro .intro-text strong {
+  color: #f8f9fa;
+  font-weight: 700;
+}
+
+/* Adult Classes Overview Section */
+.adult-overview {
+  padding: 100px 0;
+  background-color: #343a40;
+}
+
+.adult-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.adult-overview .content-image {
+  flex: 1;
+  text-align: center;
+}
+
+.adult-overview .content-image img {
+  width: 100%;
+  max-width: 1000px;
+  min-height: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.adult-overview .content-text {
+  flex: 1;
+}
+
+.adult-overview h2 {
+  font-size: 2.2rem;
+  color: #f8f9fa;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.adult-overview p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #f8f9fa;
+  margin-bottom: 20px;
+}
+
+.adult-overview p strong {
+  color: #f8f9fa;
+  font-weight: 700;
+}
+
+/* Adult Benefits Section */
+.adult-benefits {
+  padding: 100px 0;
+  background-color: #2a323a;
+}
+
+.adult-benefits .adult-container {
+  flex-direction: row;
+}
+
+.adult-benefits .content-text {
+  flex: 1;
+}
+
+.adult-benefits .content-image {
+  flex: 1;
+  text-align: center;
+}
+
+.adult-benefits .content-image img {
+  width: 100%;
+  max-width: auto;
+  max-height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.adult-benefits h2 {
+  font-size: 2.2rem;
+  color: #f8f9fa;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.adult-benefits p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #f8f9fa;
+  margin-bottom: 20px;
+}
+
+.adult-benefits p strong {
+  color: #f8f9fa;
+  font-weight: 700;
+}
+
+/* Adult Benefits List */
+.adult-benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.adult-benefits-list li {
+  font-size: 1.1rem;
+  color: #f8f9fa;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.adult-benefits-list li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.adult-benefits-list li strong {
+  color: #f8f9fa;
+  font-weight: 700;
+}
+
+/* CTA Section */
+.cta-section {
+  margin: 30px 0;
+}
+
+.cta-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive Design for Adult Page */
+@media (max-width: 768px) {
+  .adult-container {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .adult-benefits .adult-container {
+    flex-direction: column;
+  }
+  
+  .adult-intro h2 {
+    font-size: 2rem;
+  }
+  
+  .adult-overview h2,
+  .adult-benefits h2 {
+    font-size: 1.8rem;
+  }
+  
+  .adult-intro .intro-text,
+  .adult-overview p,
+  .adult-benefits p,
+  .adult-benefits-list li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .adult-intro h2 {
+    font-size: 1.7rem;
+  }
+  
+  .adult-overview h2,
+  .adult-benefits h2 {
+    font-size: 1.5rem;
+  }
+  
+  .adult-intro,
+  .adult-overview,
+  .adult-benefits {
+    padding: 60px 0;
+  }
+  
+  .adult-container {
+    padding: 0 15px;
+  }
+}
