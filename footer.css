@@ -14,17 +14,21 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 10rem;
   text-align: center;
 }
-
-.footer-logo {
-  flex: 1;
+.banner-image {
+  flex: 2;
   text-align: left;
 }
 
+ .banner-image  img {
+  max-width: 300px;
+  min-height: auto;
+}
+
 .footer-center {
-  flex: 1;
+  flex: 2;
   text-align: center;
 }
 
@@ -36,7 +40,7 @@
 }
 
 .footer-right {
-  flex: 1;
+  flex: 2;
   text-align: center;
 }
 
