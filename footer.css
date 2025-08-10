@@ -11,24 +11,24 @@
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10rem;
+  gap: 6rem;
   text-align: center;
 }
 .banner-image {
-  flex: 2;
-  text-align: left;
+  flex: 1 ;
+  text-align: center;
 }
 
  .banner-image  img {
+  margin-left: -15rem;
   max-width: 300px;
   min-height: auto;
 }
 
 .footer-center {
-  flex: 2;
+  flex: 1;
   text-align: center;
 }
 
@@ -40,7 +40,8 @@
 }
 
 .footer-right {
-  flex: 2;
+  margin-left: 2rem;
+  flex: 1;
   text-align: center;
 }
 
