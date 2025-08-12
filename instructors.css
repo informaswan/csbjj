@@ -8,8 +8,8 @@
         .team-photo {
             text-align: center;
             padding: 40px 20px;
-            background: rgba(139, 0, 0, 0.1);
-            margin: 0 20px;
+            background: rgba(24, 37, 4, 0.2);
+            margin: 0 0px;
             border-radius: 15px;
             margin-bottom: 60px;
             margin-top: 5rem;
@@ -21,7 +21,7 @@
             height: 400px;
             object-fit: cover;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(3, 2, 16, 0.3);
             transition: transform 0.3s ease;
         }
 
@@ -64,7 +64,7 @@
             height: 400px;
             object-fit: cover;
             border: 5px solid rgb(128, 255, 54);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(128, 134, 68, 0.929);
             transition: transform 0.3s ease;
         }
 
