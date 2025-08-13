@@ -23,7 +23,7 @@ body {
 
 /* Start section with background - now separate from navbar */
 .start-section{
-  background-image: url(/HomePagePic.jpg);
+  background-image: url(/img/HomePagePic.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

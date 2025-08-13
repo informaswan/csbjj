@@ -1,161 +1,163 @@
-@keyframes float {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  100% {
-    transform: translateY(-20px) rotate(360deg);
-  }
-}
 
-.team-photo {
-  text-align: center;
-  padding: 40px 20px;
-  background: rgba(139, 0, 0, 0.1);
-  margin: 0 20px;
-  border-radius: 15px;
-  margin-bottom: 60px;
-  margin-top: 5rem;
-}
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-20px) rotate(360deg); }
+        }
 
-.team-photo img {
-  width: 100%;
-  max-width: 800px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
-}
 
-.team-photo img:hover {
-  transform: scale(1.05);
-}
+        .team-photo {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(24, 37, 4, 0.2);
+            margin: 0 0px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+            margin-top: 5rem;
+        }
 
-.team-photo h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #1bdc14;
-}
+        .team-photo img {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(3, 2, 16, 0.3);
+            transition: transform 0.3s ease;
+        }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+        .team-photo img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 60px rgba(128, 255, 54, 0.3);
+        }
 
-.instructor {
-  display: flex;
-  align-items: center;
-  margin-bottom: 80px;
-  background: rgba(45, 45, 45, 0.8);
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(10px);
-}
+        .team-photo h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1bdc14;
+        }
 
-.instructor:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 60px rgba(139, 0, 0, 0.2);
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-.instructor-photo {
-  width: 300px;
-  height: 400px;
-  object-fit: cover;
-  border: 5px solid rgb(128, 255, 54);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
-}
+        .instructor {
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+            background: rgba(23, 24, 4, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(3, 2, 16, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
 
-.instructor-info {
-  flex: 1;
-  padding: 0 40px;
-}
+        .instructor:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(128, 255, 54, 0.3);
+        }
 
-.instructor-name {
-  font-size: 2.5rem;
-  color: rgb(128, 255, 54);
-  margin-bottom: 15px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
+        .instructor-photo {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border: 5px solid rgb(128, 255, 54);
+            box-shadow: 0 10px 30px rgba(128, 134, 68, 0.929);
+            transition: transform 0.3s ease;
+        }
 
-.instructor-title {
-  font-size: 1.3rem;
-  color: #cccccc;
-  margin-bottom: 20px;
-  font-style: italic;
-}
 
-.experience {
-  background: linear-gradient(45deg, #07a404, #e7f705);
-  padding: 15px 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  font-weight: bold;
-}
+        .instructor-info {
+            flex: 1;
+            padding: 0 40px;
+        }
 
-.specialty {
-  color: #ffffff;
-  margin-bottom: 20px;
-  font-size: 1.1rem;
-}
+        .instructor-name {
+            font-size: 2.5rem;
+            color: rgb(128, 255, 54);
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
 
-.story {
-  background: rgba(139, 0, 0, 0.2);
-  padding: 20px;
-  border-radius: 10px;
-  border-left: 4px solid rgb(128, 255, 54);
-  font-style: italic;
-  line-height: 1.8;
-}
+        .instructor-title {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
 
-.story-title {
-  font-weight: bold;
-  color: rgb(128, 255, 54);
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
+        .experience {
+            background: linear-gradient(45deg, #07a404, #e7f705);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
 
-.reverse {
-  flex-direction: row-reverse;
-}
+        .specialty {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
 
-@media (max-width: 768px) {
-  .instructor {
-    flex-direction: column;
-    text-align: center;
-    padding: 30px 20px;
-  }
+        .story {
+            background: rgba(60, 87, 16, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid rgb(128, 255, 54);
+            font-style: italic;
+            line-height: 1.8;
+        }
 
-  .reverse {
-    flex-direction: column;
-  }
+        .story-title {
+            font-weight: bold;
+            color: rgb(128, 255, 54);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
 
-  .instructor-info {
-    padding: 30px 0 0 0;
-  }
+        .reverse {
+            flex-direction: row-reverse;
+        }
 
-  .instructor-photo {
-    width: 250px;
-    height: 250px;
-  }
+        @media (max-width: 768px) {
+            .instructor {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
 
-  .header h1 {
-    font-size: 2.5rem;
-  }
+            .reverse {
+                flex-direction: column;
+            }
 
-  .instructor-name {
-    font-size: 2rem;
-  }
-}
+            .instructor-info {
+                padding: 30px 0 0 0;
+            }
 
-.belt-decoration {
-  display: inline-block;
-  width: 20px;
-  height: 3px;
-  background: rgb(128, 255, 54);
-  margin: 0 5px;
-  border-radius: 2px;
-}
+            .instructor-photo {
+                width: 250px;
+                height: 250px;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .instructor-name {
+                font-size: 2rem;
+            }
+        }
+
+        .belt-decoration {
+            display: inline-block;
+            width: 20px;
+            height: 3px;
+            background: rgb(128, 255, 54);
+            margin: 0 5px;
+            border-radius: 2px;
+        }
+
+    
