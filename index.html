@@ -54,27 +54,28 @@
     
     <!-- Include the carousel JavaScript class -->
     <script src="pricing.js"></script>
+    <!-- Include the navbar JavaScript -->
+    <script src="navbar.js"></script>
     <script>
           async function initializePage() {
         try {
-          // Load header and footer (these can load in parallel)
-          const headerPromise = HTMLLoader.loadComponent(
+          // Load header first and wait for it to complete
+          await HTMLLoader.loadComponent(
             "header-navbar",
             "header-navbar.html"
           );
-          const footerPromise = HTMLLoader.loadComponent(
-            "footer",
-            "footer.html"
-          );
 
-          // Load pricing HTML first and wait for it to complete
+          // Initialize navbar functionality after it's loaded
+          console.log('Initializing navbar...');
+          initializeNavbar();
+
+          // Load pricing HTML
           await HTMLLoader.loadComponent(
             "pricing-section",
             "pricing-section.html"
           );
 
           // Now that pricing HTML is loaded, initialize the carousel
-          // Add a small delay to ensure DOM is fully updated
           setTimeout(() => {
             const pricingCarousel = new PricingCarousel("pricingCarousel", {
               cardsPerView: 3,
@@ -84,13 +85,15 @@
               autoSlide: false,
             });
 
-            // Store reference for later use
             window.pricingCarousel = pricingCarousel;
             console.log("Pricing carousel initialized successfully");
           }, 100);
 
-          // Wait for header and footer to finish loading
-          await Promise.all([headerPromise, footerPromise]);
+          // Load footer
+          await HTMLLoader.loadComponent(
+            "footer",
+            "footer.html"
+          );
         } catch (error) {
           console.error("Error initializing page:", error);
         }

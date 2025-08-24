@@ -172,19 +172,33 @@
         </div>
     </div>
       <div id="footer"></div>
-        <script>
-     fetch("header-navbar.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-navbar").innerHTML = html;
-      })
-      .catch(err => console.error('Error loading header:', err));
-      fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer").innerHTML = html;
-      })
-      .catch(err => console.error('Error loading footer:', err));
+       <!-- Include the navbar JavaScript -->
+   <script src="navbar.js"></script>
+    <script>
+      async function initializePage() {
+        try {
+          // Load header and navbar
+          const headerResponse = await fetch("header-navbar.html");
+          const headerHtml = await headerResponse.text();
+          document.getElementById("header-navbar").innerHTML = headerHtml;
+          
+          // Initialize navbar functionality after it's loaded
+          console.log('Initializing navbar...');
+          initializeNavbar();
+
+          // Load footer
+          const footerResponse = await fetch("footer.html");
+          const footerHtml = await footerResponse.text();
+          document.getElementById("footer").innerHTML = footerHtml;
+          
+          console.log('Page initialization complete');
+        } catch (error) {
+          console.error("Error initializing page:", error);
+        }
+      }
+
+      // Initialize everything when DOM is ready
+      document.addEventListener("DOMContentLoaded", initializePage);
     </script>
 </body>
 </html>

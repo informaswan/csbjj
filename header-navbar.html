@@ -1,7 +1,12 @@
 <!-- Your updated header-navbar.html -->
  <!DOCTYPE html>
 <html lang="en">
- <body>
+  <head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+<body>
 <nav class="navbar">
     <div class="nav-brand">
         <div class="nav-image">
@@ -25,14 +30,15 @@
     <ul class="nav-section">
         <li><a href="index.html">Home</a></li>
         <li class="dropdown-parent">
-            <a>Programs</a>
+            <a href="#" class="dropdown-toggle">Programs</a>
             <ul class="dropdown">
                 <li><a href="adultbjj.html">Adult BJJ</a></li>
                 <li><a href="kickBoxing.html">Muay Thai KickBoxing</a></li>
-                <li><a href="kidsBjj.html">Kids BJJ</a></li>            </ul>
+                <li><a href="kidsBjj.html">Kids BJJ</a></li>
+            </ul>
         </li>
         <li class="dropdown-parent">
-            <a>About Us</a>
+            <a href="#" class="dropdown-toggle">About Us</a>
             <ul class="dropdown">
                 <li><a href="history.html">History of BJJ</a></li>
                 <li><a href="instructors.html">Instructors</a></li>
@@ -45,32 +51,5 @@
         <li><a href="contactus.html">Contact Us</a></li>
     </ul>
 </nav>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const dropdownParents = document.querySelectorAll(".dropdown-parent");
-
-    dropdownParents.forEach(parent => {
-      parent.addEventListener("click", function (e) {
-        // Only apply this on mobile view
-        if (window.innerWidth <= 768) {
-          e.stopPropagation();
-          // Close other dropdowns
-          dropdownParents.forEach(p => {
-            if (p !== parent) p.classList.remove("dropdown-open");
-          });
-          // Toggle current one
-          parent.classList.toggle("dropdown-open");
-        }
-      });
-    });
-
-    // Close dropdowns when clicking outside
-    document.addEventListener("click", function () {
-      if (window.innerWidth <= 768) {
-        dropdownParents.forEach(p => p.classList.remove("dropdown-open"));
-      }
-    });
-  });
-</script>
 </body>
 </html>
