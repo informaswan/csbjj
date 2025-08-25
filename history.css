@@ -6,21 +6,31 @@
   text-align: center;
 }
 
-.history-intro img {
-  max-width: 45%;
+.history-intro .japan-image {
+  width: 45%;
   height: 600px;
   object-fit: cover;
+  object-position: center;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+  display: inline-block;
+}
 
+.history-intro .brazil-image {
+  width: 45%;
+  height: 600px;
+  object-fit: cover;
+  object-position: 65%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
 
-  .history-intro .container {
+.history-intro .container {
   flex-direction: column;
   align-items: center;
 
   }
-
 
 .history-intro h2 {
   font-size: 2.5rem;
@@ -179,7 +189,6 @@
   .history-container h2 {
     font-size: 1.5rem;
   }
-  
   .history-intro,
   .history-origins,
   .history-brazil,
