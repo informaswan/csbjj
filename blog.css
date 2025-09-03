@@ -12,26 +12,18 @@
         color: #f8f9fa;
       }
 
-      .event-card {
-        background-color: #2a323a;
-        border-radius: 10px;
-        padding: 2rem;
-        margin: 2rem auto; /* Center the card and add vertical margin */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        text-align: center; /* Center the content inside the card */
-        width: fit-content; /* Make the card only as wide as its content */
-        max-width: 540px; /* Slightly larger than max image width (500px + 2rem padding) */
-      }
        .event-card img {
+        background-color: #2a323a;
         width: 100%;
         max-width: 500px;
         height: auto;
         border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         display: block; /* Make it a block element */
         margin: 0 auto; /* Center the image horizontally */
         }
+        
       .event-placeholder {
         text-align: center;
         color: #f8f9fa;
