@@ -6,10 +6,10 @@
       .then((html) => {
         document.head.insertAdjacentHTML("beforeend", html);
       });
-  </script>
+</script>
 <body>
     <div id="header-navbar"></div>
- <div class="contact-section">
+    <div class="contact-section">
         <div class="section-header">
             <h1 class="section-title">Contact Us</h1>
             <p class="section-subtitle">Ready to start your martial arts journey? Get in touch with us and let's discuss how we can help you achieve your goals.</p>
@@ -23,15 +23,15 @@
                     <p class="form-description">Fill out the form below and we'll get back to you within 24 hours</p>
                 </div>
 
-                <div id="successMessage" class="success-message">
+                <div id="successMessage" class="success-message" style="display: none;">
                     Thank you! Your message has been sent successfully. We'll get back to you soon.
                 </div>
                 
-                <div id="errorMessage" class="error-message">
+                <div id="errorMessage" class="error-message" style="display: none;">
                     Please fill in all required fields correctly.
                 </div>
 
-                <form action="https://formspree.io/f/xldlwlvr" method="POST">
+                <form id="contact-form">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="firstName">First Name <span class="required">*</span></label>
@@ -59,15 +59,21 @@
                         <textarea id="message" name="message" placeholder="Let us know what questions you have..." rows="4"></textarea>
                     </div>
 
-                    <button type="submit" class="cta-button">Send Message</button>
+                    <button type="submit" class="cta-button" id="submitBtn">Send Message</button>
                 </form>
             </div>
         </div>
     </div>
     </section>
     <div id="footer"></div>
-   <script src="navbar.js"></script>
+    
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <script src="navbar.js"></script>
     <script>
+      emailjs.init('8qMKhFAwBtbkeX9fe');
+      
       async function initializePage() {
         try {
           // Load header and navbar
@@ -89,6 +95,40 @@
           console.error("Error initializing page:", error);
         }
       }
+
+      // Handle form submission
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        // Hide messages
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+        
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Send email using EmailJS
+        emailjs.sendForm('service_n8fpsfb', 'template_33bk7xo', this)
+          .then(function() {
+            console.log('SUCCESS!');
+            successMessage.style.display = 'block';
+            document.getElementById('contact-form').reset();
+          }, function(error) {
+            console.log('FAILED...', error);
+            errorMessage.textContent = 'Failed to send message. Please try again.';
+            errorMessage.style.display = 'block';
+          })
+          .finally(function() {
+            // Reset button state
+            submitBtn.textContent = 'Send Message';
+            submitBtn.disabled = false;
+          });
+      });
 
       // Initialize everything when DOM is ready
       document.addEventListener("DOMContentLoaded", initializePage);
