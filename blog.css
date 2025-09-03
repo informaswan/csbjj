@@ -1,0 +1,43 @@
+.events-section {
+        background-color: #343a40;
+        padding: 4rem 0;
+        padding-top: 8rem; /* Add extra top padding to account for fixed header */
+        color: #f8f9fa;
+      }
+
+      .events-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #f8f9fa;
+      }
+
+       .event-card img {
+        background-color: #2a323a;
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        display: block; /* Make it a block element */
+        margin: 0 auto; /* Center the image horizontally */
+        }
+        
+      .event-placeholder {
+        text-align: center;
+        color: #f8f9fa;
+      }
+
+      .event-placeholder p {
+        font-size: 1.1rem;
+        margin: 0.5rem 0;
+        line-height: 1.6;
+      }
+
+      .event-placeholder p:first-child {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: yellow;
+        margin-bottom: 1rem;
+      }

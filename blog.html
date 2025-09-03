@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    fetch("head.html")
+      .then((res) => res.text())
+      .then((html) => {
+        document.head.insertAdjacentHTML("beforeend", html);
+      });
+  </script>
+  <body>
+    <!-- Header with contact info - separate from navbar -->
+    <div id="header-navbar"></div> 
+    
+    <section class="events-section">
+      <div class="container">
+        <h2>Events!</h2>
+        
+        <div class="event-card">
+         <img src="img/bobbassevent.jpg">
+        </div>
+        
+        <div class="cta-section">
+          <a href="contactus.html"><button class="cta-button">Contact Us About Events</button></a>
+        </div>
+      </div>
+    </section>
+    <div id="footer"></div>
+
+    <!-- Include the navbar JavaScript -->
+    <script src="navbar.js"></script>
+       <script>
+      async function initializePage() {
+        try {
+          // Load header and navbar
+          const headerResponse = await fetch("header-navbar.html");
+          const headerHtml = await headerResponse.text();
+          document.getElementById("header-navbar").innerHTML = headerHtml;
+          
+          // Initialize navbar functionality after it's loaded
+          console.log('Initializing navbar...');
+          initializeNavbar();
+
+          // Load footer
+          const footerResponse = await fetch("footer.html");
+          const footerHtml = await footerResponse.text();
+          document.getElementById("footer").innerHTML = footerHtml;
+          
+          console.log('Page initialization complete');
+        } catch (error) {
+          console.error("Error initializing page:", error);
+        }
+      }
+
+      // Initialize everything when DOM is ready
+      document.addEventListener("DOMContentLoaded", initializePage);
+    </script>
+  </body>
+</html>
