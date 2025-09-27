@@ -25,13 +25,15 @@ body {
 /* Start section with background - now separate from navbar */
 .start-section{
   background-image: url(/img/HomePagePic.webp);
-  background-size: cover;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 1000px;
-  padding: 1rem;
   color: white;
   position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+  padding-top: 9rem;
   /* Remove the navbar from affecting this section */
 }
 
