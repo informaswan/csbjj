@@ -224,7 +224,7 @@
                     <strong>Specializes in:</strong> BJJ
                 </div>
                  <div class="specialty">
-                    <strong>Teaches: Tuesday and Thursday 430pm and 630pm</strong>
+                    <strong>Teaches: Tuesday and Thursday 430pm and</strong>
                 </div>
                 <div class="story">
                     <div class="story-title">About:</div>
@@ -240,21 +240,31 @@
        <!-- Include the navbar JavaScript -->
    <script src="navbar.js"></script>
     <script>
-     // Load critical content first, then enhance
-        document.addEventListener("DOMContentLoaded", async () => {
-        // Load header/footer in parallel
-        const [headerResponse, footerResponse] = await Promise.all([
-        fetch("header-navbar.html"),
-        fetch("footer.html")
-        ]);
+          async function initializePage() {
+        try {
+          // Load header and navbar
+          const headerResponse = await fetch("header-navbar.html");
+          const headerHtml = await headerResponse.text();
+          document.getElementById("header-navbar").innerHTML = headerHtml;
+          
+          // Initialize navbar functionality after it's loaded
+          console.log('Initializing navbar...');
+          initializeNavbar();
 
-        // Update DOM after both are loaded
-        document.getElementById("header-navbar").innerHTML = await headerResponse.text();
-        document.getElementById("footer").innerHTML = await footerResponse.text();
-        });
+          // Load footer
+          const footerResponse = await fetch("footer.html");
+          const footerHtml = await footerResponse.text();
+          document.getElementById("footer").innerHTML = footerHtml;
+          
+          console.log('Page initialization complete');
+        } catch (error) {
+          console.error("Error initializing page:", error);
+        }
+      }
 
       // Initialize everything when DOM is ready
       document.addEventListener("DOMContentLoaded", initializePage);
+    </script>
     </script>
 </body>
 </html>
