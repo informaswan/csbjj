@@ -180,35 +180,54 @@ class PricingCarousel {
     }
   }
 
-  // Touch event handlers
   handleTouchStart(e) {
-    this.startX = e.touches[0].clientX;
-    this.isDragging = true;
-    this.pauseAutoSlide();
-  }
+  this.startX = e.touches[0].clientX;
+  this.startY = e.touches[0].clientY;
+  this.isDragging = true;
+  this.pauseAutoSlide();
+}
 
-  handleTouchMove(e) {
-    if (!this.isDragging) return;
+handleTouchMove(e) {
+  if (!this.isDragging) return;
+
+  const currentX = e.touches[0].clientX;
+  const currentY = e.touches[0].clientY;
+
+  const diffX = Math.abs(currentX - this.startX);
+  const diffY = Math.abs(currentY - this.startY);
+
+  // Only prevent vertical scroll if it's mostly horizontal swipe
+  if (diffX > diffY) {
     e.preventDefault();
   }
+}
 
-  handleTouchEnd(e) {
-    if (!this.isDragging) return;
-    this.isDragging = false;
+handleTouchEnd(e) {
+  if (!this.isDragging) return;
+  this.isDragging = false;
 
-    const endX = e.changedTouches[0].clientX;
-    const diffX = this.startX - endX;
+  const endX = e.changedTouches[0].clientX;
+  const endY = e.changedTouches[0].clientY;
+  const diffX = this.startX - endX;
+  const diffY = this.startY - endY;
 
-    if (Math.abs(diffX) > 50) {
-      if (diffX > 0) {
-        this.nextSlide();
-      } else {
-        this.prevSlide();
-      }
+  // Check if it's a swipe (significant horizontal movement)
+  if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+    if (diffX > 0) {
+      this.nextSlide();
+    } else {
+      this.prevSlide();
     }
-
-    this.startAutoSlide();
+  } else {
+    // Treat as tap → let click/link happen naturally
+    const target = e.target.closest("a, button");
+    if (target) {
+      target.click();
+    }
   }
+
+  this.startAutoSlide();
+}
 
   // Auto-slide functionality
   startAutoSlide() {
