@@ -172,7 +172,9 @@
     .kickboxing {
       border-left-color: #af5002;
     }
-
+    .womans {
+      border-left-color: #b8027b;
+    }
     .open-mat {
       border-left-color: #6f42c1;
     }
@@ -236,6 +238,7 @@
     .legend-bjj-kids { background-color: #007bff; }
     .legend-kickboxing { background-color: #af5002; }
     .legend-open-mat { background-color: #6f42c1; }
+    .legend-womans { background-color: #b8027b; }
 
     /* Mobile responsiveness */
     @media (max-width: 768px) {
