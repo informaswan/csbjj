@@ -3,7 +3,6 @@
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Helvetica', sans-serif;
       background-color: #2a323a;
@@ -233,6 +232,11 @@
       height: 12px;
       border-radius: 2px;
     }
+    /* Reserve space for footer - prevents CLS */
+        .footer-placeholder {
+            height: 400px; /* Approximate footer height */
+            background-color: #1a1f24;
+        }
 
     .legend-bjj-adult { background-color: yellow; }
     .legend-bjj-kids { background-color: #007bff; }
