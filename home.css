@@ -10,7 +10,7 @@
   position: relative;
   aspect-ratio: 16 / 9;
   width: 101%;
-  height: 100%;
+  height: auto;
   padding-top: 9rem;
   /* Remove the navbar from affecting this section */
 }
