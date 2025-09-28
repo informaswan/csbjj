@@ -4,7 +4,6 @@
             100% { transform: translateY(-20px) rotate(360deg); }
         }
 
-
         .team-photo {
             text-align: center;
             padding: 40px 20px;
@@ -52,6 +51,7 @@
             box-shadow: 0 15px 40px rgba(3, 2, 16, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             backdrop-filter: blur(10px);
+            color: whitesmoke
         }
 
         .instructor:hover {
@@ -108,7 +108,7 @@
             border-radius: 10px;
             border-left: 4px solid rgb(234, 249, 25);
             font-style: italic;
-            line-height: 1.8;
+            line-height: 2;
         }
 
         .story-title {

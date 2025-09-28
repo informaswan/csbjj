@@ -1,0 +1,84 @@
+
+
+/* Start section with background - now separate from navbar */
+.start-section{
+  background-image: url(/img/HomePagePic.webp);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+  padding-top: 9rem;
+  /* Remove the navbar from affecting this section */
+}
+
+.start-section::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,  #2a323a);
+  pointer-events: none;
+}
+
+
+.request-section {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0);
+  padding: 1rem;
+  max-height: 600px;
+  max-width: 500px;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 10px;
+  
+}
+
+.request-section body {
+  align-content: center;
+}
+
+.request-section h2 {
+  color: white;
+  
+}
+
+.request-section p {
+  color: whitesmoke;
+  color: white;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Container for consistent width and centering */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* About section styling */
+.about-section {
+  background-color:#343a40 ;
+  padding: 4rem 0;
+  color: #f8f9fa;
+}
+
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #f8f9fa;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
