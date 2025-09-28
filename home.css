@@ -2,16 +2,6 @@
 
 /* Start section with background - now separate from navbar */
 .start-section{
-  background-image: url(/img/HomePagePic.webp);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  position: relative;
-  aspect-ratio: 16 / 9;
-  width: 101%;
-  height: 100%;
-  height: auto;
   padding-top: 9rem;
   /* Remove the navbar from affecting this section */
 }
@@ -22,7 +12,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 150px;
+  height: 250px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%,  #2a323a);
   pointer-events: none;
 }
