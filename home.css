@@ -2,19 +2,20 @@
 
 /* Start section with background - now separate from navbar */
 .start-section{
- 
+  background-image: url(/img/HomePagePic.webp);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 101%;
+  height: 100%;
   padding-top: 9rem;
   /* Remove the navbar from affecting this section */
 }
 
-.start-section img{
- aspect-ratio: attr(width) / attr(height);
- width: 100%;
- height:auto;
- /* Remove the navbar from affecting this section */
-}
-
-.start-section img ::after{
+.start-section::after{
   content: '';
   position: absolute;
   bottom: 0;
@@ -81,8 +82,3 @@
   margin-bottom: 1.5rem;
   text-align: justify;
 }
- @media (max-width: 768px) {
-  .start-section img{
-    width: 100%
-  }
- }
