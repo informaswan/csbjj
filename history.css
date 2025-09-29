@@ -7,7 +7,9 @@
 }
 
 .history-intro .japan-image {
-  width: 35%;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 500px;
   height: 600px;
   object-fit: cover;
   object-position: center;
@@ -17,7 +19,9 @@
 }
 
 .history-intro .brazil-image {
-  width: 35%;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 500px;
   height: 600px;
   object-fit: cover;
   object-position: 65%;
