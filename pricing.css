@@ -163,7 +163,7 @@
           letter-spacing: 0.5px;
           padding: 0.5rem 6rem;
           display: block !important;
-          background: rgb(128, 255, 54);
+          background-color: yellow;
           color: #000;
           font-weight: bold;
           cursor: pointer;
@@ -171,7 +171,7 @@
         }
 
         .pricing-card .cta-button:hover {
-          background: #fff;
+          background-color: rgb(128, 255, 54);
           transform: scale(1.05);
         }
 
