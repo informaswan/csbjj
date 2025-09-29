@@ -238,10 +238,6 @@ textarea:focus {
 }
 
 @media (max-width: 768px) {
-  .contact-section {
-    padding: 2rem 1rem;
-    padding-top: 8rem;
-  }
 
   .contact-card {
     padding: 2rem;
