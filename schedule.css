@@ -245,78 +245,79 @@
     .legend-womans { background-color: #b8027b; }
 
     /* Mobile responsiveness */
-    @media (max-width: 768px) {
-      .schedule-section {
-        padding: 2rem 1rem;
-      }
+@media (max-width: 768px) {
+  .schedule-section {
+    padding: 2rem 1rem;
+  }
 
-      .calendar-grid {
-        grid-template-columns: 1fr;
-      }
+  .calendar-grid {
+    grid-template-columns: 1fr;
+  }
 
-      .calendar-day-header {
-        display: none;
-      }
+  .day-container {
+    display: block;
+    margin-bottom: 1rem;
+  }
 
-      .calendar-day {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        min-height: auto;
-        padding: 1.5rem;
-      }
+  .calendar-day-header {
+    display: block;
+    border-radius: 8px 8px 0 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
 
-      .day-number {
-        text-align: left;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-      }
+  .calendar-day {
+    border-right: none;
+    border-bottom: none;
+    min-height: auto;
+    padding: 1.5rem;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 0;
+  }
 
-      .day-number::after {
-        content: attr(data-day);
-        display: block;
-        font-size: 0.8rem;
-        color: #b0b0b0;
-        font-weight: normal;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-top: 0.2rem;
-      }
+  .day-number {
+    text-align: left;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
 
-      .class-item {
-        padding: 0.8rem;
-        margin-bottom: 0.8rem;
-      }
+  .class-item {
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
 
-      .class-time {
-        font-size: 0.9rem;
-      }
+  .class-time {
+    font-size: 0.9rem;
+  }
 
-      .class-name {
-        font-size: 1rem;
-      }
+  .class-name {
+    font-size: 1rem;
+  }
 
-      .class-type {
-        font-size: 0.8rem;
-      }
+  .class-type {
+    font-size: 0.8rem;
+  }
 
-      .legend-items {
-        gap: 1rem;
-      }
-    }
+  .legend-items {
+    gap: 1rem;
+  }
+}
 
-    @media (max-width: 480px) {
-      .legend-items {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
+@media (max-width: 480px) {
+  .legend-items {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
-    /* Current day highlighting */
-    .current-day {
-      background: rgba(196, 147, 0, 0.1);
-      border: 1px  yellow;
-    }
+/* Current day highlighting */
+.current-day {
+  background: rgba(196, 147, 0, 0.1);
+  border: 1px yellow;
+}
 
-    .current-day .day-number {
-      color: yellow;
-    }
+.current-day .day-number {
+  color: yellow;
+}
