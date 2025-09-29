@@ -183,49 +183,56 @@ class PricingCarousel {
   handleTouchStart(e) {
   this.startX = e.touches[0].clientX;
   this.startY = e.touches[0].clientY;
-  this.isDragging = true;
+  this.isDragging = false; // Don't set to true immediately
+  this.hasMoved = false; // Track if user has moved significantly
   this.pauseAutoSlide();
 }
 
 handleTouchMove(e) {
-  if (!this.isDragging) return;
-
   const currentX = e.touches[0].clientX;
   const currentY = e.touches[0].clientY;
 
   const diffX = Math.abs(currentX - this.startX);
   const diffY = Math.abs(currentY - this.startY);
 
-  // Only prevent vertical scroll if it's mostly horizontal swipe
-  if (diffX > diffY) {
-    e.preventDefault();
+  // Only consider it dragging if moved more than 10px
+  if (diffX > 10 || diffY > 10) {
+    this.hasMoved = true;
+  }
+
+  // Only set dragging to true if horizontal movement is significant
+  if (diffX > 15 && diffX > diffY * 1.5) {
+    this.isDragging = true;
+    e.preventDefault(); // Prevent scroll only when clearly horizontal
   }
 }
 
 handleTouchEnd(e) {
-  if (!this.isDragging) return;
-  this.isDragging = false;
-
   const endX = e.changedTouches[0].clientX;
   const endY = e.changedTouches[0].clientY;
   const diffX = this.startX - endX;
-  const diffY = this.startY - endY;
+  const diffY = Math.abs(this.startY - endY);
 
-  // Check if it's a swipe (significant horizontal movement)
-  if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY)) {
+  // Check if it's a swipe (significant horizontal movement and clearly not vertical scroll)
+  if (this.isDragging && Math.abs(diffX) > 80 && Math.abs(diffX) > diffY * 2) {
+    // Increased threshold from 50 to 80 and require 2x more horizontal than vertical
+    e.preventDefault(); // Prevent any click event
     if (diffX > 0) {
       this.nextSlide();
     } else {
       this.prevSlide();
     }
-  } else {
-    // Treat as tap → let click/link happen naturally
+  } else if (!this.hasMoved) {
+    // Only allow click if user didn't move at all (true tap)
     const target = e.target.closest("a, button");
     if (target) {
       target.click();
     }
   }
+  // If hasMoved is true but not a swipe, do nothing (was a scroll)
 
+  this.isDragging = false;
+  this.hasMoved = false;
   this.startAutoSlide();
 }
 
