@@ -1,4 +1,4 @@
-        .pricing-section {
+.pricing-section {
           padding: 4rem 2rem;
           margin-top: 5rem; /* Add space for navbar */
           background-color: #2a323a;
@@ -93,7 +93,7 @@
           position: relative;
           max-width: 1400px; /* Increased to accommodate arrows */
           margin: 0 auto;
-          padding: 0 80px; /* Add padding for arrow space */
+          padding: 0 120px; /* Add padding for arrow space */
         }
         /* Style the anchor tag wrapper in pricing cards */
         .pricing-card a {
@@ -106,6 +106,16 @@
           display: flex;
           gap: 1.5rem; /* Reduced gap to fit better */
           justify-content: center;
+        }
+        
+        /* CRITICAL FIX: Hide cards beyond the first 3 initially to prevent CLS */
+        .pricing-carousel .pricing-card:nth-child(n+4) {
+          display: none;
+        }
+        
+        /* After carousel is initialized, show all cards (JavaScript will handle visibility) */
+        .pricing-carousel.carousel-initialized .pricing-card {
+          display: flex;
         }
         
         .pricing-card {
@@ -299,11 +309,11 @@
         }
         
         .carousel-nav.prev {
-          left: 10px; /* Positioned within the padding area */
+          left: 20px; /* Positioned within the padding area */
         }
         
         .carousel-nav.next {
-          right: 10px; /* Positioned within the padding area */
+          right: 20px; /* Positioned within the padding area */
         }
         
         .carousel-nav::before {
@@ -321,7 +331,7 @@
         }
         
         /* Dots indicator */
-        .carousel-dots {
+        #carouselDots {
           display: flex;
           justify-content: center;
           gap: 0.5rem;
@@ -342,20 +352,94 @@
           transform: scale(1.2);
         }
         
-        @media (max-width: 1200px) {
+        @media (max-width: 1500px) {
           .carousel-container {
-            padding: 0 60px; /* Reduced padding for smaller screens */
+            padding: 0 80px; /* Increased padding for arrow space */
           }
           .pricing-card {
-            width: 300px;
+            width: 280px; /* Slightly smaller cards */
           }
-
+          
+          .carousel-nav {
+            width: 50px;
+            height: 50px;
+          }
+          
+          .carousel-nav::before {
+            width: 10px;
+            height: 10px;
+          }
+          
           .toc-grid {
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
           }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 1300px) {
+          .carousel-container {
+            padding: 0 70px;
+          }
+          
+          .pricing-card {
+            width: 260px; /* Further reduce card size */
+            padding: 1.5rem;
+          }
+          
+          .card-title {
+            font-size: 1.3rem;
+          }
+          
+          .price-amount {
+            font-size: 2.5rem;
+          }
+          
+          .pricing-card .cta-button {
+            padding: 0.5rem 4rem; /* Smaller button */
+            font-size: 0.9rem;
+          }
+          
+          .carousel-nav {
+            width: 45px;
+            height: 45px;
+          }
+        }
+        
+        @media (max-width: 1200px) {
+          .carousel-container {
+            padding: 0 60px;
+          }
+          
+          .pricing-card {
+            width: 240px; /* Even smaller cards */
+            padding: 1.25rem;
+          }
+          
+          .card-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+          }
+          
+          .pricing-card .cta-button {
+            padding: 0.4rem 3rem; /* Even smaller button */
+            font-size: 0.85rem;
+          }
+          
+          .carousel-nav {
+            width: 40px;
+            height: 40px;
+          }
+          
+          .carousel-nav.prev {
+            left: 10px;
+          }
+          
+          .carousel-nav.next {
+            right: 10px;
+          }
+        }
+        
+        @media (max-width: 1100px) {
           .pricing-section {
             padding: 2rem 1rem;
             padding-top: 8rem; /* Maintain navbar spacing on mobile */
@@ -373,6 +457,11 @@
           .pricing-carousel {
             flex-direction: column;
             align-items: center;
+          }
+          
+          /* On mobile, show all cards initially */
+          .pricing-carousel .pricing-card:nth-child(n+4) {
+            display: flex;
           }
           
           .carousel-nav, .carousel-dots {

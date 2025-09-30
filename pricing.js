@@ -25,13 +25,14 @@ class PricingCarousel {
     // State
     this.cards = [];
     this.totalCards = 0;
-    this.maxSlide = 0;
     this.currentSlide = 0;
     this.autoSlideTimer = null;
 
     // Touch handling
     this.startX = 0;
+    this.startY = 0;
     this.isDragging = false;
+    this.hasMoved = false;
 
     if (!this.carousel) {
       console.error(`Carousel element with id "${carouselId}" not found`);
@@ -43,8 +44,13 @@ class PricingCarousel {
 
   init() {
     this.setupElements();
-    this.createNavigation();
+    this.findOrCreateNavigation();
     this.bindEvents();
+    
+    // Mark carousel as initialized to enable CSS transitions
+    this.carousel.classList.add('carousel-initialized');
+    this.carouselContainer.classList.add('carousel-ready');
+    
     this.updateCarousel();
     
     if (this.options.autoSlide) {
@@ -55,32 +61,49 @@ class PricingCarousel {
   setupElements() {
     this.cards = Array.from(this.carousel.children);
     this.totalCards = this.cards.length;
-    this.maxSlide = Math.max(0, this.totalCards - this.options.cardsPerView);
   }
 
-  createNavigation() {
+  findOrCreateNavigation() {
     if (!this.carouselContainer) return;
 
-    // Create navigation arrows
-    if (this.options.enableArrows && this.maxSlide > 0) {
-      this.prevBtn = this.createElement('button', 'carousel-nav prev');
-      this.nextBtn = this.createElement('button', 'carousel-nav next');
+    // Try to find existing navigation arrows (they should be siblings of the carousel in the container)
+    if (this.options.enableArrows) {
+      this.prevBtn = this.carouselContainer.querySelector('.carousel-nav.prev');
+      this.nextBtn = this.carouselContainer.querySelector('.carousel-nav.next');
       
-      this.carouselContainer.appendChild(this.prevBtn);
-      this.carouselContainer.appendChild(this.nextBtn);
-    }
-
-    // Create dots indicator
-    if (this.options.enableDots && this.maxSlide > 0) {
-      this.dotsContainer = this.createElement('div', 'carousel-dots');
-      
-      for (let i = 0; i <= this.maxSlide; i++) {
-        const dot = this.createElement('div', `dot ${i === 0 ? 'active' : ''}`);
-        dot.dataset.slide = i;
-        this.dotsContainer.appendChild(dot);
+      // Create if they don't exist
+      if (!this.prevBtn) {
+        this.prevBtn = this.createElement('button', 'carousel-nav prev');
+        this.prevBtn.id = 'prevBtn';
+        this.prevBtn.setAttribute('aria-label', 'Previous slide');
+        this.carouselContainer.appendChild(this.prevBtn);
       }
       
-      this.carouselContainer.appendChild(this.dotsContainer);
+      if (!this.nextBtn) {
+        this.nextBtn = this.createElement('button', 'carousel-nav next');
+        this.nextBtn.id = 'nextBtn';
+        this.nextBtn.setAttribute('aria-label', 'Next slide');
+        this.carouselContainer.appendChild(this.nextBtn);
+      }
+    }
+
+    // Try to find existing dots container (it's a sibling of carousel-container)
+    if (this.options.enableDots) {
+      this.dotsContainer = document.querySelector('#carouselDots');
+      
+      if (!this.dotsContainer) {
+        this.dotsContainer = this.createElement('div', 'carousel-dots');
+        this.dotsContainer.id = 'carouselDots';
+        
+        for (let i = 0; i < this.totalCards; i++) {
+          const dot = this.createElement('div', `dot ${i === 0 ? 'active' : ''}`);
+          dot.dataset.slide = i;
+          this.dotsContainer.appendChild(dot);
+        }
+        
+        // Insert after carousel container
+        this.carouselContainer.insertAdjacentElement('afterend', this.dotsContainer);
+      }
     }
   }
 
@@ -125,13 +148,20 @@ class PricingCarousel {
   }
 
   updateCarousel() {
-    // Show/hide cards based on current slide
-    this.cards.forEach((card, index) => {
-      if (index >= this.currentSlide && index < this.currentSlide + this.options.cardsPerView) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
+    // Calculate which cards should be visible
+    const visibleIndices = [];
+    for (let i = 0; i < this.options.cardsPerView; i++) {
+      const index = (this.currentSlide + i) % this.totalCards;
+      visibleIndices.push(index);
+    }
+
+    // Reorder the cards in the DOM to match the visible order
+    // Clear the carousel
+    this.carousel.innerHTML = '';
+    
+    // Add visible cards in order
+    visibleIndices.forEach(index => {
+      this.carousel.appendChild(this.cards[index]);
     });
 
     // Update dots
@@ -141,104 +171,80 @@ class PricingCarousel {
         dot.classList.toggle('active', index === this.currentSlide);
       });
     }
-
-    // Update arrow states
-    this.updateArrowStates();
-  }
-
-  updateArrowStates() {
-    if (!this.prevBtn || !this.nextBtn) return;
-
-    this.prevBtn.classList.toggle('disabled', this.currentSlide === 0);
-    this.nextBtn.classList.toggle('disabled', this.currentSlide === this.maxSlide);
   }
 
   goToSlide(slideIndex) {
-    const newSlide = Math.max(0, Math.min(slideIndex, this.maxSlide));
-    if (newSlide !== this.currentSlide) {
-      this.currentSlide = newSlide;
-      this.updateCarousel();
-      this.resetAutoSlide();
+    // Normalize the slide index to wrap around
+    let newSlide = slideIndex % this.totalCards;
+    if (newSlide < 0) {
+      newSlide = this.totalCards + newSlide;
     }
+    
+    this.currentSlide = newSlide;
+    this.updateCarousel();
+    this.resetAutoSlide();
   }
 
   nextSlide() {
-    if (this.currentSlide < this.maxSlide) {
-      this.goToSlide(this.currentSlide + 1);
-    } else if (this.options.autoSlide) {
-      // Loop back to start for auto-slide
-      this.goToSlide(0);
-    }
+    this.goToSlide(this.currentSlide + 1);
   }
 
   prevSlide() {
-    if (this.currentSlide > 0) {
-      this.goToSlide(this.currentSlide - 1);
-    } else if (this.options.autoSlide) {
-      // Loop to end for auto-slide
-      this.goToSlide(this.maxSlide);
-    }
+    this.goToSlide(this.currentSlide - 1);
   }
 
   handleTouchStart(e) {
-  this.startX = e.touches[0].clientX;
-  this.startY = e.touches[0].clientY;
-  this.isDragging = false; // Don't set to true immediately
-  this.hasMoved = false; // Track if user has moved significantly
-  this.pauseAutoSlide();
-}
-
-handleTouchMove(e) {
-  const currentX = e.touches[0].clientX;
-  const currentY = e.touches[0].clientY;
-
-  const diffX = Math.abs(currentX - this.startX);
-  const diffY = Math.abs(currentY - this.startY);
-
-  // Only consider it dragging if moved more than 10px
-  if (diffX > 10 || diffY > 10) {
-    this.hasMoved = true;
+    this.startX = e.touches[0].clientX;
+    this.startY = e.touches[0].clientY;
+    this.isDragging = false;
+    this.hasMoved = false;
+    this.pauseAutoSlide();
   }
 
-  // Only set dragging to true if horizontal movement is significant
-  if (diffX > 15 && diffX > diffY * 1.5) {
-    this.isDragging = true;
-    e.preventDefault(); // Prevent scroll only when clearly horizontal
-  }
-}
+  handleTouchMove(e) {
+    const currentX = e.touches[0].clientX;
+    const currentY = e.touches[0].clientY;
 
-handleTouchEnd(e) {
-  const endX = e.changedTouches[0].clientX;
-  const endY = e.changedTouches[0].clientY;
-  const diffX = this.startX - endX;
-  const diffY = Math.abs(this.startY - endY);
+    const diffX = Math.abs(currentX - this.startX);
+    const diffY = Math.abs(currentY - this.startY);
 
-  // Check if it's a swipe (significant horizontal movement and clearly not vertical scroll)
-  if (this.isDragging && Math.abs(diffX) > 80 && Math.abs(diffX) > diffY * 2) {
-    // Increased threshold from 50 to 80 and require 2x more horizontal than vertical
-    e.preventDefault(); // Prevent any click event
-    if (diffX > 0) {
-      this.nextSlide();
-    } else {
-      this.prevSlide();
+    if (diffX > 10 || diffY > 10) {
+      this.hasMoved = true;
     }
-  } else if (!this.hasMoved) {
-    // Only allow click if user didn't move at all (true tap)
-    const target = e.target.closest("a, button");
-    if (target) {
-      target.click();
+
+    if (diffX > 15 && diffX > diffY * 1.5) {
+      this.isDragging = true;
+      e.preventDefault();
     }
   }
-  // If hasMoved is true but not a swipe, do nothing (was a scroll)
 
-  this.isDragging = false;
-  this.hasMoved = false;
-  this.startAutoSlide();
-}
+  handleTouchEnd(e) {
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const diffX = this.startX - endX;
+    const diffY = Math.abs(this.startY - endY);
 
-  // Auto-slide functionality
+    if (this.isDragging && Math.abs(diffX) > 80 && Math.abs(diffX) > diffY * 2) {
+      e.preventDefault();
+      if (diffX > 0) {
+        this.nextSlide();
+      } else {
+        this.prevSlide();
+      }
+    } else if (!this.hasMoved) {
+      const target = e.target.closest("a, button");
+      if (target) {
+        target.click();
+      }
+    }
+
+    this.isDragging = false;
+    this.hasMoved = false;
+    this.startAutoSlide();
+  }
+
   startAutoSlide() {
-    if (!this.options.autoSlide || this.maxSlide === 0) return;
+    if (!this.options.autoSlide) return;
     
     this.pauseAutoSlide();
     this.autoSlideTimer = setInterval(() => {
@@ -261,18 +267,13 @@ handleTouchEnd(e) {
   }
 
   handleResize() {
-    // Recalculate on resize if needed
     this.updateCarousel();
   }
 
-  // Public methods for external control
   destroy() {
     this.pauseAutoSlide();
-    
-    // Remove event listeners
     window.removeEventListener('resize', this.handleResize);
     
-    // Remove created elements
     if (this.prevBtn) this.prevBtn.remove();
     if (this.nextBtn) this.nextBtn.remove();
     if (this.dotsContainer) this.dotsContainer.remove();
@@ -288,7 +289,7 @@ handleTouchEnd(e) {
   }
 
   getTotalSlides() {
-    return this.maxSlide + 1;
+    return this.totalCards;
   }
 }
 
