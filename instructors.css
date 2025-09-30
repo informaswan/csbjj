@@ -16,8 +16,8 @@
 
         .team-photo img {
             width: 100%;
-            max-width: 800px;
-            height: 400px;
+            aspect-ratio: 16 / 9;
+            max-width: 1000px;
             object-fit: cover;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(3, 2, 16, 0.3);
@@ -30,9 +30,10 @@
         }
 
         .team-photo h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #1bdc14;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #f8f9fa;
+            font-weight: bold;
         }
 
         .container {
@@ -76,7 +77,7 @@
 
         .instructor-name {
             font-size: 2.5rem;
-            color: rgb(128, 255, 54);
+            color: f8f9fa;
             margin-bottom: 15px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
