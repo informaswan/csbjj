@@ -68,50 +68,59 @@
     <!-- Include the navbar JavaScript -->
     <script src="navbar.js"></script>
     <script>
-          async function initializePage() {
-        try {
-          // Load header first and wait for it to complete
-          await HTMLLoader.loadComponent(
-            "header-navbar",
-            "header-navbar.html"
-          );
+  let pricingCarousel = null;
 
-          // Initialize navbar functionality after it's loaded
-          console.log('Initializing navbar...');
-          initializeNavbar();
+  async function initializePage() {
+    try {
+      // Load header
+      await HTMLLoader.loadComponent("header-navbar", "header-navbar.html");
+      initializeNavbar();
 
-          // Load pricing HTML
-          await HTMLLoader.loadComponent(
-            "pricing-section",
-            "pricing-section.html"
-          );
+      // Load pricing HTML
+      await HTMLLoader.loadComponent("pricing-section", "pricing-section.html");
 
-      // Only run carousel if screen is wide enough
-          setTimeout(() => {
-            if (window.innerWidth > 1100) {
-              const pricingCarousel = new PricingCarousel("pricingCarousel", {
-                cardsPerView: 3,
-                enableTouch: true,
-                enableDots: true,
-                enableArrows: true,
-                autoSlide: false,
-              });
-              window.pricingCarousel = pricingCarousel;
-              console.log("Pricing carousel initialized successfully");
-            } else {
-              console.log("Mobile view detected — showing all cards, carousel disabled.");
-            }
-          }, 100);
+      // Check size and set up carousel or stacked view
+      handleCarousel();
 
-          // Load footer
-          await HTMLLoader.loadComponent("footer", "footer.html");
-        } catch (error) {
-          console.error("Error initializing page:", error);
-        }
+      // Re-check on resize
+      window.addEventListener("resize", handleCarousel);
+
+      // Load footer
+      await HTMLLoader.loadComponent("footer", "footer.html");
+    } catch (error) {
+      console.error("Error initializing page:", error);
+    }
+  }
+
+  function handleCarousel() {
+    const isDesktop = window.innerWidth > 1100;
+
+    if (isDesktop && !pricingCarousel) {
+      // Initialize carousel
+      pricingCarousel = new PricingCarousel("pricingCarousel", {
+        cardsPerView: 3,
+        enableTouch: true,
+        enableDots: true,
+        enableArrows: true,
+        autoSlide: false,
+      });
+      console.log("Carousel enabled for desktop");
+    } else if (!isDesktop && pricingCarousel) {
+      // Destroy carousel and reset cards
+      pricingCarousel.destroy();
+      pricingCarousel = null;
+
+      const carousel = document.getElementById("pricingCarousel");
+      if (carousel) {
+        // Put all cards back into DOM in order
+        const allCards = document.querySelectorAll(".pricing-card");
+        allCards.forEach(card => carousel.appendChild(card));
       }
 
-      // Initialize everything when DOM is ready
-      document.addEventListener("DOMContentLoaded", initializePage);
+      console.log("Carousel disabled for mobile, showing all cards");
+    }
+  }
+  document.addEventListener("DOMContentLoaded", initializePage);
     </script>
   </body>
 </html>
