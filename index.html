@@ -86,25 +86,25 @@
             "pricing-section.html"
           );
 
-          // Now that pricing HTML is loaded, initialize the carousel
+      // Only run carousel if screen is wide enough
           setTimeout(() => {
-            const pricingCarousel = new PricingCarousel("pricingCarousel", {
-              cardsPerView: 3,
-              enableTouch: true,
-              enableDots: true,
-              enableArrows: true,
-              autoSlide: false,
-            });
-
-            window.pricingCarousel = pricingCarousel;
-            console.log("Pricing carousel initialized successfully");
+            if (window.innerWidth > 1100) {
+              const pricingCarousel = new PricingCarousel("pricingCarousel", {
+                cardsPerView: 3,
+                enableTouch: true,
+                enableDots: true,
+                enableArrows: true,
+                autoSlide: false,
+              });
+              window.pricingCarousel = pricingCarousel;
+              console.log("Pricing carousel initialized successfully");
+            } else {
+              console.log("Mobile view detected — showing all cards, carousel disabled.");
+            }
           }, 100);
 
           // Load footer
-          await HTMLLoader.loadComponent(
-            "footer",
-            "footer.html"
-          );
+          await HTMLLoader.loadComponent("footer", "footer.html");
         } catch (error) {
           console.error("Error initializing page:", error);
         }
