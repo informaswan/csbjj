@@ -1,5 +1,6 @@
 
 
+
 /* Start section with background - now separate from navbar */
 .start-section{
   background-image: url(/img/HomePagePic.webp);
@@ -12,13 +13,12 @@
   width: 101%;
   height: auto;
   margin-top: 6rem;
- 
   /* Remove the navbar from affecting this section */
 }
 
 .start-section .cta-section {
   position: absolute;
-  bottom: 15%;
+  bottom: 8%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -26,22 +26,26 @@
 }
 
 .start-section .cta-button {
-  font-size: 1.3rem;
-  padding: 1rem 2.5rem;
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  font-size: 1.5rem;
+  padding: 1.2rem 3rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   color: white;
-  font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
 }
 
 .start-section .cta-button:hover {
+  background: linear-gradient(135deg, rgba(128, 255, 54, 0.3), rgba(255, 255, 0, 0.2));
   border-color: rgb(128, 255, 54);
-  color: yellow;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: rgb(255, 255, 100);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(128, 255, 54, 0.4);
 }
 
 .start-section::after{
@@ -140,6 +144,7 @@
     font-weight: bold;
   }
   .start-section .cta-button:hover {
+  color: #2a2e35;
   background-color: rgb(128, 255, 54);
   transform: translateY(-2px);
   }
