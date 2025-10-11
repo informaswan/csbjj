@@ -12,7 +12,36 @@
   width: 101%;
   height: auto;
   margin-top: 6rem;
+ 
   /* Remove the navbar from affecting this section */
+}
+
+.start-section .cta-section {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  margin: 0;
+}
+
+.start-section .cta-button {
+  font-size: 1.3rem;
+  padding: 1rem 2.5rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.start-section .cta-button:hover {
+  border-color: rgb(128, 255, 54);
+  color: yellow;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .start-section::after{
@@ -81,4 +110,37 @@
   line-height: 1.8;
   margin-bottom: 1.5rem;
   text-align: justify;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+   .start-section {
+    margin-top: 4rem;
+    margin-bottom: 0;
+    padding-bottom: 6rem
+  }
+  
+  .start-section .cta-section {
+    
+     position: absolute;
+     margin-bottom: 1rem;
+     bottom: .05%;
+  }
+  
+  .start-section .cta-button {
+    background-color: yellow;
+    color: #2a2e35;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .start-section .cta-button:hover {
+  background-color: rgb(128, 255, 54);
+  transform: translateY(-2px);
+  }
 }
