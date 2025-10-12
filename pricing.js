@@ -173,17 +173,17 @@ class PricingCarousel {
     }
   }
 
-  goToSlide(slideIndex) {
-    // Normalize the slide index to wrap around
-    let newSlide = slideIndex % this.totalCards;
-    if (newSlide < 0) {
-      newSlide = this.totalCards + newSlide;
-    }
-    
-    this.currentSlide = newSlide;
-    this.updateCarousel();
-    this.resetAutoSlide();
+goToSlide(slideIndex) {
+  // Normalize the slide index to wrap around
+  let newSlide = slideIndex % this.totalCards;
+  if (newSlide < 0) {
+    newSlide = this.totalCards + newSlide;
   }
+  
+  this.currentSlide = newSlide;
+  this.updateCarousel();
+  this.resetAutoSlide();
+}
 
   nextSlide() {
     this.goToSlide(this.currentSlide + 1);

@@ -61,8 +61,9 @@
     <script src="pricing.js" defer></script> 
     <!-- Include the navbar JavaScript -->
     <script src="navbar.js"></script>
-   <script>
+<script>
   let pricingCarousel = null;
+  window.pricingCarousel = null;
 
   async function initializePage() {
     try {
@@ -86,7 +87,7 @@
     }
   }
 
-  function handleCarousel() {
+  async function handleCarousel() {
     const isDesktop = window.innerWidth > 1100;
 
     if (isDesktop && !pricingCarousel) {
@@ -98,23 +99,69 @@
         enableArrows: true,
         autoSlide: false,
       });
+      window.pricingCarousel = pricingCarousel;
       console.log("Carousel enabled for desktop");
     } else if (!isDesktop && pricingCarousel) {
-      // Destroy carousel and reset cards
+      // Destroy carousel
       pricingCarousel.destroy();
       pricingCarousel = null;
+      window.pricingCarousel = null;
 
-      const carousel = document.getElementById("pricingCarousel");
-      if (carousel) {
-        // Put all cards back into DOM in order
-        const allCards = document.querySelectorAll(".pricing-card");
-        allCards.forEach(card => carousel.appendChild(card));
-      }
-
+      // Reload the entire pricing section HTML to get fresh cards
+      console.log("Reloading pricing cards for mobile view");
+      await HTMLLoader.loadComponent("pricing-section", "pricing-section.html");
+      
       console.log("Carousel disabled for mobile, showing all cards");
     }
   }
+
   document.addEventListener("DOMContentLoaded", initializePage);
 </script>
+<script>
+// TOC Navigation
+document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function() {
+    const cardMapping = {
+      'Kids BJJ': 0,
+      'Adult BJJ': 1,
+      'Kickboxing': 2,
+      'Women\'s BJJ': 3,
+      'Military & First Responders': 4,
+      'Couples': 5
+    };
+
+    const tocItems = document.querySelectorAll('.toc-item');
+    
+    tocItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        const labelElement = item.querySelector('.toc-label');
+        if (!labelElement) return;
+        
+        const fullText = labelElement.textContent.trim();
+        const label = fullText.replace(/\([^)]*\)/g, '').split('\n')[0].trim();
+        const cardIndex = cardMapping[label];
+        
+        if (cardIndex !== undefined) {
+          const isDesktop = window.innerWidth > 1100;
+          
+          if (isDesktop && window.pricingCarousel) {
+            // Center the card in carousel
+            const centerOffset = 1; // Middle position of 3 cards
+            const targetSlide = (cardIndex - centerOffset + 6) % 6;
+            window.pricingCarousel.goToSlide(targetSlide);
+          } else {
+            // Scroll to card on mobile
+            const cards = document.querySelectorAll('.pricing-card');
+            if (cards[cardIndex]) {
+              cards[cardIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }
+        }
+      });
+    });
+  }, 500);
+});
+</script>
+
   </body>
 </html>

@@ -1,489 +1,522 @@
 .pricing-section {
-          padding: 4rem 2rem;
-          margin-top: 5rem; /* Add space for navbar */
-          background-color: #2a323a;
-          color: white;
-          overflow: hidden;
-          padding-bottom: 2rem;
-        }
-        .pricing-section h2 {
-          font-size: 2.5rem;
-          text-align: center;
-          margin-bottom: 2rem;
-        }
-        .section-header {
-          text-align: center;
-          margin-bottom: 3rem;
-        }
-        
-        .section-title {
-          font-size: 2.5rem;
-          color: #ffffff;
-          margin-bottom: 1rem;
-        }
-        
-        .section-subtitle {
-          font-size: 1.1rem;
-          color: #b0b0b0;
-          max-width: 600px;
-          margin: 0 auto;
-          line-height: 1.6;
-        }
+  padding: 4rem 2rem;
+  margin-top: 5rem; /* Add space for navbar */
+  background-color: #2a323a;
+  color: white;
+  overflow: hidden;
+  padding-bottom: 2rem;
+}
+.pricing-section h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
 
-        /* Table of Contents Styles */
-        .offerings-toc {
-          max-width: 800px;
-          margin: 0 auto 4rem;
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-          padding: 2rem;
-          text-align: center;
-        }
+.section-title {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
 
-        .toc-title {
-          font-size: 1.8rem;
-          color: #ffffff;
-          margin-bottom: 1.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 1rem;
-        }
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
 
-        .toc-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-          gap: 1.5rem;
-          margin-top: 1.5rem;
-        }
+/* Table of Contents Styles */
+.offerings-toc {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+}
 
-        .toc-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 1rem;
-          background: rgba(255, 255, 255, 0.03);
-          border-radius: 12px;
-          border: 1px solid rgba(255, 255, 255, 0.05);
-          transition: all 0.3s ease;
-        }
+.toc-title {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
 
-        .toc-item:hover {
-          transform: translateY(-5px);
-          background: rgba(128, 255, 54, 0.1);
-          border-color: rgba(128, 255, 54, 0.3);
-        }
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
 
-        .toc-icon {
-          font-size: 2rem;
-          margin-bottom: 0.5rem;
-        }
+.toc-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
 
-        .toc-label {
-          font-size: 0.9rem;
-          color: #e0e0e0;
-          font-weight: 500;
-          text-align: center;
-          line-height: 1.3;
-        }
-        
-        .carousel-container {
-          position: relative;
-          max-width: 1400px; /* Increased to accommodate arrows */
-          margin: 0 auto;
-          padding: 0 120px; /* Add padding for arrow space */
-        }
-        /* Style the anchor tag wrapper in pricing cards */
-        .pricing-card a {
-          display: block;
-          width: 100%;
-          text-decoration: none;
-          margin-top: auto; /* This pushes the button to the bottom of the card */
-        }
-        .pricing-carousel {
-          display: flex;
-          gap: 1.5rem; /* Reduced gap to fit better */
-          justify-content: center;
-        }
-        
-        /* CRITICAL FIX: Hide cards beyond the first 3 initially to prevent CLS */
-        .pricing-carousel .pricing-card:nth-child(n+4) {
-          display: none;
-        }
-        
-        /* After carousel is initialized, show all cards (JavaScript will handle visibility) */
-        .pricing-carousel.carousel-initialized .pricing-card {
-          display: flex;
-        }
-        
-        .pricing-card {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-          padding: 2rem; /* Reduced padding */
-          position: relative;
-          overflow: hidden;
-          transition: all 0.4s ease;
-          display: flex;
-          flex-direction: column;
-          width: 320px; /* Reduced width */
-          flex-shrink: 0;
-        }
-        
-        .pricing-card.hidden {
-          display: none;
-        }
-        
-        .pricing-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 3px;
-          background: yellow;
-          transform: scaleX(0);
-          transition: transform 0.4s ease;
-        }
-        
-        .pricing-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 20px 40px rgba(128, 255, 54, 0.2);
-          border-color: rgba(128, 255, 54, 0.3);
-        }
-        
-        .pricing-card:hover::before {
-          transform: scaleX(1);
-        }
-        .pricing-card a {
-          display: flex;
-          justify-content: center; /* Centers the button horizontally */
-          text-decoration: none;
-          margin-top: auto; /* This pushes the button to the bottom of the card */
-        }
+.toc-item:hover {
+  transform: translateY(-5px);
+  background: rgba(128, 255, 54, 0.1);
+  border-color: rgba(128, 255, 54, 0.3);
+}
 
-      /* Specific styling for CTA buttons in pricing cards - this will override main.css */
-        .pricing-card .cta-button {
-          border: none !important;
-          border-radius: 12px !important;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          padding: 0.5rem 6rem;
-          display: block !important;
-          background-color: yellow;
-          color: #000;
-          font-weight: bold;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
+.toc-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
 
-        .pricing-card .cta-button:hover {
-          background-color: rgb(128, 255, 54);
-          transform: scale(1.05);
-        }
+.toc-label {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+}
 
-        .card-header {
-          text-align: center;
-          margin-bottom: 2rem;
-        }
-        
-        .card-icon {
-          width: 60px;
-          height: 60px;
-          margin: 0 auto 1rem;
-          background: rgb(128, 255, 54);
-          border-radius: 30px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.8rem;
-          transition: transform 0.3s ease;
-        }
-        
-        .pricing-card:hover .card-icon {
-          transform: scale(1.1) rotate(5deg);
-        }
-        
-        .card-title {
-          font-size: 1.5rem;
-          font-weight: 600;
-          color: #ffffff;
-          margin-bottom: 0.5rem;
-        }
-        
-        .card-description {
-          color: #b0b0b0;
-          font-size: 0.95rem;
-          line-height: 1.5;
-        }
-        
-        .price-display {
-          text-align: center;
-          margin: 2rem 0;
-          padding: 1.5rem;
-          background: rgba(255, 255, 255, 0.03);
-          border-radius: 15px;
-          border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .price-amount {
-          font-size: 3rem;
-          font-weight: 700;
-          color: #ffffff;
-          line-height: 1;
-        }
-        
-        .price-period {
-          font-size: 1rem;
-          color: #b0b0b0;
-          margin-top: 0.5rem;
-        }
-        
-        .features-list {
-          list-style: none;
-          margin: 2rem 0;
-          flex: 1;
-        }
-        
-        .features-list li {
-          padding: 0.8rem 0;
-          color: #e0e0e0;
-          font-size: 0.95rem;
-          display: flex;
-          align-items: center;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .features-list li:last-child {
-          border-bottom: none;
-        }
-        
-        .features-list li::before {
-          content: '✓';
-          color: rgb(128, 255, 54);
-          font-weight: bold;
-          margin-right: 1rem;
-          font-size: 1.1rem;
-        }
-        
-        .popular-badge {
-          position: absolute;
-          top: -1px;
-          right: 2rem;
-          background: yellow;
-          color: #000;
-          padding: 0.5rem 1.5rem;
-          border-radius: 0 0 12px 12px;
-          font-size: 0.8rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-        }
-        
-        /* Carousel Navigation */
-        .carousel-nav {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          border-radius: 50%;
-          width: 60px;
-          height: 60px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          z-index: 10;
-        }
-        
-        .carousel-nav:hover {
-          background: rgba(128, 255, 54, 0.2);
-          border-color: rgba(128, 255, 54, 0.5);
-          transform: translateY(-50%) scale(1.1);
-        }
-        
-        .carousel-nav.prev {
-          left: 20px; /* Positioned within the padding area */
-        }
-        
-        .carousel-nav.next {
-          right: 20px; /* Positioned within the padding area */
-        }
-        
-        .carousel-nav::before {
-          content: '';
-          width: 12px;
-          height: 12px;
-          border: 2px solid #ffffff;
-          border-bottom: none;
-          border-right: none;
-          transform: rotate(-45deg);
-        }
-        
-        .carousel-nav.next::before {
-          transform: rotate(135deg);
-        }
-        
-        /* Dots indicator */
-        #carouselDots {
-          display: flex;
-          justify-content: center;
-          gap: 0.5rem;
-          margin-top: 2rem;
-        }
-        
-        .dot {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.3);
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-        
-        .dot.active {
-          background: rgb(128, 255, 54);
-          transform: scale(1.2);
-        }
-        
-        @media (max-width: 1500px) {
-          .carousel-container {
-            padding: 0 80px; /* Increased padding for arrow space */
-          }
-          .pricing-card {
-            width: 280px; /* Slightly smaller cards */
-          }
-          
-          .carousel-nav {
-            width: 50px;
-            height: 50px;
-          }
-          
-          .carousel-nav::before {
-            width: 10px;
-            height: 10px;
-          }
-          
-          .toc-grid {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-          }
-        }
-        
-        @media (max-width: 1300px) {
-          .carousel-container {
-            padding: 0 70px;
-          }
-          
-          .pricing-card {
-            width: 260px; /* Further reduce card size */
-            padding: 1.5rem;
-          }
-          
-          .card-title {
-            font-size: 1.3rem;
-          }
-          
-          .price-amount {
-            font-size: 2.5rem;
-          }
-          
-          .pricing-card .cta-button {
-            padding: 0.5rem 4rem; /* Smaller button */
-            font-size: 0.9rem;
-          }
-          
-          .carousel-nav {
-            width: 45px;
-            height: 45px;
-          }
-        }
-        
-        @media (max-width: 1200px) {
-          .carousel-container {
-            padding: 0 60px;
-          }
-          
-          .pricing-card {
-            width: 240px; /* Even smaller cards */
-            padding: 1.25rem;
-          }
-          
-          .card-icon {
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
-          }
-          
-          .pricing-card .cta-button {
-            padding: 0.4rem 3rem; /* Even smaller button */
-            font-size: 0.85rem;
-          }
-          
-          .carousel-nav {
-            width: 40px;
-            height: 40px;
-          }
-          
-          .carousel-nav.prev {
-            left: 10px;
-          }
-          
-          .carousel-nav.next {
-            right: 10px;
-          }
-        }
-        
-        @media (max-width: 1100px) {
-          .pricing-section {
-            padding: 2rem 1rem;
-            padding-top: 8rem; /* Maintain navbar spacing on mobile */
-          }
-          
-          .carousel-container {
-            padding: 0; /* Remove padding on mobile */
-          }
-          
-          .pricing-card {
-            width: 100%;
-            max-width: 400px;
-          }
-          
-          .pricing-carousel {
-            flex-direction: column;
-            align-items: center;
-          }
-          
-          /* On mobile, show all cards initially */
-          .pricing-carousel .pricing-card:nth-child(n+4) {
-            display: flex;
-          }
-          
-          .carousel-nav, .carousel-dots {
-            display: none; /* Hide navigation on mobile */
-          }
-          
-          /* Show all cards on mobile */
-          .pricing-card.hidden {
-            display: flex;
-          }
+.carousel-container {
+  position: relative;
+  max-width: 1400px; /* Increased to accommodate arrows */
+  margin: 0 auto;
+  padding: 0 120px; /* Add padding for arrow space */
+}
+/* Style the anchor tag wrapper in pricing cards */
+.pricing-card a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  margin-top: auto; /* This pushes the button to the bottom of the card */
+}
+.pricing-carousel {
+  display: flex;
+  gap: 1.5rem; /* Reduced gap to fit better */
+  justify-content: center;
+}
 
-          .offerings-toc {
-            margin-bottom: 3rem;
-            padding: 1.5rem;
-          }
+/* CRITICAL FIX: Hide cards beyond the first 3 initially to prevent CLS */
+.pricing-carousel .pricing-card:nth-child(n + 4) {
+  display: none;
+}
 
-          .toc-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-          }
+/* After carousel is initialized, show all cards (JavaScript will handle visibility) */
+.pricing-carousel.carousel-initialized .pricing-card {
+  display: flex;
+}
 
-          .toc-title {
-            font-size: 1.5rem;
-          }
-        }
+.pricing-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem; /* Reduced padding */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  width: 320px; /* Reduced width */
+  flex-shrink: 0;
+}
+
+.pricing-card.hidden {
+  display: none;
+}
+
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: yellow;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(128, 255, 54, 0.2);
+  border-color: rgba(128, 255, 54, 0.3);
+}
+
+.pricing-card:hover::before {
+  transform: scaleX(1);
+}
+.pricing-card a {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  text-decoration: none;
+  margin-top: auto; /* This pushes the button to the bottom of the card */
+}
+
+/* Specific styling for CTA buttons in pricing cards - this will override main.css */
+.pricing-card .cta-button {
+  border: none !important;
+  border-radius: 12px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.5rem 6rem;
+  display: block !important;
+  background-color: yellow;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pricing-card .cta-button:hover {
+  background-color: rgb(128, 255, 54);
+  transform: scale(1.05);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+  background: rgb(128, 255, 54);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+
+.pricing-card:hover .card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  color: #b0b0b0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.price-display {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.price-amount {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 1rem;
+  color: #b0b0b0;
+  margin-top: 0.5rem;
+}
+
+.features-list {
+  list-style: none;
+  margin: 2rem 0;
+  flex: 1;
+}
+
+.features-list li {
+  padding: 0.8rem 0;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.features-list li:last-child {
+  border-bottom: none;
+}
+
+.features-list li::before {
+  content: "✓";
+  color: rgb(128, 255, 54);
+  font-weight: bold;
+  margin-right: 1rem;
+  font-size: 1.1rem;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -1px;
+  right: 2rem;
+  background: yellow;
+  color: #000;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0 0 12px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Carousel Navigation */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.carousel-nav:hover {
+  background: rgba(128, 255, 54, 0.2);
+  border-color: rgba(128, 255, 54, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+  left: 20px; /* Positioned within the padding area */
+}
+
+.carousel-nav.next {
+  right: 20px; /* Positioned within the padding area */
+}
+
+.carousel-nav::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: 2px solid #ffffff;
+  border-bottom: none;
+  border-right: none;
+  transform: rotate(-45deg);
+}
+
+.carousel-nav.next::before {
+  transform: rotate(135deg);
+}
+
+/* Dots indicator */
+#carouselDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: rgb(128, 255, 54);
+  transform: scale(1.2);
+}
+
+@media (max-width: 1500px) {
+  .carousel-container {
+    padding: 0 80px; /* Increased padding for arrow space */
+  }
+  .pricing-card {
+    width: 280px; /* Slightly smaller cards */
+  }
+
+  .carousel-nav {
+    width: 50px;
+    height: 50px;
+  }
+
+  .carousel-nav::before {
+    width: 10px;
+    height: 10px;
+  }
+
+  .toc-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 1300px) {
+  .carousel-container {
+    padding: 0 70px;
+  }
+
+  .pricing-card {
+    width: 260px; /* Further reduce card size */
+    padding: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .price-amount {
+    font-size: 2.5rem;
+  }
+
+  .pricing-card .cta-button {
+    padding: 0.5rem 4rem; /* Smaller button */
+    font-size: 0.9rem;
+  }
+
+  .carousel-nav {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .carousel-container {
+    padding: 0 60px;
+  }
+
+  .pricing-card {
+    width: 240px; /* Even smaller cards */
+    padding: 1.25rem;
+  }
+
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .pricing-card .cta-button {
+    padding: 0.4rem 3rem; /* Even smaller button */
+    font-size: 0.85rem;
+  }
+
+  .carousel-nav {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-nav.prev {
+    left: 10px;
+  }
+
+  .carousel-nav.next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .pricing-section {
+    padding: 2rem 1rem;
+    padding-top: 8rem; /* Maintain navbar spacing on mobile */
+  }
+
+  .carousel-container {
+    padding: 0; /* Remove padding on mobile */
+  }
+
+  .pricing-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 1.5rem;
+  }
+
+  .pricing-carousel {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* On mobile, show all cards initially */
+  .pricing-carousel .pricing-card:nth-child(n + 4) {
+    display: flex;
+  }
+
+  .carousel-nav,
+  .carousel-dots {
+    display: none; /* Hide navigation on mobile */
+  }
+
+  /* Show all cards on mobile */
+  .pricing-card.hidden {
+    display: flex;
+  }
+  /* Force all cards visible on mobile - override any carousel state */
+  .pricing-carousel .pricing-card {
+    display: flex !important;
+  }
+  .offerings-toc {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+  }
+
+  .toc-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .toc-title {
+    font-size: 1.5rem;
+  }
+  .card-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .price-display {
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .price-amount {
+    font-size: 2.5rem;
+  }
+
+  .features-list {
+    margin: 1.5rem 0;
+  }
+
+  .features-list li {
+    padding: 0.6rem 0;
+    font-size: 0.9rem;
+  }
+}
