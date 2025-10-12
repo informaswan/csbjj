@@ -1,6 +1,3 @@
-
-
-
 /* Start section with background - now separate from navbar */
 .start-section{
   background-image: url(/img/HomePagePic.webp);
@@ -23,11 +20,16 @@
   transform: translateX(-50%);
   z-index: 10;
   margin: 0;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .start-section .cta-button {
-  font-size: 1.5rem;
-  padding: 1.2rem 3rem;
+  font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+  padding: clamp(0.8rem, 1.2vw, 1.2rem) clamp(1.5rem, 3vw, 3rem);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
   backdrop-filter: blur(12px);
   border: 2px solid rgba(255, 255, 255, 0.4);
@@ -38,6 +40,9 @@
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   letter-spacing: 0.5px;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .start-section .cta-button:hover {
@@ -120,15 +125,20 @@
 @media (max-width: 768px) {
    .start-section {
     margin-top: 4rem;
-    margin-bottom: 0;
-    padding-bottom: 6rem
+    margin-bottom: 1rem;
+    padding-bottom: 0;
+    min-height: 400px;
   }
   
   .start-section .cta-section {
-    
      position: absolute;
-     margin-bottom: 1rem;
-     bottom: .05%;
+     bottom: -1px;
+     left: 50%;
+     transform: translateX(-50%);
+     margin: 0;
+     gap: 0.75rem;
+     flex-direction: column;
+     padding: 0 1rem;
   }
   
   .start-section .cta-button {
@@ -144,11 +154,11 @@
     font-weight: bold;
     text-shadow: none;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-
   }
+  
   .start-section .cta-button:hover {
-  color: #2a2e35;
-  background-color: rgb(128, 255, 54);
-  transform: translateY(-2px);
+    color: #2a2e35;
+    background-color: rgb(128, 255, 54);
+    transform: translateY(-2px);
   }
 }
