@@ -1,0 +1,138 @@
+/* Women's BJJ Page Specific Styles */
+.women-intro {
+  background-color: #2a323a;
+  padding: 3rem 0;
+  margin-top: 6rem;
+  text-align: center;
+}
+
+.women-intro img{
+  align-content: center;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  max-width: 1000px;
+  min-height: auto;
+  height: auto;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.women-intro h2 {
+  font-size: 2.5rem;
+  color: #f8f9fa;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.intro-text {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  text-align: center;
+  color: #fff;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.classes-overview {
+  background-color: #343a40;
+  padding: 4rem 0;
+}
+
+.benefits-section {
+  background-color: #2a323a;
+  padding: 4rem 0;
+}
+
+.women-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.women-container.reverse {
+  flex-direction: row-reverse;
+}
+
+.content-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.content-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.content-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.content-text h2 {
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.content-text h2:first-child {
+  margin-top: 0;
+}
+
+.content-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #e9ecef;
+  margin-bottom: 1.5rem;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.benefits-list li {
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  color: #e9ecef;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.benefits-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Responsive design for women's page */
+@media (max-width: 768px) {
+  .women-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .women-container.reverse {
+    flex-direction: column;
+  }
+  
+  .content-text h2 {
+    font-size: 1.5rem;
+  }
+  
+  .intro-text {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+}

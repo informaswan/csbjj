@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="womans.css">
+    <link rel="icon" href="img/csbjjlogo.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="header-navbar.css" type="text/css"/>
+    <meta name="author" content="Michael Swanson"/>
+    <meta
+          name="description"
+          content="Women's Brazilian Jiu-Jitsu classes in Colorado Springs - A safe, empowering environment to learn self-defense and get fit"
+        />
+    <title>Women's BJJ Classes | Colorado Springs BJJ</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <!-- Header and Navbar will be loaded here -->
+    <div id="header-navbar"></div>
+
+    <!-- Women's BJJ Hero Section with Background -->
+    <section class="start-sectionWomen">
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="women-intro">
+      <h2>Women's Brazilian Jiu-Jitsu in Colorado Springs</h2>
+      <img src="/img/AdultGirls.webp" alt="Women training Brazilian Jiu-Jitsu" loading="lazy">
+      <div class="container">
+        <p class="intro-text">
+          <strong
+            >Step into a supportive, empowering environment designed exclusively
+            for women at Colorado Springs Brazilian Jiu-Jitsu.</strong
+          >
+          Our women's BJJ classes offer more than just a workout—they provide
+          <strong
+            >practical self-defense skills, an amazing fitness experience, and a
+            welcoming community of like-minded women.</strong
+          >
+          Train in a safe space where you can focus on your growth, build
+          confidence, and leave your worries at the door. Your journey to
+          strength and empowerment starts here.
+        </p>
+      </div>
+    </section>
+
+    <!-- Classes Overview Section - First image LEFT -->
+    <section class="classes-overview">
+      <div class="women-container">
+        <div class="content-image">
+          <img
+            src="/img/LotsOfWomenandBill.WEBP.webp"
+            alt="Women's BJJ training at Colorado Springs BJJ"
+            loading="lazy"
+          />
+        </div>
+               <div class="content-text">
+          <h2>
+            Join Our Women's BJJ Classes in Colorado Springs and Experience:
+          </h2>
+          <ul class="benefits-list">
+            <li>Practical self-defense skills that really work</li>
+            <li>A safe, supportive environment with other women</li>
+            <li>An incredible full-body workout</li>
+            <li>Stress relief and mental clarity</li>
+            <li>Increased confidence and empowerment</li>
+            <li>A welcoming community that feels like family</li>
+          </ul>
+
+          <h2>Leave Your Worries Behind and Focus on You</h2>
+          <p>
+            Life is busy and stressful. Our women's BJJ classes offer a rare
+            opportunity to step away from everything else and focus purely on
+            yourself. When you're on the mat, nothing else matters—just your
+            growth, your progress, and your journey. It's more than training;
+            it's self-care.
+          </p>
+
+          <div class="cta-section">
+            <a href="pricing.html" style="text-decoration: none;">
+                    <button class="cta-button">Start Your Journey!</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer will be loaded here -->
+    <div id="footer"></div>
+
+     <!-- Include the navbar JavaScript -->
+   <script src="navbar.js"></script>
+    <script>
+      async function initializePage() {
+        try {
+          // Load header and navbar
+          const headerResponse = await fetch("header-navbar.html");
+          const headerHtml = await headerResponse.text();
+          document.getElementById("header-navbar").innerHTML = headerHtml;
+          
+          // Initialize navbar functionality after it's loaded
+          console.log('Initializing navbar...');
+          initializeNavbar();
+
+          // Load footer
+          const footerResponse = await fetch("footer.html");
+          const footerHtml = await footerResponse.text();
+          document.getElementById("footer").innerHTML = footerHtml;
+          
+          console.log('Page initialization complete');
+        } catch (error) {
+          console.error("Error initializing page:", error);
+        }
+      }
+
+      // Initialize everything when DOM is ready
+      document.addEventListener("DOMContentLoaded", initializePage);
+    </script>
+  </body>
+</html>
