@@ -12,7 +12,84 @@
         color: #f8f9fa;
       }
 
-       .event-card img {
+      .event-card {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .event-details {
+        background-color: #2a323a;
+        padding: 2rem;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      .event-details h3 {
+        font-size: 2rem;
+        color: yellow;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .event-details p {
+        font-size: 1.1rem;
+        margin: 0.75rem 0;
+        line-height: 1.6;
+      }
+
+      .event-date {
+        font-size: 1.3rem;
+        color: whitesmoke;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .event-time {
+        font-size: 1.2rem;
+        text-align: center;
+        color: #e0e0e0;
+      }
+
+      .event-price {
+        font-size: 1.2rem;
+        color: whitesmoke;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+
+      .event-note {
+        font-size: 1rem;
+        color: whitesmoke;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .event-location {
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid whitesmoke;
+        text-align: center;
+        color: yellow;
+      }
+
+      .event-contact {
+        font-size: 1.1rem;
+        color: rgb(128, 255, 54);
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .event-card a {
+        display: block;
+        text-decoration: none;
+      }
+
+      .event-card img {
         background-color: #2a323a;
         width: 100%;
         max-width: 500px;
@@ -20,9 +97,16 @@
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        display: block; /* Make it a block element */
-        margin: 0 auto; /* Center the image horizontally */
-        }
+        display: block;
+        margin: 0 auto;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 3rem;
+      }
+
+      .event-card a:hover img {
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+      }
         
       .event-placeholder {
         text-align: center;

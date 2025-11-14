@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="home.css" type="text/css" />
   <link rel="stylesheet" href="pricing.css" type="text/css">
   <link rel="stylesheet" href="header-navbar.css" type="text/css"/>
+  <link rel="stylesheet" href="blog.css" type="text/css" />
   <link rel="preload" href="/img/HomePagePic.webp" as="image">
 
     <meta name="author" content="Michael Swanson" />
@@ -62,10 +63,12 @@
         </div>
       </div>
       </section>
+      
       <section class="pricing-section" style="margin: 0rem;">
         <h2>What We Offer!</h2>
         <div id="pricing-section"></div>   
       </section>
+      <div id="Event"></div>
     <div id="footer"></div>
     
     <!-- Include the carousel JavaScript class -->
@@ -80,7 +83,7 @@
       // Load header
       await HTMLLoader.loadComponent("header-navbar", "header-navbar.html");
       initializeNavbar();
-
+      await HTMLLoader.loadComponent("Event", "blog.html");
       // Load pricing HTML
       await HTMLLoader.loadComponent("pricing-section", "pricing-section.html");
 
