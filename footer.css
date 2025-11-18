@@ -30,8 +30,51 @@
       contain: layout;
   }
 
+  .footer-left {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+  }
+
+  .footer-left a {
+      display: block;
+      transition: transform 0.3s ease;
+  }
+
+  .footer-left a:hover {
+      transform: scale(1.05);
+  }
+
+  .footer-left img {
+      max-width: 120px;
+      height: auto;
+      /* Add performance optimizations */
+      will-change: auto;
+      contain: layout;
+  }
+
+  .affiliate-text {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin: 0;
+      text-align: center;
+  }
+
   .footer-center {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+  }
+
+  .footer-center img {
+      max-width: 300px;
+      height: auto;
+      will-change: auto;
+      contain: layout;
   }
 
   .footer-center address {
