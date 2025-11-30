@@ -92,7 +92,14 @@
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
-
+.pricing-section {
+  padding: 4rem 2rem;
+  margin-top: 5rem; /* Add space for navbar */
+  background-color: #343a40;
+  color: white;
+  overflow: hidden;
+  padding-bottom: 2rem;
+}
 /* Container for consistent width and centering */
 .container {
   max-width: 1200px;
@@ -102,7 +109,7 @@
 
 /* About section styling */
 .about-section {
-  background-color:#343a40 ;
+  background-color:#2a2e35 ;
   padding: 4rem 0;
   color: #f8f9fa;
 }
