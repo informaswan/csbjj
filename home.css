@@ -95,7 +95,7 @@
 .pricing-section {
   padding: 4rem 2rem;
   margin-top: 5rem; /* Add space for navbar */
-  background-color: #343a40;
+  background-color: #2a2e35;
   color: white;
   overflow: hidden;
   padding-bottom: 2rem;
@@ -109,7 +109,7 @@
 
 /* About section styling */
 .about-section {
-  background-color:#2a2e35 ;
+  background-color: #343a40;
   padding: 4rem 0;
   color: #f8f9fa;
 }
