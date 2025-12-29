@@ -452,13 +452,14 @@
 
   .pricing-card {
     width: 100%;
-    max-width: 360px;
-    padding: 1.5rem;
+    max-width: 300px;
+    padding: 1.5rem 1rem;
   }
 
   .pricing-carousel {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
 
   /* On mobile, show all cards initially */
@@ -492,31 +493,50 @@
   .toc-title {
     font-size: 1.5rem;
   }
+  
+  /* Hide elements on mobile for compact view */
   .card-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
+    display: none;
+  }
+  
+  .card-description {
+    display: none;
+  }
+  
+  .features-list {
+    display: none;
+  }
+  
+  .popular-badge {
+    padding: 0.4rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .card-header {
+    margin-bottom: 1rem;
   }
 
   .card-title {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    margin-bottom: 0;
   }
 
   .price-display {
     padding: 1rem;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
   }
 
   .price-amount {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
-
-  .features-list {
-    margin: 1.5rem 0;
-  }
-
-  .features-list li {
-    padding: 0.6rem 0;
+  
+  .price-period {
     font-size: 0.9rem;
   }
+  
+  .pricing-card .cta-button {
+    padding: 0.6rem 2rem;
+    font-size: 0.9rem;
+  }
+}
 }
