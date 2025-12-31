@@ -34,10 +34,10 @@
                     <div class="toc-icon">🥋</div>
                     <div class="toc-label">Adult BJJ<br>(All Levels)</div>
                 </div>
-                <!-- <div class="toc-item">
+                <div class="toc-item">
                     <div class="toc-icon">👊</div>
                     <div class="toc-label">Kickboxing<br>(High Energy)</div>
-                </div> -->
+                </div>
                 <div class="toc-item">
                     <div class="toc-icon">💪</div>
                     <div class="toc-label">Women's BJJ<br>(Empowering)</div>
@@ -124,9 +124,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const cardMapping = {
       'Kids BJJ': 0,
       'Adult BJJ': 1,
-      'Women\'s BJJ': 2,
-      'Military & First Responders': 3,
-      'Couples': 4
+      'Kickboxing': 2,
+      'Women\'s BJJ': 3,
+      'Military & First Responders': 4,
+      'Couples': 5
     };
 
     const tocItems = document.querySelectorAll('.toc-item');
@@ -146,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function() {
           if (isDesktop && window.pricingCarousel) {
             // Center the card in carousel
             const centerOffset = 1; // Middle position of 3 cards
-            const targetSlide = (cardIndex - centerOffset + 5) % 5;
+            const targetSlide = (cardIndex - centerOffset + 6) % 6;
             window.pricingCarousel.goToSlide(targetSlide);
           } else {
             // Scroll to card on mobile
