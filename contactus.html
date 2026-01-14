@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <link rel="stylesheet" href="contactus.css">
-        <link rel="stylesheet" href="main.css" type="text/css" />
-        <link rel="icon" href="img/csbjjlogo.webp" type="image/x-icon" />
-        <link rel="stylesheet" href="header-navbar.css" type="text/css"/>
-        <meta name="author" content="Michael Swanson" />
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta
-          name="description"
-          content="Contact CSBJJ page"
-        />
-    <title>Contact Us | Colorado Springs BJJ</title>
-    </head>
 <body>
-    <div id="header-navbar"></div>
     <div class="contact-section">
         <div class="section-header">
             <h1 class="section-title">Contact Us</h1>
@@ -24,7 +7,7 @@
                 <h2 class="call-us-title">Call Us</h2>
                 <a href="tel:719-439-5776" class="phone-number">719-439-5776</a>
             </div>
-          </div>
+        </div>
 
         <div class="form-container">
             <div class="contact-card">
@@ -34,11 +17,11 @@
                     <p class="form-description">Fill out the form below and we'll get back to you within 24 hours</p>
                 </div>
 
-                <div id="successMessage" class="success-message" style="display: none;">
+                <div id="successMessage" class="success-message">
                     Thank you! Your message has been sent successfully. We'll get back to you soon.
                 </div>
                 
-                <div id="errorMessage" class="error-message" style="display: none;">
+                <div id="errorMessage" class="error-message">
                     Please fill in all required fields correctly.
                 </div>
 
@@ -61,7 +44,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Phone Number<span class="required">*</span></label>
+                        <label for="phone">Phone Number <span class="required">*</span></label>
                         <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
                     </div>
 
@@ -70,79 +53,68 @@
                         <textarea id="message" name="message" placeholder="Let us know what questions you have..." rows="4"></textarea>
                     </div>
 
+                    <!-- reCAPTCHA v2 -->
+                    <div class="recaptcha-container">
+                        <div class="g-recaptcha" data-sitekey="6Lcm4kksAAAAACXmnGTR9FM9HN-xG-27jg52o0Qw"></div>
+                    </div>
+
                     <button type="submit" class="cta-button" id="submitBtn">Send Message</button>
                 </form>
             </div>
         </div>
     </div>
-    </section>
-    <div id="footer"></div>
+
+    <!-- reCAPTCHA Script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     
-    <script src="navbar.js"></script>
     <script>
-      emailjs.init('8qMKhFAwBtbkeX9fe');
-      
-      async function initializePage() {
-        try {
-          // Load header and navbar
-          const headerResponse = await fetch("header-navbar.html");
-          const headerHtml = await headerResponse.text();
-          document.getElementById("header-navbar").innerHTML = headerHtml;
-          
-          // Initialize navbar functionality after it's loaded
-          console.log('Initializing navbar...');
-          initializeNavbar();
+        // Initialize EmailJS
+        emailjs.init('8qMKhFAwBtbkeX9fe');
 
-          // Load footer
-          const footerResponse = await fetch("footer.html");
-          const footerHtml = await footerResponse.text();
-          document.getElementById("footer").innerHTML = footerHtml;
-          
-          console.log('Page initialization complete');
-        } catch (error) {
-          console.error("Error initializing page:", error);
-        }
-      }
-
-      // Handle form submission
-      document.getElementById('contact-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const submitBtn = document.getElementById('submitBtn');
-        const successMessage = document.getElementById('successMessage');
-        const errorMessage = document.getElementById('errorMessage');
-        
-        // Hide messages
-        successMessage.style.display = 'none';
-        errorMessage.style.display = 'none';
-        
-        // Show loading state
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        // Send email using EmailJS
-        emailjs.sendForm('service_n8fpsfb', 'template_33bk7xo', this)
-          .then(function() {
-            console.log('SUCCESS!');
-            successMessage.style.display = 'block';
-            document.getElementById('contact-form').reset();
-          }, function(error) {
-            console.log('FAILED...', error);
-            errorMessage.textContent = 'Failed to send message. Please try again.';
-            errorMessage.style.display = 'block';
-          })
-          .finally(function() {
-            // Reset button state
-            submitBtn.textContent = 'Send Message';
-            submitBtn.disabled = false;
-          });
-      });
-
-      // Initialize everything when DOM is ready
-      document.addEventListener("DOMContentLoaded", initializePage);
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Hide messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Verify reCAPTCHA
+            const recaptchaResponse = grecaptcha.getResponse();
+            
+            if (recaptchaResponse.length === 0) {
+                errorMessage.textContent = 'Please complete the reCAPTCHA verification.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Send email using EmailJS
+            emailjs.sendForm('service_n8fpsfb', 'template_33bk7xo', this)
+                .then(function() {
+                    console.log('SUCCESS!');
+                    successMessage.style.display = 'block';
+                    document.getElementById('contact-form').reset();
+                    grecaptcha.reset(); // Reset reCAPTCHA
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    errorMessage.textContent = 'Failed to send message. Please try again.';
+                    errorMessage.style.display = 'block';
+                })
+                .finally(function() {
+                    // Reset button state
+                    submitBtn.textContent = 'Send Message';
+                    submitBtn.disabled = false;
+                });
+        });
     </script>
-</body>
-</html>
