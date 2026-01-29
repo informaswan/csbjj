@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Videos - Colorado Springs BJJ</title>
+    <link rel="icon" href="img/csbjjlogo.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <link rel="stylesheet" href="header-navbar.css" type="text/css" />
+    <link rel="stylesheet" href="videos.css" type="text/css" />
+  </head>
+  <body>
+    <div id="header-navbar"></div>
+
+    <main class="videos-section container">
+      <h1>Videos</h1>
+      <p class="lead">Watch highlights from our training sessions, techniques, and community events.</p>
+
+      <div class="videos-grid" id="videos-grid">
+        <div class="video-item">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/O9LqH5aCQ88" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="video-item">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/OobvLTnLmP0" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="video-item">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/wLT81etddQo" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+
+        <div class="video-item">
+          <div class="video-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/6YQ-dCf1wyg" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="pricing.js" defer></script>
+    <script src="navbar.js" defer></script>
+    <script>
+      async function initializePage() {
+        try {
+          await HTMLLoader.loadComponent('header-navbar', 'header-navbar.html');
+          initializeNavbar();
+          await HTMLLoader.loadComponent('footer', 'footer.html');
+        } catch (err) {
+          console.error('Error loading components', err);
+        }
+      }
+      document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+  </body>
+</html>
