@@ -125,3 +125,9 @@
         color: yellow;
         margin-bottom: 1rem;
       }
+
+/* Override for events section embedded in home page */
+.home-events {
+  padding-top: 4rem;
+  background-color: #2a2e35;
+}

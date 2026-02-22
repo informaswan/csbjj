@@ -64,9 +64,31 @@
       </div>
       </section>
       
+      <section class="events-section home-events">
+        <div class="container">
+          <h2>Upcoming Events!</h2>
+          <div class="event-card">
+            <a href="img/JeffGlover.jpg" target="_blank">
+              <img src="img/JeffGlover.jpg" alt="Jeff Glover BJJ Seminar - March 6th 2026">
+            </a>
+            <div class="event-details">
+              <h3>Jeff Glover - BJJ Seminar</h3>
+              <p class="event-date">Friday, March 6th, 2026</p>
+              <p class="event-time">6:00 PM</p>
+              <p class="event-price">$80</p>
+              <a class="event-location" href="https://goo.gl/maps/JkxWgphSiiiGdQ75A">3226 N Nevada Ave, Colorado Springs, CO 80907</a>
+              <p class="event-contact">Call 719-439-5776 for more info</p>
+            </div>
+          </div>
+          <div class="cta-section">
+            <a href="blog.html"><button class="cta-button">See All Events</button></a>
+          </div>
+        </div>
+      </section>
+
       <section class="pricing-section" style="margin: 0rem;">
         <h2>What We Offer!</h2>
-        <div id="pricing-section"></div>   
+        <div id="pricing-section"></div>
       </section>
      
     <div id="footer"></div>
@@ -83,7 +105,6 @@
       // Load header
       await HTMLLoader.loadComponent("header-navbar", "header-navbar.html");
       initializeNavbar();
-      await HTMLLoader.loadComponent("Event", "blog.html");
       // Load pricing HTML
       await HTMLLoader.loadComponent("pricing-section", "pricing-section.html");
 
