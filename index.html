@@ -100,7 +100,7 @@
     }
   }
 
-  function handleCarousel() {
+  async function handleCarousel() {
     const isDesktop = window.innerWidth > 1100;
 
     if (isDesktop && !pricingCarousel) {
@@ -114,16 +114,13 @@
       });
       console.log("Carousel enabled for desktop");
     } else if (!isDesktop && pricingCarousel) {
-      // Destroy carousel and reset cards
+      // Destroy carousel
       pricingCarousel.destroy();
       pricingCarousel = null;
 
-      const carousel = document.getElementById("pricingCarousel");
-      if (carousel) {
-        // Put all cards back into DOM in order
-        const allCards = document.querySelectorAll(".pricing-card");
-        allCards.forEach(card => carousel.appendChild(card));
-      }
+      // Reload the entire pricing section HTML to get fresh cards
+      console.log("Reloading pricing cards for mobile view");
+      await HTMLLoader.loadComponent("pricing-section", "pricing-section.html");
 
       console.log("Carousel disabled for mobile, showing all cards");
     }
