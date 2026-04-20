@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="header-navbar.css" type="text/css"/>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="couples.css" />
+    <meta charset="UTF-8" />
+    <meta name="author" content="Michael Swanson" />
+    <meta
+      name="description"
+      content="This is the couples training page for csbjj"
+    />
+    <title>Couples | Colorado Springs BJJ</title>
+    <link rel="icon" href="img/csbjjlogo.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    </head>
+  <body>
+    <div id="header-navbar"></div>
+
+    <!-- Main Content Section -->
+    <section class="couples-content">
+      <div class="container">
+        <h2>Couples Brazilian Jiu-Jitsu <br>Train Together, Grow Together</h2>
+        <p class="intro-text">
+          <strong>Train Together as a Team and Strengthen Your Bond</strong>
+        </p>
+        <p class="intro-text">
+          <strong>Colorado Springs Brazilian Jiu-Jitsu offers a unique opportunity for couples to train together in a supportive, energetic environment. Whether you're newlyweds, long-term partners, or just looking to share a new experience, our couples classes bring you closer through shared goals, mutual support, and the incredible benefits of Brazilian Jiu-Jitsu. Join us and discover how training together can enhance your relationship and transform your lives.</strong>
+        </p>
+
+        <h2>Build Trust and Communication on the Mat</h2>
+        <p>
+          <strong>Training Brazilian Jiu-Jitsu as a couple creates a unique dynamic where you learn to trust each other completely. On the mat, you'll develop a deeper understanding of your partner's strengths and weaknesses, and learn how to support each other through challenges. This mutual accountability naturally carries over into your everyday life, creating stronger communication and partnership both inside and outside the gym.</strong>
+        </p>
+
+        <p>
+          <strong>Together, you'll:</strong>
+        </p>
+        <ul class="couples-benefits-list">
+          <li><strong>Develop trust and communication skills</strong></li>
+          <li><strong>Share a common passion and commitment</strong></li>
+          <li><strong>Push each other toward your fitness and martial arts goals</strong></li>
+        </ul>
+
+        <h2>More Than Just Exercise – It's Quality Time Together</h2>
+        <p>
+          <strong>Couples who train Brazilian Jiu-Jitsu together experience benefits that go far beyond physical fitness. You'll spend time together focused on something challenging and rewarding, creating lasting memories filled with laughter, encouragement, and mutual respect. In a world where couples are often pulled in different directions, the mat becomes a place where you're fully present with each other.</strong>
+        </p>
+
+        <h2>Strengthen Your Relationship While Getting in Shape</h2>
+        <p>
+          <strong>Brazilian Jiu-Jitsu provides a healthy outlet for stress, boosting endorphins and creating positive emotions that flow into your relationship. You'll both experience improved physical fitness, increased confidence, and the deep satisfaction of working toward shared goals. When you celebrate each other's achievements and support each other through the tough moments, your bond becomes unbreakable.</strong>
+        </p>
+
+        <p>
+          <strong>Our world-class instructors create a welcoming environment where couples can learn at their own pace, supporting each other every step of the way. Imagine leaving the gym together, covered in sweat and laughing, knowing that you just challenged yourselves physically and emotionally. This is what couples training at Colorado Springs Brazilian Jiu-Jitsu can offer you. Take the first step and start your journey as a team.</strong>
+        </p>
+
+        <div class="cta-section">
+          <a href="pricing.html" style="text-decoration: none;">
+          <button class="cta-button">Start Training Together!</button>
+          </a>
+        </div>
+      </div>
+    </section>
+    <div id="footer"></div>
+   <script src="navbar.js"></script>
+    <script>
+      async function initializePage() {
+        try {
+          // Load header and navbar
+          const headerResponse = await fetch("header-navbar.html");
+          const headerHtml = await headerResponse.text();
+          document.getElementById("header-navbar").innerHTML = headerHtml;
+
+          // Initialize navbar functionality after it's loaded
+          console.log('Initializing navbar...');
+          initializeNavbar();
+
+          // Load footer
+          const footerResponse = await fetch("footer.html");
+          const footerHtml = await footerResponse.text();
+          document.getElementById("footer").innerHTML = footerHtml;
+
+          console.log('Page initialization complete');
+        } catch (error) {
+          console.error("Error initializing page:", error);
+        }
+      }
+
+      // Initialize everything when DOM is ready
+      document.addEventListener("DOMContentLoaded", initializePage);
+    </script>
+  </body>
+</html>
