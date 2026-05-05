@@ -1,0 +1,111 @@
+<h2>Page Layout — Rigan Machado Red Belt Promotion</h2>
+<p class="subtitle">Three approaches for the promotion tribute page. Click one to select.</p>
+
+<style>
+  .layout-cards { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
+  .layout-card {
+    flex: 1; min-width: 260px; border: 2px solid #444; border-radius: 12px;
+    overflow: hidden; cursor: pointer; transition: border-color 0.2s;
+    background: #1e2329;
+  }
+  .layout-card:hover { border-color: #f0c040; }
+  .layout-card.selected { border-color: #f0c040; box-shadow: 0 0 0 3px rgba(240,192,64,0.3); }
+  .layout-card .card-title {
+    background: #2a323a; color: #f8f9fa; padding: 12px 16px;
+    font-weight: bold; font-size: 1rem; border-bottom: 1px solid #444;
+  }
+  .layout-card .badge {
+    display: inline-block; background: #f0c040; color: #1a1a1a;
+    font-size: 0.65rem; font-weight: 800; padding: 2px 7px;
+    border-radius: 99px; margin-left: 8px; vertical-align: middle;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .wire { background: #2a323a; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+  .w-block {
+    background: #343a40; border-radius: 6px; display: flex;
+    align-items: center; justify-content: center;
+    font-size: 0.7rem; color: #aaa; font-style: italic; text-align: center;
+  }
+  .w-photo-main { height: 80px; border: 2px dashed #f0c040; color: #f0c040; font-style: normal; font-weight: bold; font-size: 0.75rem; }
+  .w-photo-sm { height: 52px; }
+  .w-text { height: 40px; }
+  .w-text-sm { height: 28px; }
+  .w-headline { height: 32px; background: transparent; border: 1px solid #555; color: #f8f9fa; font-weight: bold; font-size: 0.8rem; }
+  .w-row { display: flex; gap: 8px; }
+  .w-row > * { flex: 1; }
+  .w-lineage { height: 70px; background: #1e2329; border: 1px solid #f0c040; color: #f0c040; font-size: 0.65rem; font-weight: bold; }
+  .w-divider { height: 1px; background: #444; margin: 4px 0; }
+  .card-desc { color: #ccc; font-size: 0.82rem; padding: 10px 16px 14px; line-height: 1.5; }
+</style>
+
+<div class="layout-cards">
+
+  <!-- Option A -->
+  <div class="layout-card option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-title">
+      A — Hero + Story <span class="badge">Recommended</span>
+    </div>
+    <div class="wire">
+      <div class="w-block w-headline">🏅 A Red Belt Moment — Rigan Machado</div>
+      <div class="w-block w-photo-main">★ Main Photo<br>Centered, full-width spotlight</div>
+      <div class="w-divider"></div>
+      <div class="w-block w-text">Intro paragraph — the honor of the red belt</div>
+      <div class="w-row">
+        <div class="w-block w-photo-sm">Photo 2</div>
+        <div class="w-block w-text" style="height:52px">Story text alongside photo</div>
+      </div>
+      <div class="w-row">
+        <div class="w-block w-text" style="height:52px">Carrying on the legacy text</div>
+        <div class="w-block w-photo-sm">Photo 3</div>
+      </div>
+      <div class="w-block w-lineage">⛓ Lineage Chain: Maeda → Gracie → Rolls → Machado → Hosken → You</div>
+    </div>
+    <div class="card-desc">Mirrors the history.html pattern you already have — alternating text+image sections. Main photo gets a big centered spotlight. Lineage shown as a flowing chain at the bottom. Feels cohesive with the rest of the site.</div>
+  </div>
+
+  <!-- Option B -->
+  <div class="layout-card option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-title">B — Magazine Spread</div>
+    <div class="wire">
+      <div class="w-block w-headline">🏅 A Red Belt Moment — Rigan Machado</div>
+      <div class="w-block w-photo-main">★ Main Photo<br>Centered, hero banner style</div>
+      <div class="w-divider"></div>
+      <div class="w-row" style="align-items:flex-start; gap:12px">
+        <div style="flex:2; display:flex; flex-direction:column; gap:8px">
+          <div class="w-block w-text">Opening tribute text</div>
+          <div class="w-block w-text">Legacy & meaning text</div>
+          <div class="w-block w-text">Continuing the lineage text</div>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:8px">
+          <div class="w-block w-photo-sm" style="height:62px">Photo 2</div>
+          <div class="w-block w-photo-sm" style="height:62px">Photo 3</div>
+        </div>
+      </div>
+      <div class="w-block w-lineage">⛓ Lineage Tree (horizontal flow)</div>
+    </div>
+    <div class="card-desc">Wide main text column with photos stacked in a sidebar. Compact and editorial. Two secondary photos sit beside the story text rather than breaking it up with alternating sections.</div>
+  </div>
+
+  <!-- Option C -->
+  <div class="layout-card option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-title">C — Honor Page (Full Immersive)</div>
+    <div class="wire">
+      <div class="w-block w-headline" style="height:44px; font-size:0.9rem">🏅 Full-bleed dark banner with gold text overlay</div>
+      <div class="w-block w-photo-main" style="height:100px">★ Main Photo<br>Large centered, gold border frame, red belt label</div>
+      <div class="w-block w-text-sm" style="color:#f0c040; background:transparent; border:none; font-weight:bold">— 9th Degree Red Belt —</div>
+      <div class="w-block w-text">Tribute intro</div>
+      <div class="w-row">
+        <div class="w-block w-photo-sm">Photo 2</div>
+        <div class="w-block w-photo-sm">Photo 3</div>
+      </div>
+      <div class="w-block w-text">Legacy paragraph</div>
+      <div class="w-block w-lineage" style="height:90px">
+        ⛓ Visual Lineage Tree<br>
+        Maeda → Carlos Gracie → Rolls Gracie<br>
+        → Rigan Machado → Bill Hosken → CSBJJ
+      </div>
+    </div>
+    <div class="card-desc">Most dramatic treatment. Gold-framed hero photo with "9th Degree Red Belt" subtitle. Secondary photos side-by-side. A full visual lineage tree with names and descriptions. Most work to build but highest visual impact.</div>
+  </div>
+
+</div>

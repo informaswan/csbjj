@@ -1,61 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-        <link rel="stylesheet" href="blog.css">
-        <link rel="stylesheet" href="main.css" type="text/css" />
-        <link rel="icon" href="img/csbjjlogo.webp" type="image/x-icon" />
-        <link rel="stylesheet" href="header-navbar.css" type="text/css"/>
-        <meta name="author" content="Michael Swanson" />
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta
-      name="description"
-      content="This is the Events page for csbjj"
-    />
-    <title>Events | Colorado Springs Jiu Jitsu</title>
-    </head>
+  <head>
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="main.css" type="text/css" />
+    <link rel="icon" href="img/csbjjlogo.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="header-navbar.css" type="text/css"/>
+    <meta name="author" content="Michael Swanson" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rigan Machado promoted to 9th Degree Red Belt — Colorado Springs Brazilian Jiu-Jitsu" />
+    <title>Rigan Machado Red Belt Promotion | Colorado Springs BJJ</title>
+  </head>
   <body>
-    <!-- Header with contact info - separate from navbar -->
-    <div id="header-navbar"></div> 
-    
-    <section class="events-section">
-      <div class="container">
-        <h2>Events!</h2>
-        
-        <div class="cta-section">
-          <a href="contactus.html"><button class="cta-button">Contact Us About Events</button></a>
+    <div id="header-navbar"></div>
+
+    <!-- HERO PHOTO -->
+    <section class="promo-hero">
+      <div class="promo-hero-inner">
+        <div class="section-eyebrow">A Historic Achievement</div>
+        <h1 class="hero-title">Rigan Machado<br>Promoted to Red Belt</h1>
+        <p class="hero-subtitle">Honoring the master who shapes our academy — and what it means for every student who carries this lineage</p>
+
+        <div class="hero-photo-wrap">
+          <img
+            src="/img/rigan-promotion-main.webp"
+            alt="Rigan Machado red belt promotion ceremony — the CSBJJ family gathers to celebrate"
+            class="hero-photo"
+            loading="eager"
+          >
+          <p class="hero-caption">The promotion ceremony — a moment shared by the entire Machado family of schools</p>
+        </div>
+
+        <div class="hero-text-block">
+          <p>In Brazilian Jiu-Jitsu, the red belt stands alone. It is not earned through competition points or tallied in wins and losses. It is granted only to those who have devoted their entire lives to the art — who have shaped the way it is understood, taught, and passed forward across generations. When Rigan Machado received his red belt, it was a moment that rippled through every school that carries his name and his teachings. For Colorado Springs Brazilian Jiu-Jitsu, that moment is deeply personal.</p>
+          <p>The red belt in BJJ is reserved for 9th and 10th degree masters — practitioners whose contribution to the art transcends excellence on the mat. It honors a life given to the pursuit, refinement, and teaching of Jiu-Jitsu. Only a small handful of practitioners have ever received this honor in the modern era of Brazilian Jiu-Jitsu. Rigan Machado is among them, and we are honored to call him our lineage.</p>
         </div>
       </div>
-      
     </section>
+
+    <!-- ③ BILL'S STORY — photo left, text right -->
+    <section class="promo-story promo-story--alt">
+      <div class="promo-story-container">
+        <div class="promo-story-image">
+          <img
+            src="/img/rigan-promotion-2.webp"
+            alt="Bill Hosken with Rigan Machado at the promotion"
+            loading="lazy"
+          >
+        </div>
+        <div class="promo-story-text">
+          <div class="section-eyebrow">Our Coach, Our Connection</div>
+          <h2>A Bond Forged on the Mat</h2>
+          <p>Bill Hosken, the founder and head instructor of CSBJJ, began training under Rigan Machado in Southern California in the mid-1990s — the early years of BJJ's expansion in America, when the Machado brothers were already reshaping what the art could become.</p>
+          <p>That relationship — forged through years of training, mutual respect, and shared dedication — is the foundation on which this academy stands. Everything Bill teaches carries the fingerprints of Rigan's influence: the emphasis on technique over strength, the deep respect for every student who steps on the mat, and the understanding that Jiu-Jitsu is a lifelong journey, not a destination.</p>
+          <p>Rigan's red belt is, in every meaningful sense, a reflection of the students he shaped — and of the teachers they became. We could not be more proud of our coach, or more grateful for this lineage.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ CARRYING THE LEGACY — text left, photo right -->
+    <section class="promo-story">
+      <div class="promo-story-container promo-story-container--reverse">
+        <div class="promo-story-text">
+          <div class="section-eyebrow">What This Means For Us</div>
+          <h2>Carrying the Art Forward</h2>
+          <p>A red belt promotion is more than personal recognition — it is a reminder of what this art is for. Every technique Bill learned from Rigan, every class taught at CSBJJ, every belt awarded to a student here is a link in a chain that now stretches from Judo's origins in Japan, through the Gracie family's revolutionary work in Brazil, all the way to the mats right here in Colorado Springs.</p>
+          <p>As students of this lineage, we carry that responsibility every time we train. We honor it by showing up, by pushing each other, by staying humble on the mat and generous off it. The art Rigan Machado dedicated his life to flows through this gym — through our coaches, through every roll, every lesson, every belt tied for the first time.</p>
+          <p>That is an extraordinary privilege. And we do not take it lightly.</p>
+        </div>
+        <div class="promo-story-image">
+          <img
+            src="/img/rigan-promotion-3.webp"
+            alt="Celebrating Rigan Machado's red belt with the CSBJJ family"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </section>
+
     <div id="footer"></div>
 
-    <!-- Include the navbar JavaScript -->
     <script src="navbar.js"></script>
-       <script>
+    <script>
       async function initializePage() {
         try {
-          // Load header and navbar
           const headerResponse = await fetch("header-navbar.html");
           const headerHtml = await headerResponse.text();
           document.getElementById("header-navbar").innerHTML = headerHtml;
-          
-          // Initialize navbar functionality after it's loaded
-          console.log('Initializing navbar...');
           initializeNavbar();
 
-          // Load footer
           const footerResponse = await fetch("footer.html");
           const footerHtml = await footerResponse.text();
           document.getElementById("footer").innerHTML = footerHtml;
-          
-          console.log('Page initialization complete');
         } catch (error) {
           console.error("Error initializing page:", error);
         }
       }
-
-      // Initialize everything when DOM is ready
       document.addEventListener("DOMContentLoaded", initializePage);
     </script>
   </body>
