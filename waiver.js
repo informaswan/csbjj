@@ -37,6 +37,38 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.target === modal) closeModal();
   });
 
+  var birthdateInput = document.getElementById('waiverBirthdate');
+  var guardianGroup = document.getElementById('waiverGuardianGroup');
+  var guardianInput = document.getElementById('waiverGuardianName');
+  var agreeText = document.getElementById('waiverAgreeText');
+
+  var MINOR_AGREE_TEXT = 'I am the parent/guardian of the minor named above, and I have read and agree to the waiver terms above.';
+  var ADULT_AGREE_TEXT = 'I have read and agree to the waiver terms above.';
+
+  function isMinor(birthdateValue) {
+    var birthdate = new Date(birthdateValue + 'T00:00:00');
+    var today = new Date();
+    var age = today.getFullYear() - birthdate.getFullYear();
+    var monthDiff = today.getMonth() - birthdate.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+      age--;
+    }
+    return age < 18;
+  }
+
+  birthdateInput.addEventListener('blur', function () {
+    if (!birthdateInput.value) return;
+    if (isMinor(birthdateInput.value)) {
+      guardianGroup.style.display = 'block';
+      guardianInput.required = true;
+      agreeText.textContent = MINOR_AGREE_TEXT;
+    } else {
+      guardianGroup.style.display = 'none';
+      guardianInput.required = false;
+      agreeText.textContent = ADULT_AGREE_TEXT;
+    }
+  });
+
   // Exposed for Task 6's submit handler.
   window.__waiverGetPendingCheckoutUrl = function () {
     return pendingCheckoutUrl;
