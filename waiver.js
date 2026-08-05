@@ -25,9 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   pricingSection.addEventListener('click', function (e) {
-    var button = e.target.closest('.cta-button');
-    if (!button) return;
-    var link = button.closest('a[data-plan]');
+    var link = e.target.closest('a[data-plan]');
     if (!link) return;
     e.preventDefault();
     openModal(link.getAttribute('data-plan'), link.getAttribute('href'));
