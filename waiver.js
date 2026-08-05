@@ -1,7 +1,7 @@
 emailjs.init('8qMKhFAwBtbkeX9fe');
 
 var WAIVER_SERVICE_ID = 'service_n8fpsfb';
-var WAIVER_TEMPLATE_ID = 'template_waiver_form';
+var WAIVER_TEMPLATE_ID = 'template_26ztuq8';
 
 document.addEventListener('DOMContentLoaded', function () {
   var pricingSection = document.getElementById('pricing-section');
