@@ -90,6 +90,83 @@
   flex-shrink: 0;
 }
 
+.waiver-modal label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.waiver-modal .required {
+  color: rgb(128, 255, 54);
+}
+
+.waiver-modal input[type="text"],
+.waiver-modal input[type="email"],
+.waiver-modal input[type="tel"],
+.waiver-modal input[type="date"],
+.waiver-modal textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.waiver-modal input::placeholder,
+.waiver-modal textarea::placeholder {
+  color: #b0b0b0;
+}
+
+.waiver-modal input:focus,
+.waiver-modal textarea:focus {
+  outline: none;
+  border-color: rgb(128, 255, 54);
+  box-shadow: 0 0 0 2px rgba(128, 255, 54, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.waiver-modal textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.waiver-modal .success-message,
+.waiver-modal .error-message {
+  display: none;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.waiver-modal .success-message {
+  background: rgba(128, 255, 54, 0.1);
+  color: rgb(128, 255, 54);
+  border: 1px solid rgba(128, 255, 54, 0.3);
+}
+
+.waiver-modal .error-message {
+  background: rgba(255, 82, 82, 0.1);
+  color: #ff5252;
+  border: 1px solid rgba(255, 82, 82, 0.3);
+}
+
+.waiver-modal .recaptcha-container {
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.waiver-modal .waiver-agree-group {
+  margin-bottom: 1.25rem;
+}
+
 @media (max-width: 768px) {
   .waiver-modal {
     padding: 1.75rem;
