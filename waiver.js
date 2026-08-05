@@ -1,3 +1,8 @@
+emailjs.init('8qMKhFAwBtbkeX9fe');
+
+var WAIVER_SERVICE_ID = 'service_n8fpsfb';
+var WAIVER_TEMPLATE_ID = 'template_waiver_form';
+
 document.addEventListener('DOMContentLoaded', function () {
   var pricingSection = document.getElementById('pricing-section');
   var modal = document.getElementById('waiverModal');
@@ -67,6 +72,49 @@ document.addEventListener('DOMContentLoaded', function () {
       guardianInput.required = false;
       agreeText.textContent = ADULT_AGREE_TEXT;
     }
+  });
+
+  var form = document.getElementById('waiver-form');
+  var submitBtn = document.getElementById('waiverSubmitBtn');
+  var successMsg = document.getElementById('waiverSuccessMessage');
+  var errorMsg = document.getElementById('waiverErrorMessage');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    successMsg.style.display = 'none';
+    errorMsg.style.display = 'none';
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    var recaptchaResponse = grecaptcha.getResponse();
+    if (recaptchaResponse.length === 0) {
+      errorMsg.textContent = 'Please complete the reCAPTCHA verification.';
+      errorMsg.style.display = 'block';
+      return;
+    }
+
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    emailjs.sendForm(WAIVER_SERVICE_ID, WAIVER_TEMPLATE_ID, form).then(
+      function () {
+        successMsg.textContent = 'Waiver received! Redirecting you to checkout...';
+        successMsg.style.display = 'block';
+        var checkoutUrl = window.__waiverGetPendingCheckoutUrl();
+        window.location.href = checkoutUrl;
+      },
+      function (error) {
+        console.error('Waiver email failed to send', error);
+        errorMsg.textContent = 'We could not send your waiver. Please check your connection and click the button below to retry.';
+        errorMsg.style.display = 'block';
+        submitBtn.textContent = 'Retry — Sign & Continue to Payment';
+        submitBtn.disabled = false;
+        grecaptcha.reset();
+      }
+    );
   });
 
   // Exposed for Task 6's submit handler.
