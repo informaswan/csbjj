@@ -99,22 +99,28 @@ document.addEventListener('DOMContentLoaded', function () {
     submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
 
-    emailjs.sendForm(WAIVER_SERVICE_ID, WAIVER_TEMPLATE_ID, form).then(
-      function () {
-        successMsg.textContent = 'Waiver received! Redirecting you to checkout...';
-        successMsg.style.display = 'block';
-        var checkoutUrl = window.__waiverGetPendingCheckoutUrl();
-        window.location.href = checkoutUrl;
-      },
-      function (error) {
-        console.error('Waiver email failed to send', error);
-        errorMsg.textContent = 'We could not send your waiver. Please check your connection and click the button below to retry.';
-        errorMsg.style.display = 'block';
-        submitBtn.textContent = 'Retry — Sign & Continue to Payment';
-        submitBtn.disabled = false;
-        grecaptcha.reset();
-      }
-    );
+    function handleSendFailure(error) {
+      console.error('Waiver email failed to send', error);
+      errorMsg.textContent = 'We could not send your waiver. Please check your connection and click the button below to retry.';
+      errorMsg.style.display = 'block';
+      submitBtn.textContent = 'Retry — Sign & Continue to Payment';
+      submitBtn.disabled = false;
+      grecaptcha.reset();
+    }
+
+    try {
+      emailjs.sendForm(WAIVER_SERVICE_ID, WAIVER_TEMPLATE_ID, form).then(
+        function () {
+          successMsg.textContent = 'Waiver received! Redirecting you to checkout...';
+          successMsg.style.display = 'block';
+          var checkoutUrl = window.__waiverGetPendingCheckoutUrl();
+          window.location.href = checkoutUrl;
+        },
+        handleSendFailure
+      );
+    } catch (err) {
+      handleSendFailure(err);
+    }
   });
 
   // Exposed for Task 6's submit handler.
