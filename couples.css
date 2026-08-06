@@ -21,6 +21,7 @@
 
 .couples-content h1:first-child {
   font-size: 2.5rem;
+  color: #f8f9fa;
   text-align: center;
   margin-top: 0;
 }
@@ -78,8 +79,8 @@
 }
 
 .cta-button {
-  background-color: #e74c3c;
-  color: white;
+  background-color: yellow;
+  color: #2a2e35;
   border: none;
   padding: 15px 30px;
   font-size: 1.2rem;
@@ -90,7 +91,7 @@
 }
 
 .cta-button:hover {
-  background-color: #c0392b;
+  background-color: rgb(128, 255, 54);
 }
 
 /* Responsive Design for Couples Page */
