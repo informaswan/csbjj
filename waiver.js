@@ -232,7 +232,42 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     try {
-      emailjs.sendForm(WAIVER_SERVICE_ID, WAIVER_TEMPLATE_ID, form).then(
+      var fields = {
+        planName: document.getElementById('waiverPlanField').value,
+        fullName: document.getElementById('waiverName').value,
+        birthdate: document.getElementById('waiverBirthdate').value,
+        guardianName: document.getElementById('waiverGuardianName').value,
+        phone: document.getElementById('waiverPhone').value,
+        address: document.getElementById('waiverAddress').value,
+        zip: document.getElementById('waiverZip').value,
+        email: document.getElementById('waiverEmail').value,
+        emergencyName: document.getElementById('waiverEmergencyName').value,
+        emergencyPhone: document.getElementById('waiverEmergencyPhone').value,
+        medicalNotes: document.getElementById('waiverMedical').value,
+        signature: document.getElementById('waiverSignature').value,
+        dateSigned: new Date().toLocaleDateString('en-US')
+      };
+
+      var waiverPdfDataUri = buildWaiverPdf(fields);
+
+      var templateParams = {
+        plan_name: fields.planName,
+        full_name: fields.fullName,
+        birthdate: fields.birthdate,
+        guardian_name: fields.guardianName,
+        phone: fields.phone,
+        address: fields.address,
+        zip: fields.zip,
+        email: fields.email,
+        emergency_name: fields.emergencyName,
+        emergency_phone: fields.emergencyPhone,
+        medical_notes: fields.medicalNotes,
+        signature: fields.signature,
+        agree: document.getElementById('waiverAgree').checked ? 'Yes' : 'No',
+        waiver_pdf: waiverPdfDataUri
+      };
+
+      emailjs.send(WAIVER_SERVICE_ID, WAIVER_TEMPLATE_ID, templateParams).then(
         function () {
           successMsg.textContent = 'Waiver received! Redirecting you to checkout...';
           successMsg.style.display = 'block';
