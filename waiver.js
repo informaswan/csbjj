@@ -1,7 +1,10 @@
-emailjs.init('8qMKhFAwBtbkeX9fe');
+if (typeof emailjs !== 'undefined') {
+  emailjs.init('8qMKhFAwBtbkeX9fe');
+}
 
 var WAIVER_SERVICE_ID = 'service_n8fpsfb';
 var WAIVER_TEMPLATE_ID = 'template_26ztuq8';
+var WAIVER_SEND_TIMEOUT_MS = 20000;
 
 var WAIVER_LEGAL_PARAGRAPHS = [
   "I hereby submit my application for participation in classes at the Colorado Springs Brazilian Jiu Jitsu academy. I clearly recognize that a risk is involved in participating in this class and related activities. I (and my parent/guardian/caregiver if I am under the age of 18) attest that I am physically fit to participate in the class. In consideration of services to be received as a student, I, the undersigned, hereby release and forever discharge the Colorado Springs Brazilian Jiu Jitsu academy, William (Bill) Hosken, and any other instructors and or participants in the class from any and all actions, liability claims and demands upon or by reason of any damage, loss, injury, or in connection with and in course of receiving this school's training and techniques, from the instructor or instructors, staff, official, or employees of this school or any fellow students in connection there with and within the course of taking training or lessons for the purpose designed in this application. I agree not to open a school or commercial training operation for Brazilian Jiu Jitsu. I will not teach within 15 mile radius of Colorado Springs Brazilian Jiu Jitsu or any other grappling martial arts. I hereby waive all my rights to the claims, actions, and cause of action, demand or suit of loss, injury, damage, or suffering sustained. I promise to pay to CSBJJ my monthly fees and will give a 30 day written notice upon cancelation. I understand not to make any charge backs to CSBJJ and understand that there is a $50 charge back fee and to explain to CSBJJ how you want to cancel your current membership 30 day written notice and an on hold membership agree to pay a $140 cancelation fee.",
@@ -184,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return age < 18;
   }
 
-  birthdateInput.addEventListener('blur', function () {
+  function updateGuardianFieldVisibility() {
     if (!birthdateInput.value) return;
     if (isMinor(birthdateInput.value)) {
       guardianGroup.style.display = 'block';
@@ -195,7 +198,10 @@ document.addEventListener('DOMContentLoaded', function () {
       guardianInput.required = false;
       agreeText.textContent = ADULT_AGREE_TEXT;
     }
-  });
+  }
+
+  birthdateInput.addEventListener('blur', updateGuardianFieldVisibility);
+  birthdateInput.addEventListener('change', updateGuardianFieldVisibility);
 
   var form = document.getElementById('waiver-form');
   var submitBtn = document.getElementById('waiverSubmitBtn');
@@ -204,11 +210,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    updateGuardianFieldVisibility();
     successMsg.style.display = 'none';
     errorMsg.style.display = 'none';
 
     if (!form.checkValidity()) {
       form.reportValidity();
+      return;
+    }
+
+    if (typeof emailjs === 'undefined' || typeof grecaptcha === 'undefined') {
+      errorMsg.textContent = 'Waiver submission is temporarily unavailable. Please refresh the page and try again, or contact us directly.';
+      errorMsg.style.display = 'block';
       return;
     }
 
@@ -264,10 +277,18 @@ document.addEventListener('DOMContentLoaded', function () {
         medical_notes: fields.medicalNotes,
         signature: fields.signature,
         agree: document.getElementById('waiverAgree').checked ? 'Yes' : 'No',
+        'g-recaptcha-response': recaptchaResponse,
         waiver_pdf: waiverPdfDataUri
       };
 
-      emailjs.send(WAIVER_SERVICE_ID, WAIVER_TEMPLATE_ID, templateParams).then(
+      var sendPromise = emailjs.send(WAIVER_SERVICE_ID, WAIVER_TEMPLATE_ID, templateParams);
+      var timeoutPromise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          reject(new Error('Waiver send timed out after ' + WAIVER_SEND_TIMEOUT_MS + 'ms'));
+        }, WAIVER_SEND_TIMEOUT_MS);
+      });
+
+      Promise.race([sendPromise, timeoutPromise]).then(
         function () {
           successMsg.textContent = 'Waiver received! Redirecting you to checkout...';
           successMsg.style.display = 'block';
