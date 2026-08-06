@@ -10,7 +10,7 @@ var WAIVER_LEGAL_PARAGRAPHS = [
   "This is to certify that I (and my parent/guardian/caregiver if I am under the age of 18), do consent and agree not only to this release of the Colorado Springs Brazilian Jiu Jitsu academy and all other releases, but also to release and indemnify the releases from any and all liabilities incident to my involvement in these programs for myself, my heirs, my assigns and next of kin."
 ];
 
-var WAIVER_LOGO_SRC = 'img/csbjjlogo.png';
+var WAIVER_LOGO_SRC = 'img/csbjjlogo-pdf.jpg';
 var waiverLogoDataUri = null;
 
 (function loadWaiverLogo() {
@@ -22,7 +22,7 @@ var waiverLogoDataUri = null;
     var ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0);
     try {
-      waiverLogoDataUri = canvas.toDataURL('image/png');
+      waiverLogoDataUri = canvas.toDataURL('image/jpeg', 0.85);
     } catch (err) {
       console.warn('Waiver PDF logo could not be prepared', err);
     }
@@ -50,7 +50,7 @@ function buildWaiverPdf(fields) {
 
   if (waiverLogoDataUri) {
     var logoSize = 60;
-    doc.addImage(waiverLogoDataUri, 'PNG', (pageWidth - logoSize) / 2, y, logoSize, logoSize);
+    doc.addImage(waiverLogoDataUri, 'JPEG', (pageWidth - logoSize) / 2, y, logoSize, logoSize);
     y += logoSize + 12;
   }
 
