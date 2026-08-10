@@ -131,12 +131,13 @@ function buildWaiverPdf(fields) {
 
 document.addEventListener('DOMContentLoaded', function () {
   var pricingSection = document.getElementById('pricing-section');
+  var headerNavbar = document.getElementById('header-navbar');
   var modal = document.getElementById('waiverModal');
   var planNameEl = document.getElementById('waiverPlanName');
   var planField = document.getElementById('waiverPlanField');
   var closeBtn = document.getElementById('waiverCloseBtn');
 
-  if (!pricingSection || !modal) return;
+  if (!modal) return;
 
   var pendingCheckoutUrl = null;
 
@@ -155,12 +156,19 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.style.overflow = '';
   }
 
-  pricingSection.addEventListener('click', function (e) {
+  function handlePlanLinkClick(e) {
     var link = e.target.closest('a[data-plan]');
     if (!link) return;
     e.preventDefault();
     openModal(link.getAttribute('data-plan'), link.getAttribute('href'));
-  });
+  }
+
+  if (pricingSection) {
+    pricingSection.addEventListener('click', handlePlanLinkClick);
+  }
+  if (headerNavbar) {
+    headerNavbar.addEventListener('click', handlePlanLinkClick);
+  }
 
   closeBtn.addEventListener('click', closeModal);
 

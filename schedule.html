@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="main.css" type="text/css" />
         <link rel="icon" href="img/csbjjlogo.webp" type="image/x-icon" />
         <link rel="stylesheet" href="header-navbar.css" type="text/css"/>
+        <link rel="stylesheet" href="waiver.css" type="text/css"/>
         <meta name="author" content="Michael Swanson" />
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -237,9 +238,108 @@
       </div>
     </section>
     <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <!-- Waiver modal markup — duplicated across every page with the nav bar; keep in sync if this changes -->
+    <div id="waiverModal" class="waiver-modal-overlay">
+      <div class="waiver-modal">
+        <button type="button" class="waiver-close" id="waiverCloseBtn" aria-label="Close waiver form">&times;</button>
+        <h2 class="waiver-title">Enrollment and Waiver of Liability and Fee Agreement</h2>
+        <p class="waiver-plan-label">Plan: <span id="waiverPlanName"></span></p>
+
+        <div class="waiver-legal-text">
+          <p>I hereby submit my application for participation in classes at the Colorado Springs Brazilian Jiu Jitsu academy. I clearly recognize that a risk is involved in participating in this class and related activities. I (and my parent/guardian/caregiver if I am under the age of 18) attest that I am physically fit to participate in the class. In consideration of services to be received as a student, I, the undersigned, hereby release and forever discharge the Colorado Springs Brazilian Jiu Jitsu academy, William (Bill) Hosken, and any other instructors and or participants in the class from any and all actions, liability claims and demands upon or by reason of any damage, loss, injury, or in connection with and in course of receiving this school's training and techniques, from the instructor or instructors, staff, official, or employees of this school or any fellow students in connection there with and within the course of taking training or lessons for the purpose designed in this application. I agree not to open a school or commercial training operation for Brazilian Jiu Jitsu. I will not teach within 15 mile radius of Colorado Springs Brazilian Jiu Jitsu or any other grappling martial arts. I hereby waive all my rights to the claims, actions, and cause of action, demand or suit of loss, injury, damage, or suffering sustained. I promise to pay to CSBJJ my monthly fees and will give a 30 day written notice upon cancelation. I understand not to make any charge backs to CSBJJ and understand that there is a $50 charge back fee and to explain to CSBJJ how you want to cancel your current membership 30 day written notice and an on hold membership agree to pay a $140 cancelation fee.</p>
+          <p>I consent that any photos, videos, taken in any connection to Colorado Springs Brazilian Jiu Jitsu can be used for publicity promotions with TV, Internet and other similar advertising. I hereby release rights of photo and videos of myself to Colorado Springs Brazilian Jiu Jitsu while at the School Location and any team function, i.e. tournaments.</p>
+          <p>I have read this release of liability and assumption of risk agreement, fully understand its terms, understand that I have given up substantial rights by signing it, and sign it freely and voluntarily without inducement.</p>
+          <p>This is to certify that I (and my parent/guardian/caregiver if I am under the age of 18), do consent and agree not only to this release of the Colorado Springs Brazilian Jiu Jitsu academy and all other releases, but also to release and indemnify the releases from any and all liabilities incident to my involvement in these programs for myself, my heirs, my assigns and next of kin.</p>
+        </div>
+
+        <div id="waiverSuccessMessage" class="success-message"></div>
+        <div id="waiverErrorMessage" class="error-message"></div>
+
+        <form id="waiver-form">
+          <input type="hidden" id="waiverPlanField" name="plan_name" value="">
+
+          <div class="form-group">
+            <label for="waiverName">Full Name <span class="required">*</span></label>
+            <input type="text" id="waiverName" name="full_name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="waiverBirthdate">Birthdate <span class="required">*</span></label>
+            <input type="date" id="waiverBirthdate" name="birthdate" required>
+          </div>
+
+          <div class="form-group" id="waiverGuardianGroup" style="display:none;">
+            <label for="waiverGuardianName">Parent/Guardian Name <span class="required">*</span></label>
+            <input type="text" id="waiverGuardianName" name="guardian_name">
+          </div>
+
+          <div class="form-group">
+            <label for="waiverPhone">Phone <span class="required">*</span></label>
+            <input type="tel" id="waiverPhone" name="phone" required>
+          </div>
+
+          <div class="form-group">
+            <label for="waiverAddress">Address <span class="required">*</span></label>
+            <input type="text" id="waiverAddress" name="address" required>
+          </div>
+
+          <div class="form-group">
+            <label for="waiverZip">ZIP <span class="required">*</span></label>
+            <input type="text" id="waiverZip" name="zip" required>
+          </div>
+
+          <div class="form-group">
+            <label for="waiverEmail">Email <span class="required">*</span></label>
+            <input type="email" id="waiverEmail" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="waiverEmergencyName">Emergency Contact Name <span class="required">*</span></label>
+            <input type="text" id="waiverEmergencyName" name="emergency_name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="waiverEmergencyPhone">Emergency Contact Phone <span class="required">*</span></label>
+            <input type="tel" id="waiverEmergencyPhone" name="emergency_phone" required>
+          </div>
+
+          <div class="form-group">
+            <label for="waiverMedical">Allergies / Medical Conditions</label>
+            <textarea id="waiverMedical" name="medical_notes" rows="3" placeholder="Optional — all information is confidential"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="waiverSignature">Signature (type your full legal name) <span class="required">*</span></label>
+            <input type="text" id="waiverSignature" name="signature" required>
+          </div>
+
+          <div class="form-group waiver-agree-group">
+            <label class="waiver-checkbox-label">
+              <input type="checkbox" id="waiverAgree" name="agree" required>
+              <span id="waiverAgreeText">I have read and agree to the waiver terms above.</span>
+            </label>
+          </div>
+
+          <div class="recaptcha-container">
+            <div class="g-recaptcha" data-sitekey="6Lcm4kksAAAAACXmnGTR9FM9HN-xG-27jg52o0Qw"></div>
+          </div>
+
+          <button type="submit" class="cta-button" id="waiverSubmitBtn">Sign &amp; Continue to Payment</button>
+        </form>
+      </div>
+    </div>
+
     <div id="footer" async></div>
      <!-- Include the navbar JavaScript -->
    <script src="navbar.js" async></script>
+    <!-- reCAPTCHA Script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- jsPDF (for generating the waiver PDF attachment) -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2/dist/jspdf.umd.min.js"></script>
+    <!-- Waiver modal logic -->
+    <script src="waiver.js"></script>
     <script>
       async function initializePage() {
         try {
