@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms and Conditions | Colorado Springs BJJ</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="legal.css" />
+    <link rel="stylesheet" href="header-navbar.css" type="text/css"/>
+    <meta name="description" content="Terms and conditions for csbjj.com and the Colorado Springs Brazilian Jiu Jitsu text messaging program." />
+    <link rel="icon" href="img/csbjjlogo.webp" type="image/x-icon" />
+    <link rel="canonical" href="https://csbjj.com/terms" />
+  </head>
+  <body>
+    <div id="header-navbar"></div>
+
+    <main class="legal-page">
+      <h1>Terms &amp; Conditions</h1>
+      <p class="legal-updated">Last updated: October 17, 2026</p>
+
+      <p>These terms apply to your use of csbjj.com and to text messages you receive from Colorado Springs Brazilian Jiu Jitsu ("CSBJJ," "we," "us"). By using our website or opting in to our text messages, you agree to them.</p>
+
+      <h2>Website Use</h2>
+      <p>The information on this site is provided for general purposes about our classes, schedule, and pricing, and may change without notice. Class enrollment and membership are governed by the Enrollment and Waiver of Liability and Fee Agreement you sign when you join.</p>
+
+      <h2 id="sms-terms">SMS Terms &amp; Program Details</h2>
+      <ul>
+        <li><strong>Program:</strong> CSBJJ text messaging. By starting a conversation with us through the chat widget on our website and agreeing to receive texts, you consent to receive text messages from CSBJJ at the mobile number you provide, including replies to your questions, class and schedule information, trial-class and appointment reminders, and occasional academy updates.</li>
+        <li><strong>Consent is not required to purchase.</strong> You do not need to agree to receive text messages to enroll or buy any goods or services. Submitting your phone number in our enrollment waiver or contact form does not opt you in to text messages.</li>
+        <li><strong>Message frequency:</strong> message frequency varies based on your interaction with us.</li>
+        <li><strong>Rates:</strong> message and data rates may apply, depending on your mobile plan.</li>
+        <li><strong>Opt out:</strong> reply <strong>STOP</strong> at any time to cancel. You will receive a confirmation message and no further texts unless you opt in again.</li>
+        <li><strong>Help:</strong> reply <strong>HELP</strong> for assistance, or contact <a href="mailto:csbjj@yahoo.com">csbjj@yahoo.com</a> or <a href="tel:+17194395776">719-439-5776</a>.</li>
+        <li><strong>Carriers:</strong> carriers are not liable for delayed or undelivered messages.</li>
+        <li><strong>Privacy:</strong> no mobile information will be shared with third parties or affiliates for marketing or promotional purposes. See our <a href="privacy.html">Privacy Policy</a>.</li>
+      </ul>
+
+      <h2>Disclaimer and Limitation of Liability</h2>
+      <p>The website and messages are provided "as is." To the fullest extent permitted by law, CSBJJ is not liable for any indirect or consequential damages arising from your use of the website or messaging. Participation in martial arts classes carries inherent risk and is governed by the signed enrollment waiver.</p>
+
+      <h2>Changes</h2>
+      <p>We may update these terms from time to time. Continued use of the website or messaging after a change means you accept the updated terms.</p>
+
+      <h2>Governing Law</h2>
+      <p>These terms are governed by the laws of the State of Colorado.</p>
+
+      <h2>Contact Us</h2>
+      <p>Colorado Springs Brazilian Jiu Jitsu<br>3226 N Nevada, Colorado Springs, Colorado 80907<br><a href="mailto:csbjj@yahoo.com">csbjj@yahoo.com</a> &middot; <a href="tel:+17194395776">719-439-5776</a></p>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="navbar.js"></script>
+    <script>
+      async function initializePage() {
+        try {
+          const headerResponse = await fetch("header-navbar.html");
+          document.getElementById("header-navbar").innerHTML = await headerResponse.text();
+          initializeNavbar();
+
+          // This page has no waiver modal, so send Sign Up to the pricing page where the waiver gate lives
+          document.querySelectorAll('#header-navbar a[data-plan]').forEach((link) => {
+            link.href = "pricing.html";
+            link.removeAttribute("target");
+          });
+
+          const footerResponse = await fetch("footer.html");
+          document.getElementById("footer").innerHTML = await footerResponse.text();
+        } catch (error) {
+          console.error("Error initializing page:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", initializePage);
+    </script>
+  </body>
+</html>

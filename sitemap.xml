@@ -60,4 +60,12 @@
     <loc>https://csbjj.com/videos</loc>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://csbjj.com/privacy</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://csbjj.com/terms</loc>
+    <priority>0.3</priority>
+  </url>
 </urlset>

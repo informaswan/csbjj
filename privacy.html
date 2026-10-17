@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | Colorado Springs BJJ</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="legal.css" />
+    <link rel="stylesheet" href="header-navbar.css" type="text/css"/>
+    <meta name="description" content="How Colorado Springs Brazilian Jiu Jitsu collects, uses, and protects your information, including SMS text messaging." />
+    <link rel="icon" href="img/csbjjlogo.webp" type="image/x-icon" />
+    <link rel="canonical" href="https://csbjj.com/privacy" />
+  </head>
+  <body>
+    <div id="header-navbar"></div>
+
+    <main class="legal-page">
+      <h1>Privacy Policy</h1>
+      <p class="legal-updated">Last updated: October 17, 2026</p>
+
+      <p>Colorado Springs Brazilian Jiu Jitsu ("CSBJJ," "we," "us") operates csbjj.com and the academy at 3226 N Nevada, Colorado Springs, Colorado 80907. This policy explains what information we collect, how we use it, and the choices you have.</p>
+
+      <h2>Information We Collect</h2>
+      <ul>
+        <li><strong>Information you give us:</strong> name, email address, phone number, mailing address, birthdate, emergency contact details, and medical notes you choose to share when you contact us, sign an enrollment waiver, or message us through the chat widget on our website.</li>
+        <li><strong>Information collected automatically:</strong> basic technical data such as browser type, device, and pages visited, through cookies and similar technologies used by our website and chat widget.</li>
+      </ul>
+
+      <h2>How We Use Information</h2>
+      <ul>
+        <li>To enroll students, process memberships, and keep required waiver records.</li>
+        <li>To respond to questions and send class, schedule, and account updates.</li>
+        <li>To send text messages to people who have opted in (see "Text Messaging (SMS)" below).</li>
+        <li>To operate, secure, and improve our website.</li>
+      </ul>
+
+      <h2 id="sms">Text Messaging (SMS)</h2>
+      <p>You may opt in to receive text messages from CSBJJ by starting a conversation with us through the chat widget on our website and agreeing to receive texts. Consent to receive text messages is not a condition of purchasing any goods or services, and providing your phone number in our enrollment waiver or contact form does not opt you in to text messages.</p>
+      <ul>
+        <li><strong>Message types:</strong> replies to your questions, class and schedule information, appointment and trial-class reminders, and occasional academy updates.</li>
+        <li><strong>Message frequency:</strong> message frequency varies based on your interaction with us.</li>
+        <li><strong>Cost:</strong> message and data rates may apply.</li>
+        <li><strong>Opt out:</strong> reply <strong>STOP</strong> at any time to stop receiving messages. You will receive one confirmation message, and no further messages after that.</li>
+        <li><strong>Help:</strong> reply <strong>HELP</strong> for assistance, or contact us at <a href="mailto:csbjj@yahoo.com">csbjj@yahoo.com</a> or <a href="tel:+17194395776">719-439-5776</a>.</li>
+      </ul>
+      <p><strong>No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.</strong> Text messaging originator opt-in data and consent will not be shared with any third parties. Information sharing to subcontractors in support of our services, such as our messaging platform provider, is permitted; those providers may use your information only to deliver our messages.</p>
+
+      <h2>How We Share Information</h2>
+      <p>We do not sell your personal information. We share it only with service providers that help us run the academy (for example website hosting, email delivery, membership billing, and our messaging platform), when required by law, or to protect the safety and rights of our students and staff. We do not share your information with third parties or affiliates for their marketing purposes.</p>
+
+      <h2>Data Retention and Security</h2>
+      <p>We keep waiver and membership records for as long as needed to operate the academy and meet legal obligations. We use reasonable safeguards to protect your information, but no method of transmission or storage is completely secure.</p>
+
+      <h2>Children</h2>
+      <p>Our website is not directed to children under 13. Information about minor students is provided by, and managed through, a parent or guardian.</p>
+
+      <h2>Your Choices</h2>
+      <p>You may ask us to access, correct, or delete your personal information, or opt out of email, by contacting us below. You can opt out of text messages at any time by replying STOP.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>We may update this policy from time to time. The "Last updated" date above shows when it last changed.</p>
+
+      <h2>Contact Us</h2>
+      <p>Colorado Springs Brazilian Jiu Jitsu<br>3226 N Nevada, Colorado Springs, Colorado 80907<br><a href="mailto:csbjj@yahoo.com">csbjj@yahoo.com</a> &middot; <a href="tel:+17194395776">719-439-5776</a></p>
+      <p>See also our <a href="terms.html">Terms &amp; Conditions</a>.</p>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="navbar.js"></script>
+    <script>
+      async function initializePage() {
+        try {
+          const headerResponse = await fetch("header-navbar.html");
+          document.getElementById("header-navbar").innerHTML = await headerResponse.text();
+          initializeNavbar();
+
+          // This page has no waiver modal, so send Sign Up to the pricing page where the waiver gate lives
+          document.querySelectorAll('#header-navbar a[data-plan]').forEach((link) => {
+            link.href = "pricing.html";
+            link.removeAttribute("target");
+          });
+
+          const footerResponse = await fetch("footer.html");
+          document.getElementById("footer").innerHTML = await footerResponse.text();
+        } catch (error) {
+          console.error("Error initializing page:", error);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", initializePage);
+    </script>
+  </body>
+</html>
